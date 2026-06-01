@@ -9,7 +9,9 @@
 # client.go in the package root wraps it with an ergonomic GrowPanel struct.
 
 package: generated
-output: internal/generated/growpanel.gen.go
+# Note: NOT under internal/ — Go's internal/ convention blocks external imports,
+# which would stop SDK users from constructing typed param structs.
+output: generated/growpanel.gen.go
 generate:
     models: true
     client: true

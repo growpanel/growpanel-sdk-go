@@ -1,4 +1,4 @@
-internal/generated/
+generated/
 openapi.json
 .DS_Store
 *.test

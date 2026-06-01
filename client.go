@@ -19,7 +19,7 @@ import (
 	"net/http"
 	"strings"
 
-	gen "github.com/growpanel/growpanel-sdk-go/internal/generated"
+	gen "github.com/growpanel/growpanel-sdk-go/generated"
 )
 
 const DefaultBaseURL = "https://api.growpanel.io"
