@@ -10179,10 +10179,10 @@ type GetCustomersResponse struct {
 				// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
 				Status *string `json:"status,omitempty"`
 
-				// TotalPaidBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// TotalPaidBaseCurrency Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				TotalPaidBaseCurrency *float32 `json:"total_paid_base_currency,omitempty"`
 
-				// TotalPaidCustomerCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// TotalPaidCustomerCurrency Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				TotalPaidCustomerCurrency *float32 `json:"total_paid_customer_currency,omitempty"`
 
 				// TrialEndDate ISO 8601 datetime.
@@ -10248,10 +10248,10 @@ type GetCustomersIdResponse struct {
 		// Currency ISO 4217 currency code, lowercase.
 		Currency string `json:"currency"`
 
-		// CurrentMrrBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		// CurrentMrrBaseCurrency Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 		CurrentMrrBaseCurrency float32 `json:"current_mrr_base_currency"`
 
-		// CurrentMrrCustomerCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		// CurrentMrrCustomerCurrency Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 		CurrentMrrCustomerCurrency float32 `json:"current_mrr_customer_currency"`
 		CurrentSubscriptions       []struct {
 			// CurrentPeriodEnd ISO 8601 datetime.
@@ -10282,10 +10282,10 @@ type GetCustomersIdResponse struct {
 		// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
 		Status string `json:"status"`
 
-		// TotalPaidBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		// TotalPaidBaseCurrency Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 		TotalPaidBaseCurrency float32 `json:"total_paid_base_currency"`
 
-		// TotalPaidCustomerCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		// TotalPaidCustomerCurrency Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 		TotalPaidCustomerCurrency float32 `json:"total_paid_customer_currency"`
 
 		// TrialEndDate ISO 8601 datetime.
@@ -12226,7 +12226,7 @@ type GetReportsCashflowFailedPaymentsResponse struct {
 			// Date Period start date in ISO 8601 (YYYY-MM-DD).
 			Date *string `json:"date,omitempty"`
 
-			// FailedAmount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// FailedAmount Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			FailedAmount   *float32 `json:"failed_amount,omitempty"`
 			FailedInvoices *float32 `json:"failed_invoices,omitempty"`
 
@@ -12299,7 +12299,7 @@ type GetReportsCashflowFailedPaymentsSummaryResponse struct {
 			// MtdRecoveryRateChange Period-over-period change as a percentage. `null` when the baseline is zero.
 			MtdRecoveryRateChange *float32 `json:"mtd_recovery_rate_change,omitempty"`
 
-			// MtdStillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// MtdStillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			MtdStillUnpaid *float32 `json:"mtd_still_unpaid,omitempty"`
 
 			// MtdStillUnpaidChangePct Period-over-period change as a percentage. `null` when the baseline is zero.
@@ -12312,10 +12312,10 @@ type GetReportsCashflowFailedPaymentsSummaryResponse struct {
 			// PrevMtdRecoveryRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
 			PrevMtdRecoveryRate *float32 `json:"prev_mtd_recovery_rate,omitempty"`
 
-			// PrevMtdStillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// PrevMtdStillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			PrevMtdStillUnpaid *float32 `json:"prev_mtd_still_unpaid,omitempty"`
 
-			// PrevQtdStillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// PrevQtdStillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			PrevQtdStillUnpaid    *float32 `json:"prev_qtd_still_unpaid,omitempty"`
 			PrevYtdFailedInvoices *float32 `json:"prev_ytd_failed_invoices,omitempty"`
 
@@ -12325,10 +12325,10 @@ type GetReportsCashflowFailedPaymentsSummaryResponse struct {
 			// PrevYtdRecoveryRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
 			PrevYtdRecoveryRate *float32 `json:"prev_ytd_recovery_rate,omitempty"`
 
-			// PrevYtdStillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// PrevYtdStillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			PrevYtdStillUnpaid *float32 `json:"prev_ytd_still_unpaid,omitempty"`
 
-			// QtdStillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// QtdStillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			QtdStillUnpaid    *float32 `json:"qtd_still_unpaid,omitempty"`
 			YtdFailedInvoices *float32 `json:"ytd_failed_invoices,omitempty"`
 
@@ -12344,7 +12344,7 @@ type GetReportsCashflowFailedPaymentsSummaryResponse struct {
 			// YtdRecoveryRateChange Period-over-period change as a percentage. `null` when the baseline is zero.
 			YtdRecoveryRateChange *float32 `json:"ytd_recovery_rate_change,omitempty"`
 
-			// YtdStillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// YtdStillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			YtdStillUnpaid *float32 `json:"ytd_still_unpaid,omitempty"`
 
 			// YtdStillUnpaidChangePct Period-over-period change as a percentage. `null` when the baseline is zero.
@@ -12524,19 +12524,19 @@ type GetReportsCashflowOutstandingUnpaidResponse struct {
 		// Currency ISO 4217 currency code, lowercase.
 		Currency string `json:"currency"`
 		Summary  struct {
-			// D180StillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// D180StillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			D180StillUnpaid *float32 `json:"d180_still_unpaid,omitempty"`
 
-			// D30StillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// D30StillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			D30StillUnpaid *float32 `json:"d30_still_unpaid,omitempty"`
 
-			// D365StillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// D365StillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			D365StillUnpaid *float32 `json:"d365_still_unpaid,omitempty"`
 
-			// D60StillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// D60StillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			D60StillUnpaid *float32 `json:"d60_still_unpaid,omitempty"`
 
-			// TodayStillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// TodayStillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			TodayStillUnpaid *float32 `json:"today_still_unpaid,omitempty"`
 		} `json:"summary"`
 	}
@@ -12698,7 +12698,7 @@ type GetReportsChurnScheduledResponse struct {
 			Churn          *float32 `json:"churn,omitempty"`
 			ChurnCustomers *float32 `json:"churn_customers,omitempty"`
 
-			// Contraction Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Contraction Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Contraction          *float32 `json:"contraction,omitempty"`
 			ContractionCustomers *float32 `json:"contraction_customers,omitempty"`
 
@@ -12755,19 +12755,19 @@ type GetReportsCmrrSummaryResponse struct {
 		// Currency ISO 4217 currency code, lowercase.
 		Currency string `json:"currency"`
 		Summary  struct {
-			// Cmrr180 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Cmrr180 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Cmrr180 *float32 `json:"cmrr_180,omitempty"`
 
 			// Cmrr30 CMRR 30 days from now.
 			Cmrr30 *float32 `json:"cmrr_30,omitempty"`
 
-			// Cmrr365 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Cmrr365 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Cmrr365 *float32 `json:"cmrr_365,omitempty"`
 
-			// Cmrr60 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Cmrr60 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Cmrr60 *float32 `json:"cmrr_60,omitempty"`
 
-			// CmrrCurrent Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// CmrrCurrent Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			CmrrCurrent *float32 `json:"cmrr_current,omitempty"`
 		} `json:"summary"`
 	}
@@ -12842,7 +12842,7 @@ type GetReportsCohortResponse struct {
 				CohortGroup      string  `json:"cohort_group"`
 				InitialCustomers float32 `json:"initial_customers"`
 
-				// InitialMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// InitialMrr Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				InitialMrr float32 `json:"initial_mrr"`
 				Label      string  `json:"label"`
 
@@ -12858,7 +12858,7 @@ type GetReportsCohortResponse struct {
 					// MrrChurn Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
 					MrrChurn *float32 `json:"mrr_churn,omitempty"`
 
-					// MrrRetained Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					// MrrRetained Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 					MrrRetained *float32 `json:"mrr_retained,omitempty"`
 
 					// MrrRetention MRR retention relative to the cohort's starting MRR.
@@ -12974,7 +12974,7 @@ type GetReportsCustomerConcentrationResponse struct {
 
 			// Pareto Customers ranked by MRR descending, with cumulative share. Used to render the Pareto curve.
 			Pareto []struct {
-				// CumulativeMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// CumulativeMrr Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				CumulativeMrr *float32 `json:"cumulative_mrr,omitempty"`
 
 				// CumulativePct Cumulative share of total MRR captured up to and including this customer (0–100).
@@ -12983,7 +12983,7 @@ type GetReportsCustomerConcentrationResponse struct {
 				// Id Customer external ID.
 				Id *string `json:"id,omitempty"`
 
-				// Mrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Mrr Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Mrr  *float32 `json:"mrr,omitempty"`
 				Name *string  `json:"name,omitempty"`
 				Rank *float32 `json:"rank,omitempty"`
@@ -13034,7 +13034,7 @@ type GetReportsLatestActivityResponse struct {
 	HTTPResponse *http.Response
 	JSON200      *struct {
 		Result []struct {
-			// Amount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Amount Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Amount float32 `json:"amount"`
 
 			// Currency ISO 4217 currency code, lowercase.
@@ -13273,13 +13273,13 @@ type GetReportsMapResponse struct {
 		Result   struct {
 			// List Map from ISO 3166 alpha-2 country code (lowercase) to that country's metrics.
 			List map[string]struct {
-				// Arpa Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Arpa Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Arpa *float32 `json:"arpa,omitempty"`
 
-				// Asp Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Asp Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Asp *float32 `json:"asp,omitempty"`
 
-				// CurrentMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// CurrentMrr Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				CurrentMrr *float32 `json:"current_mrr,omitempty"`
 
 				// CustomerChurnRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
@@ -13293,7 +13293,7 @@ type GetReportsMapResponse struct {
 				// LeadsPercent Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
 				LeadsPercent *float32 `json:"leads_percent,omitempty"`
 
-				// Ltv Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Ltv Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Ltv *float32 `json:"ltv,omitempty"`
 
 				// MrrPercent This country's share of total MRR.
@@ -13537,7 +13537,7 @@ type GetReportsRetentionResponse struct {
 			// BaselineMrr MRR of the cohort at baseline, converted at the baseline period's FX.
 			BaselineMrr *float32 `json:"baseline_mrr,omitempty"`
 
-			// Churn Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Churn Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Churn            *float32 `json:"churn,omitempty"`
 			ChurnCustomers   *float32 `json:"churn_customers,omitempty"`
 			ChurnedCustomers *float32 `json:"churned_customers,omitempty"`
@@ -13545,7 +13545,7 @@ type GetReportsRetentionResponse struct {
 			// CohortCustomers Customers in the baseline cohort.
 			CohortCustomers *float32 `json:"cohort_customers,omitempty"`
 
-			// Contraction Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Contraction Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Contraction          *float32 `json:"contraction,omitempty"`
 			ContractionCustomers *float32 `json:"contraction_customers,omitempty"`
 
@@ -13567,11 +13567,11 @@ type GetReportsRetentionResponse struct {
 			// Date Target period end date.
 			Date *string `json:"date,omitempty"`
 
-			// Expansion Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Expansion Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Expansion          *float32 `json:"expansion,omitempty"`
 			ExpansionCustomers *float32 `json:"expansion_customers,omitempty"`
 
-			// FxAdjustment Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// FxAdjustment Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			FxAdjustment *float32 `json:"fx_adjustment,omitempty"`
 
 			// Grr Gross revenue retention. Always ≤100.
@@ -13604,7 +13604,7 @@ type GetReportsRetentionResponse struct {
 			// NrrAvg Rolling-window average NRR.
 			NrrAvg *float32 `json:"nrr_avg,omitempty"`
 
-			// Reactivation Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Reactivation Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Reactivation          *float32 `json:"reactivation,omitempty"`
 			ReactivationCustomers *float32 `json:"reactivation_customers,omitempty"`
 
@@ -13664,19 +13664,19 @@ type GetReportsSummaryResponse struct {
 		// Currency ISO 4217 currency code, lowercase.
 		Currency string `json:"currency"`
 		Summary  struct {
-			// Arpa180 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Arpa180 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Arpa180 *float32 `json:"arpa_180,omitempty"`
 
-			// Arpa30 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Arpa30 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Arpa30 *float32 `json:"arpa_30,omitempty"`
 
-			// Arpa365 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Arpa365 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Arpa365 *float32 `json:"arpa_365,omitempty"`
 
-			// Arpa60 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Arpa60 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Arpa60 *float32 `json:"arpa_60,omitempty"`
 
-			// ArpaCurrent Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// ArpaCurrent Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			ArpaCurrent *float32 `json:"arpa_current,omitempty"`
 
 			// ArpaPercentageChange180 Period-over-period change as a percentage. `null` when the baseline is zero.
@@ -13691,19 +13691,19 @@ type GetReportsSummaryResponse struct {
 			// ArpaPercentageChange60 Period-over-period change as a percentage. `null` when the baseline is zero.
 			ArpaPercentageChange60 *float32 `json:"arpa_percentage_change_60,omitempty"`
 
-			// Arr180 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Arr180 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Arr180 *float32 `json:"arr_180,omitempty"`
 
-			// Arr30 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Arr30 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Arr30 *float32 `json:"arr_30,omitempty"`
 
-			// Arr365 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Arr365 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Arr365 *float32 `json:"arr_365,omitempty"`
 
-			// Arr60 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Arr60 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Arr60 *float32 `json:"arr_60,omitempty"`
 
-			// ArrCurrent Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// ArrCurrent Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			ArrCurrent *float32 `json:"arr_current,omitempty"`
 
 			// ArrPercentageChange180 Period-over-period change as a percentage. `null` when the baseline is zero.
@@ -13718,19 +13718,19 @@ type GetReportsSummaryResponse struct {
 			// ArrPercentageChange60 Period-over-period change as a percentage. `null` when the baseline is zero.
 			ArrPercentageChange60 *float32 `json:"arr_percentage_change_60,omitempty"`
 
-			// Mrr180 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Mrr180 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Mrr180 *float32 `json:"mrr_180,omitempty"`
 
 			// Mrr30 MRR 30 days ago.
 			Mrr30 *float32 `json:"mrr_30,omitempty"`
 
-			// Mrr365 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Mrr365 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Mrr365 *float32 `json:"mrr_365,omitempty"`
 
-			// Mrr60 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Mrr60 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Mrr60 *float32 `json:"mrr_60,omitempty"`
 
-			// MrrCurrent Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// MrrCurrent Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			MrrCurrent *float32 `json:"mrr_current,omitempty"`
 
 			// MrrPercentageChange180 Period-over-period change as a percentage. `null` when the baseline is zero.
@@ -13811,7 +13811,7 @@ type GetReportsTransactionsResponse struct {
 			// Date Period start date in ISO 8601 (YYYY-MM-DD).
 			Date *string `json:"date,omitempty"`
 
-			// DaySub Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// DaySub Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			DaySub *float32 `json:"day_sub,omitempty"`
 
 			// Discount Discounts applied (negative number).
@@ -13844,7 +13844,7 @@ type GetReportsTransactionsResponse struct {
 			// Tax Tax collected (passed through, not your revenue).
 			Tax *float32 `json:"tax,omitempty"`
 
-			// WeekSub Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// WeekSub Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			WeekSub *float32 `json:"week_sub,omitempty"`
 
 			// YearSub Cash from yearly subscription billings.
@@ -13896,28 +13896,28 @@ type GetReportsTransactionsSummaryResponse struct {
 		// Currency ISO 4217 currency code, lowercase.
 		Currency string `json:"currency"`
 		Summary  struct {
-			// Mtd Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Mtd Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Mtd *float32 `json:"mtd,omitempty"`
 
 			// MtdChangePct Period-over-period change as a percentage. `null` when the baseline is zero.
 			MtdChangePct *float32 `json:"mtd_change_pct,omitempty"`
 
-			// PrevMtd Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// PrevMtd Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			PrevMtd *float32 `json:"prev_mtd,omitempty"`
 
-			// PrevQtd Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// PrevQtd Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			PrevQtd *float32 `json:"prev_qtd,omitempty"`
 
-			// PrevYtd Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// PrevYtd Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			PrevYtd *float32 `json:"prev_ytd,omitempty"`
 
-			// Qtd Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Qtd Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Qtd *float32 `json:"qtd,omitempty"`
 
 			// QtdChangePct Period-over-period change as a percentage. `null` when the baseline is zero.
 			QtdChangePct *float32 `json:"qtd_change_pct,omitempty"`
 
-			// Ytd Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// Ytd Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Ytd *float32 `json:"ytd,omitempty"`
 
 			// YtdChangePct Period-over-period change as a percentage. `null` when the baseline is zero.
@@ -14816,10 +14816,10 @@ func ParseGetCustomersResponse(rsp *http.Response) (*GetCustomersResponse, error
 					// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
 					Status *string `json:"status,omitempty"`
 
-					// TotalPaidBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					// TotalPaidBaseCurrency Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 					TotalPaidBaseCurrency *float32 `json:"total_paid_base_currency,omitempty"`
 
-					// TotalPaidCustomerCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					// TotalPaidCustomerCurrency Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 					TotalPaidCustomerCurrency *float32 `json:"total_paid_customer_currency,omitempty"`
 
 					// TrialEndDate ISO 8601 datetime.
@@ -14905,10 +14905,10 @@ func ParseGetCustomersIdResponse(rsp *http.Response) (*GetCustomersIdResponse, e
 			// Currency ISO 4217 currency code, lowercase.
 			Currency string `json:"currency"`
 
-			// CurrentMrrBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// CurrentMrrBaseCurrency Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			CurrentMrrBaseCurrency float32 `json:"current_mrr_base_currency"`
 
-			// CurrentMrrCustomerCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// CurrentMrrCustomerCurrency Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			CurrentMrrCustomerCurrency float32 `json:"current_mrr_customer_currency"`
 			CurrentSubscriptions       []struct {
 				// CurrentPeriodEnd ISO 8601 datetime.
@@ -14939,10 +14939,10 @@ func ParseGetCustomersIdResponse(rsp *http.Response) (*GetCustomersIdResponse, e
 			// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
 			Status string `json:"status"`
 
-			// TotalPaidBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// TotalPaidBaseCurrency Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			TotalPaidBaseCurrency float32 `json:"total_paid_base_currency"`
 
-			// TotalPaidCustomerCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			// TotalPaidCustomerCurrency Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			TotalPaidCustomerCurrency float32 `json:"total_paid_customer_currency"`
 
 			// TrialEndDate ISO 8601 datetime.
@@ -17745,7 +17745,7 @@ func ParseGetReportsCashflowFailedPaymentsResponse(rsp *http.Response) (*GetRepo
 				// Date Period start date in ISO 8601 (YYYY-MM-DD).
 				Date *string `json:"date,omitempty"`
 
-				// FailedAmount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// FailedAmount Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				FailedAmount   *float32 `json:"failed_amount,omitempty"`
 				FailedInvoices *float32 `json:"failed_invoices,omitempty"`
 
@@ -17838,7 +17838,7 @@ func ParseGetReportsCashflowFailedPaymentsSummaryResponse(rsp *http.Response) (*
 				// MtdRecoveryRateChange Period-over-period change as a percentage. `null` when the baseline is zero.
 				MtdRecoveryRateChange *float32 `json:"mtd_recovery_rate_change,omitempty"`
 
-				// MtdStillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// MtdStillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				MtdStillUnpaid *float32 `json:"mtd_still_unpaid,omitempty"`
 
 				// MtdStillUnpaidChangePct Period-over-period change as a percentage. `null` when the baseline is zero.
@@ -17851,10 +17851,10 @@ func ParseGetReportsCashflowFailedPaymentsSummaryResponse(rsp *http.Response) (*
 				// PrevMtdRecoveryRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
 				PrevMtdRecoveryRate *float32 `json:"prev_mtd_recovery_rate,omitempty"`
 
-				// PrevMtdStillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// PrevMtdStillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				PrevMtdStillUnpaid *float32 `json:"prev_mtd_still_unpaid,omitempty"`
 
-				// PrevQtdStillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// PrevQtdStillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				PrevQtdStillUnpaid    *float32 `json:"prev_qtd_still_unpaid,omitempty"`
 				PrevYtdFailedInvoices *float32 `json:"prev_ytd_failed_invoices,omitempty"`
 
@@ -17864,10 +17864,10 @@ func ParseGetReportsCashflowFailedPaymentsSummaryResponse(rsp *http.Response) (*
 				// PrevYtdRecoveryRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
 				PrevYtdRecoveryRate *float32 `json:"prev_ytd_recovery_rate,omitempty"`
 
-				// PrevYtdStillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// PrevYtdStillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				PrevYtdStillUnpaid *float32 `json:"prev_ytd_still_unpaid,omitempty"`
 
-				// QtdStillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// QtdStillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				QtdStillUnpaid    *float32 `json:"qtd_still_unpaid,omitempty"`
 				YtdFailedInvoices *float32 `json:"ytd_failed_invoices,omitempty"`
 
@@ -17883,7 +17883,7 @@ func ParseGetReportsCashflowFailedPaymentsSummaryResponse(rsp *http.Response) (*
 				// YtdRecoveryRateChange Period-over-period change as a percentage. `null` when the baseline is zero.
 				YtdRecoveryRateChange *float32 `json:"ytd_recovery_rate_change,omitempty"`
 
-				// YtdStillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// YtdStillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				YtdStillUnpaid *float32 `json:"ytd_still_unpaid,omitempty"`
 
 				// YtdStillUnpaidChangePct Period-over-period change as a percentage. `null` when the baseline is zero.
@@ -18123,19 +18123,19 @@ func ParseGetReportsCashflowOutstandingUnpaidResponse(rsp *http.Response) (*GetR
 			// Currency ISO 4217 currency code, lowercase.
 			Currency string `json:"currency"`
 			Summary  struct {
-				// D180StillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// D180StillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				D180StillUnpaid *float32 `json:"d180_still_unpaid,omitempty"`
 
-				// D30StillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// D30StillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				D30StillUnpaid *float32 `json:"d30_still_unpaid,omitempty"`
 
-				// D365StillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// D365StillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				D365StillUnpaid *float32 `json:"d365_still_unpaid,omitempty"`
 
-				// D60StillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// D60StillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				D60StillUnpaid *float32 `json:"d60_still_unpaid,omitempty"`
 
-				// TodayStillUnpaid Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// TodayStillUnpaid Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				TodayStillUnpaid *float32 `json:"today_still_unpaid,omitempty"`
 			} `json:"summary"`
 		}
@@ -18357,7 +18357,7 @@ func ParseGetReportsChurnScheduledResponse(rsp *http.Response) (*GetReportsChurn
 				Churn          *float32 `json:"churn,omitempty"`
 				ChurnCustomers *float32 `json:"churn_customers,omitempty"`
 
-				// Contraction Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Contraction Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Contraction          *float32 `json:"contraction,omitempty"`
 				ContractionCustomers *float32 `json:"contraction_customers,omitempty"`
 
@@ -18434,19 +18434,19 @@ func ParseGetReportsCmrrSummaryResponse(rsp *http.Response) (*GetReportsCmrrSumm
 			// Currency ISO 4217 currency code, lowercase.
 			Currency string `json:"currency"`
 			Summary  struct {
-				// Cmrr180 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Cmrr180 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Cmrr180 *float32 `json:"cmrr_180,omitempty"`
 
 				// Cmrr30 CMRR 30 days from now.
 				Cmrr30 *float32 `json:"cmrr_30,omitempty"`
 
-				// Cmrr365 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Cmrr365 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Cmrr365 *float32 `json:"cmrr_365,omitempty"`
 
-				// Cmrr60 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Cmrr60 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Cmrr60 *float32 `json:"cmrr_60,omitempty"`
 
-				// CmrrCurrent Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// CmrrCurrent Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				CmrrCurrent *float32 `json:"cmrr_current,omitempty"`
 			} `json:"summary"`
 		}
@@ -18541,7 +18541,7 @@ func ParseGetReportsCohortResponse(rsp *http.Response) (*GetReportsCohortRespons
 					CohortGroup      string  `json:"cohort_group"`
 					InitialCustomers float32 `json:"initial_customers"`
 
-					// InitialMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					// InitialMrr Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 					InitialMrr float32 `json:"initial_mrr"`
 					Label      string  `json:"label"`
 
@@ -18557,7 +18557,7 @@ func ParseGetReportsCohortResponse(rsp *http.Response) (*GetReportsCohortRespons
 						// MrrChurn Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
 						MrrChurn *float32 `json:"mrr_churn,omitempty"`
 
-						// MrrRetained Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+						// MrrRetained Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 						MrrRetained *float32 `json:"mrr_retained,omitempty"`
 
 						// MrrRetention MRR retention relative to the cohort's starting MRR.
@@ -18719,7 +18719,7 @@ func ParseGetReportsCustomerConcentrationResponse(rsp *http.Response) (*GetRepor
 
 				// Pareto Customers ranked by MRR descending, with cumulative share. Used to render the Pareto curve.
 				Pareto []struct {
-					// CumulativeMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					// CumulativeMrr Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 					CumulativeMrr *float32 `json:"cumulative_mrr,omitempty"`
 
 					// CumulativePct Cumulative share of total MRR captured up to and including this customer (0–100).
@@ -18728,7 +18728,7 @@ func ParseGetReportsCustomerConcentrationResponse(rsp *http.Response) (*GetRepor
 					// Id Customer external ID.
 					Id *string `json:"id,omitempty"`
 
-					// Mrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					// Mrr Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 					Mrr  *float32 `json:"mrr,omitempty"`
 					Name *string  `json:"name,omitempty"`
 					Rank *float32 `json:"rank,omitempty"`
@@ -18799,7 +18799,7 @@ func ParseGetReportsLatestActivityResponse(rsp *http.Response) (*GetReportsLates
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest struct {
 			Result []struct {
-				// Amount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Amount Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Amount float32 `json:"amount"`
 
 				// Currency ISO 4217 currency code, lowercase.
@@ -19098,13 +19098,13 @@ func ParseGetReportsMapResponse(rsp *http.Response) (*GetReportsMapResponse, err
 			Result   struct {
 				// List Map from ISO 3166 alpha-2 country code (lowercase) to that country's metrics.
 				List map[string]struct {
-					// Arpa Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					// Arpa Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 					Arpa *float32 `json:"arpa,omitempty"`
 
-					// Asp Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					// Asp Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 					Asp *float32 `json:"asp,omitempty"`
 
-					// CurrentMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					// CurrentMrr Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 					CurrentMrr *float32 `json:"current_mrr,omitempty"`
 
 					// CustomerChurnRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
@@ -19118,7 +19118,7 @@ func ParseGetReportsMapResponse(rsp *http.Response) (*GetReportsMapResponse, err
 					// LeadsPercent Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
 					LeadsPercent *float32 `json:"leads_percent,omitempty"`
 
-					// Ltv Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					// Ltv Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 					Ltv *float32 `json:"ltv,omitempty"`
 
 					// MrrPercent This country's share of total MRR.
@@ -19422,7 +19422,7 @@ func ParseGetReportsRetentionResponse(rsp *http.Response) (*GetReportsRetentionR
 				// BaselineMrr MRR of the cohort at baseline, converted at the baseline period's FX.
 				BaselineMrr *float32 `json:"baseline_mrr,omitempty"`
 
-				// Churn Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Churn Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Churn            *float32 `json:"churn,omitempty"`
 				ChurnCustomers   *float32 `json:"churn_customers,omitempty"`
 				ChurnedCustomers *float32 `json:"churned_customers,omitempty"`
@@ -19430,7 +19430,7 @@ func ParseGetReportsRetentionResponse(rsp *http.Response) (*GetReportsRetentionR
 				// CohortCustomers Customers in the baseline cohort.
 				CohortCustomers *float32 `json:"cohort_customers,omitempty"`
 
-				// Contraction Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Contraction Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Contraction          *float32 `json:"contraction,omitempty"`
 				ContractionCustomers *float32 `json:"contraction_customers,omitempty"`
 
@@ -19452,11 +19452,11 @@ func ParseGetReportsRetentionResponse(rsp *http.Response) (*GetReportsRetentionR
 				// Date Target period end date.
 				Date *string `json:"date,omitempty"`
 
-				// Expansion Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Expansion Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Expansion          *float32 `json:"expansion,omitempty"`
 				ExpansionCustomers *float32 `json:"expansion_customers,omitempty"`
 
-				// FxAdjustment Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// FxAdjustment Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				FxAdjustment *float32 `json:"fx_adjustment,omitempty"`
 
 				// Grr Gross revenue retention. Always ≤100.
@@ -19489,7 +19489,7 @@ func ParseGetReportsRetentionResponse(rsp *http.Response) (*GetReportsRetentionR
 				// NrrAvg Rolling-window average NRR.
 				NrrAvg *float32 `json:"nrr_avg,omitempty"`
 
-				// Reactivation Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Reactivation Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Reactivation          *float32 `json:"reactivation,omitempty"`
 				ReactivationCustomers *float32 `json:"reactivation_customers,omitempty"`
 
@@ -19569,19 +19569,19 @@ func ParseGetReportsSummaryResponse(rsp *http.Response) (*GetReportsSummaryRespo
 			// Currency ISO 4217 currency code, lowercase.
 			Currency string `json:"currency"`
 			Summary  struct {
-				// Arpa180 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Arpa180 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Arpa180 *float32 `json:"arpa_180,omitempty"`
 
-				// Arpa30 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Arpa30 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Arpa30 *float32 `json:"arpa_30,omitempty"`
 
-				// Arpa365 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Arpa365 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Arpa365 *float32 `json:"arpa_365,omitempty"`
 
-				// Arpa60 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Arpa60 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Arpa60 *float32 `json:"arpa_60,omitempty"`
 
-				// ArpaCurrent Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// ArpaCurrent Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				ArpaCurrent *float32 `json:"arpa_current,omitempty"`
 
 				// ArpaPercentageChange180 Period-over-period change as a percentage. `null` when the baseline is zero.
@@ -19596,19 +19596,19 @@ func ParseGetReportsSummaryResponse(rsp *http.Response) (*GetReportsSummaryRespo
 				// ArpaPercentageChange60 Period-over-period change as a percentage. `null` when the baseline is zero.
 				ArpaPercentageChange60 *float32 `json:"arpa_percentage_change_60,omitempty"`
 
-				// Arr180 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Arr180 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Arr180 *float32 `json:"arr_180,omitempty"`
 
-				// Arr30 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Arr30 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Arr30 *float32 `json:"arr_30,omitempty"`
 
-				// Arr365 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Arr365 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Arr365 *float32 `json:"arr_365,omitempty"`
 
-				// Arr60 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Arr60 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Arr60 *float32 `json:"arr_60,omitempty"`
 
-				// ArrCurrent Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// ArrCurrent Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				ArrCurrent *float32 `json:"arr_current,omitempty"`
 
 				// ArrPercentageChange180 Period-over-period change as a percentage. `null` when the baseline is zero.
@@ -19623,19 +19623,19 @@ func ParseGetReportsSummaryResponse(rsp *http.Response) (*GetReportsSummaryRespo
 				// ArrPercentageChange60 Period-over-period change as a percentage. `null` when the baseline is zero.
 				ArrPercentageChange60 *float32 `json:"arr_percentage_change_60,omitempty"`
 
-				// Mrr180 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Mrr180 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Mrr180 *float32 `json:"mrr_180,omitempty"`
 
 				// Mrr30 MRR 30 days ago.
 				Mrr30 *float32 `json:"mrr_30,omitempty"`
 
-				// Mrr365 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Mrr365 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Mrr365 *float32 `json:"mrr_365,omitempty"`
 
-				// Mrr60 Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Mrr60 Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Mrr60 *float32 `json:"mrr_60,omitempty"`
 
-				// MrrCurrent Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// MrrCurrent Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				MrrCurrent *float32 `json:"mrr_current,omitempty"`
 
 				// MrrPercentageChange180 Period-over-period change as a percentage. `null` when the baseline is zero.
@@ -19736,7 +19736,7 @@ func ParseGetReportsTransactionsResponse(rsp *http.Response) (*GetReportsTransac
 				// Date Period start date in ISO 8601 (YYYY-MM-DD).
 				Date *string `json:"date,omitempty"`
 
-				// DaySub Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// DaySub Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				DaySub *float32 `json:"day_sub,omitempty"`
 
 				// Discount Discounts applied (negative number).
@@ -19769,7 +19769,7 @@ func ParseGetReportsTransactionsResponse(rsp *http.Response) (*GetReportsTransac
 				// Tax Tax collected (passed through, not your revenue).
 				Tax *float32 `json:"tax,omitempty"`
 
-				// WeekSub Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// WeekSub Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				WeekSub *float32 `json:"week_sub,omitempty"`
 
 				// YearSub Cash from yearly subscription billings.
@@ -19841,28 +19841,28 @@ func ParseGetReportsTransactionsSummaryResponse(rsp *http.Response) (*GetReports
 			// Currency ISO 4217 currency code, lowercase.
 			Currency string `json:"currency"`
 			Summary  struct {
-				// Mtd Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Mtd Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Mtd *float32 `json:"mtd,omitempty"`
 
 				// MtdChangePct Period-over-period change as a percentage. `null` when the baseline is zero.
 				MtdChangePct *float32 `json:"mtd_change_pct,omitempty"`
 
-				// PrevMtd Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// PrevMtd Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				PrevMtd *float32 `json:"prev_mtd,omitempty"`
 
-				// PrevQtd Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// PrevQtd Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				PrevQtd *float32 `json:"prev_qtd,omitempty"`
 
-				// PrevYtd Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// PrevYtd Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				PrevYtd *float32 `json:"prev_ytd,omitempty"`
 
-				// Qtd Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Qtd Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Qtd *float32 `json:"qtd,omitempty"`
 
 				// QtdChangePct Period-over-period change as a percentage. `null` when the baseline is zero.
 				QtdChangePct *float32 `json:"qtd_change_pct,omitempty"`
 
-				// Ytd Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				// Ytd Monetary amount in minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Ytd *float32 `json:"ytd,omitempty"`
 
 				// YtdChangePct Period-over-period change as a percentage. `null` when the baseline is zero.
