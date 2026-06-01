@@ -10152,35 +10152,38 @@ type GetCustomersResponse struct {
 				// CreatedDate ISO 8601 datetime.
 				CreatedDate *string `json:"created_date,omitempty"`
 
-				// CurrentMrrBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
-				CurrentMrrBaseCurrency float32 `json:"current_mrr_base_currency"`
+				// Currency ISO 4217 currency code, lowercase.
+				Currency *string `json:"currency,omitempty"`
 
 				// CustomVariables Account-defined key/value pairs synced from the billing source's metadata.
-				CustomVariables map[string]string `json:"custom_variables"`
-				Email           *string           `json:"email,omitempty"`
+				CustomVariables *map[string]string `json:"custom_variables,omitempty"`
+				Email           *string            `json:"email,omitempty"`
 
-				// ExternalId External customer ID from the billing source (e.g. Stripe `cus_*`).
-				ExternalId string `json:"external_id"`
+				// Id External customer ID from the billing source (e.g. Stripe `cus_*`). The controller maps the source's external_id to this `id` field.
+				Id *string `json:"id,omitempty"`
 
-				// Id GrowPanel internal customer UUID.
-				Id   string  `json:"id"`
-				Name *string `json:"name,omitempty"`
+				// Mrr Current MRR in account base currency (cents).
+				Mrr  *float32 `json:"mrr,omitempty"`
+				Name *string  `json:"name,omitempty"`
 
 				// OverdueDate ISO 8601 datetime.
 				OverdueDate *string `json:"overdue_date,omitempty"`
 
 				// PaidStarted ISO 8601 datetime.
 				PaidStarted *string `json:"paid_started,omitempty"`
-				State       *string `json:"state,omitempty"`
+
+				// Payments Number of successful payments to date.
+				Payments *float32 `json:"payments,omitempty"`
+				State    *string  `json:"state,omitempty"`
 
 				// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
-				Status string `json:"status"`
+				Status *string `json:"status,omitempty"`
 
 				// TotalPaidBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
-				TotalPaidBaseCurrency float32 `json:"total_paid_base_currency"`
+				TotalPaidBaseCurrency *float32 `json:"total_paid_base_currency,omitempty"`
 
 				// TotalPaidCustomerCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
-				TotalPaidCustomerCurrency float32 `json:"total_paid_customer_currency"`
+				TotalPaidCustomerCurrency *float32 `json:"total_paid_customer_currency,omitempty"`
 
 				// TrialEndDate ISO 8601 datetime.
 				TrialEndDate *string `json:"trial_end_date,omitempty"`
@@ -12962,35 +12965,30 @@ type GetReportsCustomerConcentrationResponse struct {
 		// Currency ISO 4217 currency code, lowercase.
 		Currency string `json:"currency"`
 		Result   struct {
-			List []struct {
-				Country *string `json:"country"`
+			// Concentration Concentration KPIs (top-1, top-5, top-10, top-20 share).
+			Concentration map[string]interface{} `json:"concentration"`
+			Count         float32                `json:"count"`
 
-				// CreatedDate ISO 8601 datetime.
-				CreatedDate *string `json:"created_date"`
+			// List Full customer rows used by the table view.
+			List []map[string]interface{} `json:"list"`
 
-				// CurrentMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
-				CurrentMrr float32 `json:"current_mrr"`
-				Email      *string `json:"email"`
-				ExternalId string  `json:"external_id"`
-				Id         string  `json:"id"`
+			// Pareto Customers ranked by MRR descending, with cumulative share. Used to render the Pareto curve.
+			Pareto []struct {
+				// CumulativeMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				CumulativeMrr *float32 `json:"cumulative_mrr,omitempty"`
 
-				// MrrPercent This customer's share of total MRR.
-				MrrPercent float32 `json:"mrr_percent"`
-				Name       *string `json:"name"`
+				// CumulativePct Cumulative share of total MRR captured up to and including this customer (0–100).
+				CumulativePct *float32 `json:"cumulative_pct,omitempty"`
 
-				// PaidStarted ISO 8601 datetime.
-				PaidStarted *string `json:"paid_started"`
+				// Id Customer external ID.
+				Id *string `json:"id,omitempty"`
 
-				// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
-				Status string `json:"status"`
-
-				// SubscriberPercent Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
-				SubscriberPercent float32 `json:"subscriber_percent"`
-			} `json:"list"`
-
-			// TotalMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
-			TotalMrr         float32 `json:"total_mrr"`
-			TotalSubscribers float32 `json:"total_subscribers"`
+				// Mrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				Mrr  *float32 `json:"mrr,omitempty"`
+				Name *string  `json:"name,omitempty"`
+				Rank *float32 `json:"rank,omitempty"`
+			} `json:"pareto"`
+			Summary *map[string]interface{} `json:"summary,omitempty"`
 		} `json:"result"`
 	}
 	JSON401 *struct {
@@ -13383,12 +13381,6 @@ type GetReportsMrrResponse struct {
 			Contraction          *float32 `json:"contraction,omitempty"`
 			ContractionCustomers *float32 `json:"contraction_customers,omitempty"`
 
-			// CustomerChurnRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
-			CustomerChurnRate *float32 `json:"customer_churn_rate,omitempty"`
-
-			// CustomerRetentionRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
-			CustomerRetentionRate *float32 `json:"customer_retention_rate,omitempty"`
-
 			// CustomersDiff Net change in customer count.
 			CustomersDiff *float32 `json:"customers_diff,omitempty"`
 
@@ -13405,20 +13397,8 @@ type GetReportsMrrResponse struct {
 			// FxAdjustment MRR change attributable to FX rate movement only (no real revenue change).
 			FxAdjustment *float32 `json:"fx_adjustment,omitempty"`
 
-			// Grr Gross revenue retention. Always ≤100%.
-			Grr *float32 `json:"grr,omitempty"`
-
-			// Ltv Lifetime value estimate at period end.
-			Ltv *float32 `json:"ltv,omitempty"`
-
-			// MrrChurnRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
-			MrrChurnRate *float32 `json:"mrr_churn_rate,omitempty"`
-
 			// MrrDiff Net MRR change in this period.
 			MrrDiff *float32 `json:"mrr_diff,omitempty"`
-
-			// NetMrrChurnRate Negative when expansion exceeds churn.
-			NetMrrChurnRate *float32 `json:"net_mrr_churn_rate,omitempty"`
 
 			// NetMrrDiff MRR change excluding FX impact.
 			NetMrrDiff *float32 `json:"net_mrr_diff,omitempty"`
@@ -13426,9 +13406,6 @@ type GetReportsMrrResponse struct {
 			// New MRR added by new customers in this period.
 			New          *float32 `json:"new,omitempty"`
 			NewCustomers *float32 `json:"new_customers,omitempty"`
-
-			// Nrr Net revenue retention. >100% means expansion is outpacing churn.
-			Nrr *float32 `json:"nrr,omitempty"`
 
 			// Quantity Total subscription quantity at period end.
 			Quantity *float32 `json:"quantity,omitempty"`
@@ -13551,20 +13528,91 @@ type GetReportsRetentionResponse struct {
 		// Currency ISO 4217 currency code, lowercase.
 		Currency string `json:"currency"`
 		Result   []struct {
-			// CohortSize Number of customers in the baseline cohort.
-			CohortSize *float32 `json:"cohort_size,omitempty"`
+			// Arpa Average MRR per retained cohort customer at the target date.
+			Arpa *float32 `json:"arpa,omitempty"`
 
-			// CustomerRetention Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
-			CustomerRetention *float32 `json:"customer_retention,omitempty"`
+			// BaselineDate Baseline period end (the cohort anchor).
+			BaselineDate *string `json:"baseline_date,omitempty"`
+
+			// BaselineMrr MRR of the cohort at baseline, converted at the baseline period's FX.
+			BaselineMrr *float32 `json:"baseline_mrr,omitempty"`
+
+			// Churn Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			Churn            *float32 `json:"churn,omitempty"`
+			ChurnCustomers   *float32 `json:"churn_customers,omitempty"`
+			ChurnedCustomers *float32 `json:"churned_customers,omitempty"`
+
+			// CohortCustomers Customers in the baseline cohort.
+			CohortCustomers *float32 `json:"cohort_customers,omitempty"`
+
+			// Contraction Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			Contraction          *float32 `json:"contraction,omitempty"`
+			ContractionCustomers *float32 `json:"contraction_customers,omitempty"`
+
+			// CustomerChurnAvg Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+			CustomerChurnAvg *float32 `json:"customer_churn_avg,omitempty"`
+
+			// CustomerChurnRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+			CustomerChurnRate *float32 `json:"customer_churn_rate,omitempty"`
+
+			// CustomerLifetime Average months before churn = 1 / monthly churn rate.
+			CustomerLifetime *float32 `json:"customer_lifetime,omitempty"`
+
+			// CustomerRetentionAvg Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+			CustomerRetentionAvg *float32 `json:"customer_retention_avg,omitempty"`
+
+			// CustomerRetentionRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+			CustomerRetentionRate *float32 `json:"customer_retention_rate,omitempty"`
+
+			// Date Target period end date.
+			Date *string `json:"date,omitempty"`
+
+			// Expansion Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			Expansion          *float32 `json:"expansion,omitempty"`
+			ExpansionCustomers *float32 `json:"expansion_customers,omitempty"`
+
+			// FxAdjustment Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			FxAdjustment *float32 `json:"fx_adjustment,omitempty"`
 
 			// Grr Gross revenue retention. Always ≤100.
 			Grr *float32 `json:"grr,omitempty"`
 
+			// GrrAvg Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+			GrrAvg *float32 `json:"grr_avg,omitempty"`
+
+			// GrrMrr GRR numerator — target MRR with each customer capped at their baseline MRR.
+			GrrMrr *float32 `json:"grr_mrr,omitempty"`
+
+			// Ltv Lifetime value = arpa / monthly customer churn (uses rolling-window churn_avg).
+			Ltv *float32 `json:"ltv,omitempty"`
+
+			// MrrChurnAvg Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+			MrrChurnAvg *float32 `json:"mrr_churn_avg,omitempty"`
+
+			// MrrChurnRate Gross MRR churn rate (= 100 - GRR).
+			MrrChurnRate *float32 `json:"mrr_churn_rate,omitempty"`
+
+			// NetMrrChurnAvg Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+			NetMrrChurnAvg *float32 `json:"net_mrr_churn_avg,omitempty"`
+
+			// NetMrrChurnRate Net MRR churn rate (= 100 - NRR). Negative when expansion exceeds churn.
+			NetMrrChurnRate *float32 `json:"net_mrr_churn_rate,omitempty"`
+
 			// Nrr Net revenue retention. >100 means expansion outpaces churn.
 			Nrr *float32 `json:"nrr,omitempty"`
 
-			// PeriodNum Period offset from the baseline (0, 1, 2, ...).
-			PeriodNum *float32 `json:"period_num,omitempty"`
+			// NrrAvg Rolling-window average NRR.
+			NrrAvg *float32 `json:"nrr_avg,omitempty"`
+
+			// Reactivation Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			Reactivation          *float32 `json:"reactivation,omitempty"`
+			ReactivationCustomers *float32 `json:"reactivation_customers,omitempty"`
+
+			// RetainedCustomers Cohort customers still active at the target date.
+			RetainedCustomers *float32 `json:"retained_customers,omitempty"`
+
+			// TargetMrr MRR of those same cohort customers at the target date.
+			TargetMrr *float32 `json:"target_mrr,omitempty"`
 		} `json:"result"`
 
 		// TargetPeriod Period start date in ISO 8601 (YYYY-MM-DD).
@@ -14741,35 +14789,38 @@ func ParseGetCustomersResponse(rsp *http.Response) (*GetCustomersResponse, error
 					// CreatedDate ISO 8601 datetime.
 					CreatedDate *string `json:"created_date,omitempty"`
 
-					// CurrentMrrBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
-					CurrentMrrBaseCurrency float32 `json:"current_mrr_base_currency"`
+					// Currency ISO 4217 currency code, lowercase.
+					Currency *string `json:"currency,omitempty"`
 
 					// CustomVariables Account-defined key/value pairs synced from the billing source's metadata.
-					CustomVariables map[string]string `json:"custom_variables"`
-					Email           *string           `json:"email,omitempty"`
+					CustomVariables *map[string]string `json:"custom_variables,omitempty"`
+					Email           *string            `json:"email,omitempty"`
 
-					// ExternalId External customer ID from the billing source (e.g. Stripe `cus_*`).
-					ExternalId string `json:"external_id"`
+					// Id External customer ID from the billing source (e.g. Stripe `cus_*`). The controller maps the source's external_id to this `id` field.
+					Id *string `json:"id,omitempty"`
 
-					// Id GrowPanel internal customer UUID.
-					Id   string  `json:"id"`
-					Name *string `json:"name,omitempty"`
+					// Mrr Current MRR in account base currency (cents).
+					Mrr  *float32 `json:"mrr,omitempty"`
+					Name *string  `json:"name,omitempty"`
 
 					// OverdueDate ISO 8601 datetime.
 					OverdueDate *string `json:"overdue_date,omitempty"`
 
 					// PaidStarted ISO 8601 datetime.
 					PaidStarted *string `json:"paid_started,omitempty"`
-					State       *string `json:"state,omitempty"`
+
+					// Payments Number of successful payments to date.
+					Payments *float32 `json:"payments,omitempty"`
+					State    *string  `json:"state,omitempty"`
 
 					// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
-					Status string `json:"status"`
+					Status *string `json:"status,omitempty"`
 
 					// TotalPaidBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
-					TotalPaidBaseCurrency float32 `json:"total_paid_base_currency"`
+					TotalPaidBaseCurrency *float32 `json:"total_paid_base_currency,omitempty"`
 
 					// TotalPaidCustomerCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
-					TotalPaidCustomerCurrency float32 `json:"total_paid_customer_currency"`
+					TotalPaidCustomerCurrency *float32 `json:"total_paid_customer_currency,omitempty"`
 
 					// TrialEndDate ISO 8601 datetime.
 					TrialEndDate *string `json:"trial_end_date,omitempty"`
@@ -18659,35 +18710,30 @@ func ParseGetReportsCustomerConcentrationResponse(rsp *http.Response) (*GetRepor
 			// Currency ISO 4217 currency code, lowercase.
 			Currency string `json:"currency"`
 			Result   struct {
-				List []struct {
-					Country *string `json:"country"`
+				// Concentration Concentration KPIs (top-1, top-5, top-10, top-20 share).
+				Concentration map[string]interface{} `json:"concentration"`
+				Count         float32                `json:"count"`
 
-					// CreatedDate ISO 8601 datetime.
-					CreatedDate *string `json:"created_date"`
+				// List Full customer rows used by the table view.
+				List []map[string]interface{} `json:"list"`
 
-					// CurrentMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
-					CurrentMrr float32 `json:"current_mrr"`
-					Email      *string `json:"email"`
-					ExternalId string  `json:"external_id"`
-					Id         string  `json:"id"`
+				// Pareto Customers ranked by MRR descending, with cumulative share. Used to render the Pareto curve.
+				Pareto []struct {
+					// CumulativeMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					CumulativeMrr *float32 `json:"cumulative_mrr,omitempty"`
 
-					// MrrPercent This customer's share of total MRR.
-					MrrPercent float32 `json:"mrr_percent"`
-					Name       *string `json:"name"`
+					// CumulativePct Cumulative share of total MRR captured up to and including this customer (0–100).
+					CumulativePct *float32 `json:"cumulative_pct,omitempty"`
 
-					// PaidStarted ISO 8601 datetime.
-					PaidStarted *string `json:"paid_started"`
+					// Id Customer external ID.
+					Id *string `json:"id,omitempty"`
 
-					// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
-					Status string `json:"status"`
-
-					// SubscriberPercent Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
-					SubscriberPercent float32 `json:"subscriber_percent"`
-				} `json:"list"`
-
-				// TotalMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
-				TotalMrr         float32 `json:"total_mrr"`
-				TotalSubscribers float32 `json:"total_subscribers"`
+					// Mrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					Mrr  *float32 `json:"mrr,omitempty"`
+					Name *string  `json:"name,omitempty"`
+					Rank *float32 `json:"rank,omitempty"`
+				} `json:"pareto"`
+				Summary *map[string]interface{} `json:"summary,omitempty"`
 			} `json:"result"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -19180,12 +19226,6 @@ func ParseGetReportsMrrResponse(rsp *http.Response) (*GetReportsMrrResponse, err
 				Contraction          *float32 `json:"contraction,omitempty"`
 				ContractionCustomers *float32 `json:"contraction_customers,omitempty"`
 
-				// CustomerChurnRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
-				CustomerChurnRate *float32 `json:"customer_churn_rate,omitempty"`
-
-				// CustomerRetentionRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
-				CustomerRetentionRate *float32 `json:"customer_retention_rate,omitempty"`
-
 				// CustomersDiff Net change in customer count.
 				CustomersDiff *float32 `json:"customers_diff,omitempty"`
 
@@ -19202,20 +19242,8 @@ func ParseGetReportsMrrResponse(rsp *http.Response) (*GetReportsMrrResponse, err
 				// FxAdjustment MRR change attributable to FX rate movement only (no real revenue change).
 				FxAdjustment *float32 `json:"fx_adjustment,omitempty"`
 
-				// Grr Gross revenue retention. Always ≤100%.
-				Grr *float32 `json:"grr,omitempty"`
-
-				// Ltv Lifetime value estimate at period end.
-				Ltv *float32 `json:"ltv,omitempty"`
-
-				// MrrChurnRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
-				MrrChurnRate *float32 `json:"mrr_churn_rate,omitempty"`
-
 				// MrrDiff Net MRR change in this period.
 				MrrDiff *float32 `json:"mrr_diff,omitempty"`
-
-				// NetMrrChurnRate Negative when expansion exceeds churn.
-				NetMrrChurnRate *float32 `json:"net_mrr_churn_rate,omitempty"`
 
 				// NetMrrDiff MRR change excluding FX impact.
 				NetMrrDiff *float32 `json:"net_mrr_diff,omitempty"`
@@ -19223,9 +19251,6 @@ func ParseGetReportsMrrResponse(rsp *http.Response) (*GetReportsMrrResponse, err
 				// New MRR added by new customers in this period.
 				New          *float32 `json:"new,omitempty"`
 				NewCustomers *float32 `json:"new_customers,omitempty"`
-
-				// Nrr Net revenue retention. >100% means expansion is outpacing churn.
-				Nrr *float32 `json:"nrr,omitempty"`
 
 				// Quantity Total subscription quantity at period end.
 				Quantity *float32 `json:"quantity,omitempty"`
@@ -19388,20 +19413,91 @@ func ParseGetReportsRetentionResponse(rsp *http.Response) (*GetReportsRetentionR
 			// Currency ISO 4217 currency code, lowercase.
 			Currency string `json:"currency"`
 			Result   []struct {
-				// CohortSize Number of customers in the baseline cohort.
-				CohortSize *float32 `json:"cohort_size,omitempty"`
+				// Arpa Average MRR per retained cohort customer at the target date.
+				Arpa *float32 `json:"arpa,omitempty"`
 
-				// CustomerRetention Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
-				CustomerRetention *float32 `json:"customer_retention,omitempty"`
+				// BaselineDate Baseline period end (the cohort anchor).
+				BaselineDate *string `json:"baseline_date,omitempty"`
+
+				// BaselineMrr MRR of the cohort at baseline, converted at the baseline period's FX.
+				BaselineMrr *float32 `json:"baseline_mrr,omitempty"`
+
+				// Churn Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				Churn            *float32 `json:"churn,omitempty"`
+				ChurnCustomers   *float32 `json:"churn_customers,omitempty"`
+				ChurnedCustomers *float32 `json:"churned_customers,omitempty"`
+
+				// CohortCustomers Customers in the baseline cohort.
+				CohortCustomers *float32 `json:"cohort_customers,omitempty"`
+
+				// Contraction Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				Contraction          *float32 `json:"contraction,omitempty"`
+				ContractionCustomers *float32 `json:"contraction_customers,omitempty"`
+
+				// CustomerChurnAvg Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+				CustomerChurnAvg *float32 `json:"customer_churn_avg,omitempty"`
+
+				// CustomerChurnRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+				CustomerChurnRate *float32 `json:"customer_churn_rate,omitempty"`
+
+				// CustomerLifetime Average months before churn = 1 / monthly churn rate.
+				CustomerLifetime *float32 `json:"customer_lifetime,omitempty"`
+
+				// CustomerRetentionAvg Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+				CustomerRetentionAvg *float32 `json:"customer_retention_avg,omitempty"`
+
+				// CustomerRetentionRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+				CustomerRetentionRate *float32 `json:"customer_retention_rate,omitempty"`
+
+				// Date Target period end date.
+				Date *string `json:"date,omitempty"`
+
+				// Expansion Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				Expansion          *float32 `json:"expansion,omitempty"`
+				ExpansionCustomers *float32 `json:"expansion_customers,omitempty"`
+
+				// FxAdjustment Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				FxAdjustment *float32 `json:"fx_adjustment,omitempty"`
 
 				// Grr Gross revenue retention. Always ≤100.
 				Grr *float32 `json:"grr,omitempty"`
 
+				// GrrAvg Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+				GrrAvg *float32 `json:"grr_avg,omitempty"`
+
+				// GrrMrr GRR numerator — target MRR with each customer capped at their baseline MRR.
+				GrrMrr *float32 `json:"grr_mrr,omitempty"`
+
+				// Ltv Lifetime value = arpa / monthly customer churn (uses rolling-window churn_avg).
+				Ltv *float32 `json:"ltv,omitempty"`
+
+				// MrrChurnAvg Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+				MrrChurnAvg *float32 `json:"mrr_churn_avg,omitempty"`
+
+				// MrrChurnRate Gross MRR churn rate (= 100 - GRR).
+				MrrChurnRate *float32 `json:"mrr_churn_rate,omitempty"`
+
+				// NetMrrChurnAvg Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+				NetMrrChurnAvg *float32 `json:"net_mrr_churn_avg,omitempty"`
+
+				// NetMrrChurnRate Net MRR churn rate (= 100 - NRR). Negative when expansion exceeds churn.
+				NetMrrChurnRate *float32 `json:"net_mrr_churn_rate,omitempty"`
+
 				// Nrr Net revenue retention. >100 means expansion outpaces churn.
 				Nrr *float32 `json:"nrr,omitempty"`
 
-				// PeriodNum Period offset from the baseline (0, 1, 2, ...).
-				PeriodNum *float32 `json:"period_num,omitempty"`
+				// NrrAvg Rolling-window average NRR.
+				NrrAvg *float32 `json:"nrr_avg,omitempty"`
+
+				// Reactivation Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				Reactivation          *float32 `json:"reactivation,omitempty"`
+				ReactivationCustomers *float32 `json:"reactivation_customers,omitempty"`
+
+				// RetainedCustomers Cohort customers still active at the target date.
+				RetainedCustomers *float32 `json:"retained_customers,omitempty"`
+
+				// TargetMrr MRR of those same cohort customers at the target date.
+				TargetMrr *float32 `json:"target_mrr,omitempty"`
 			} `json:"result"`
 
 			// TargetPeriod Period start date in ISO 8601 (YYYY-MM-DD).
