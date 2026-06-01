@@ -1,0 +1,18 @@
+# Config for oapi-codegen.
+#
+# Usage:
+#   go install github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen@latest
+#   curl -s https://api-dev.growpanel.io/openapi.json > openapi.json
+#   oapi-codegen -config oapi-codegen.yaml openapi.json
+#
+# Generated file lands at internal/generated/growpanel.gen.go. The hand-written
+# client.go in the package root wraps it with an ergonomic GrowPanel struct.
+
+package: generated
+output: internal/generated/growpanel.gen.go
+generate:
+    models: true
+    client: true
+    embedded-spec: false
+output-options:
+    skip-prune: true

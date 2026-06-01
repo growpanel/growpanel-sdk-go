@@ -1,0 +1,5 @@
+internal/generated/
+openapi.json
+.DS_Store
+*.test
+*.out
