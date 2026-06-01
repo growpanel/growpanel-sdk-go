@@ -13,6 +13,6 @@ output: internal/generated/growpanel.gen.go
 generate:
     models: true
     client: true
-    embedded-spec: false
+    # `client: true` in v2.7+ already emits both raw + WithResponses methods.
 output-options:
     skip-prune: true
