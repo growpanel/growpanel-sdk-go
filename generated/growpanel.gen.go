@@ -173,6 +173,24 @@ func (e PutDataInvoicesId200JSONResponseBodySuccess) Valid() bool {
 	}
 }
 
+// Defines values for PostDataPlanGroupsJSONBodyType.
+const (
+	PostDataPlanGroupsJSONBodyTypeAuto   PostDataPlanGroupsJSONBodyType = "auto"
+	PostDataPlanGroupsJSONBodyTypeManual PostDataPlanGroupsJSONBodyType = "manual"
+)
+
+// Valid indicates whether the value is a known member of the PostDataPlanGroupsJSONBodyType enum.
+func (e PostDataPlanGroupsJSONBodyType) Valid() bool {
+	switch e {
+	case PostDataPlanGroupsJSONBodyTypeAuto:
+		return true
+	case PostDataPlanGroupsJSONBodyTypeManual:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for PostDataPlanGroups200JSONResponseBodySuccess.
 const (
 	PostDataPlanGroups200JSONResponseBodySuccessTrue PostDataPlanGroups200JSONResponseBodySuccess = true
@@ -205,16 +223,16 @@ func (e DeleteDataPlanGroupsId200JSONResponseBodySuccess) Valid() bool {
 
 // Defines values for PutDataPlanGroupsIdJSONBodyType.
 const (
-	Auto   PutDataPlanGroupsIdJSONBodyType = "auto"
-	Manual PutDataPlanGroupsIdJSONBodyType = "manual"
+	PutDataPlanGroupsIdJSONBodyTypeAuto   PutDataPlanGroupsIdJSONBodyType = "auto"
+	PutDataPlanGroupsIdJSONBodyTypeManual PutDataPlanGroupsIdJSONBodyType = "manual"
 )
 
 // Valid indicates whether the value is a known member of the PutDataPlanGroupsIdJSONBodyType enum.
 func (e PutDataPlanGroupsIdJSONBodyType) Valid() bool {
 	switch e {
-	case Auto:
+	case PutDataPlanGroupsIdJSONBodyTypeAuto:
 		return true
-	case Manual:
+	case PutDataPlanGroupsIdJSONBodyTypeManual:
 		return true
 	default:
 		return false
@@ -959,9 +977,32 @@ type PostDataPlanGroupsJSONBody struct {
 	// Name Display name for the group.
 	Name string `json:"name"`
 
-	// Plans Plan external_ids to include. Use `GET /plans` to enumerate.
-	Plans []string `json:"plans"`
+	// Plans Plan external_ids to include. Required for manual groups; omit (or pass empty) for auto-selector groups. Items may be strings or `{ id: "..." }` objects.
+	Plans *[]PostDataPlanGroupsJSONBody_Plans_Item `json:"plans,omitempty"`
+
+	// Selector For auto groups: the selector pattern itself.
+	Selector *string `json:"selector,omitempty"`
+
+	// SelectorType For auto groups: how the selector pattern matches (e.g. "contains", "startswith", "endswith", "regex").
+	SelectorType *string                         `json:"selector_type,omitempty"`
+	Type         *PostDataPlanGroupsJSONBodyType `json:"type,omitempty"`
 }
+
+// PostDataPlanGroupsJSONBodyPlans0 defines parameters for PostDataPlanGroups.
+type PostDataPlanGroupsJSONBodyPlans0 = string
+
+// PostDataPlanGroupsJSONBodyPlans1 defines parameters for PostDataPlanGroups.
+type PostDataPlanGroupsJSONBodyPlans1 struct {
+	Id string `json:"id"`
+}
+
+// PostDataPlanGroupsJSONBody_Plans_Item defines parameters for PostDataPlanGroups.
+type PostDataPlanGroupsJSONBody_Plans_Item struct {
+	union json.RawMessage
+}
+
+// PostDataPlanGroupsJSONBodyType defines parameters for PostDataPlanGroups.
+type PostDataPlanGroupsJSONBodyType string
 
 // PostDataPlanGroups200JSONResponseBodySuccess defines parameters for PostDataPlanGroups.
 type PostDataPlanGroups200JSONResponseBodySuccess bool
@@ -973,15 +1014,28 @@ type DeleteDataPlanGroupsId200JSONResponseBodySuccess bool
 type PutDataPlanGroupsIdJSONBody struct {
 	Name string `json:"name"`
 
-	// Plans Plan external_ids in the group. Required for manual groups, omit for auto-selector groups.
-	Plans *[]string `json:"plans,omitempty"`
+	// Plans Plan external_ids in the group. Required for manual groups; omit for auto-selector groups. Items may be strings or `{ id: "..." }` objects.
+	Plans *[]PutDataPlanGroupsIdJSONBody_Plans_Item `json:"plans,omitempty"`
 
 	// Selector For auto groups: the selector pattern.
 	Selector *string `json:"selector,omitempty"`
 
-	// SelectorType For auto groups: the field name selectors apply to.
+	// SelectorType For auto groups: how the selector pattern matches.
 	SelectorType *string                          `json:"selector_type,omitempty"`
 	Type         *PutDataPlanGroupsIdJSONBodyType `json:"type,omitempty"`
+}
+
+// PutDataPlanGroupsIdJSONBodyPlans0 defines parameters for PutDataPlanGroupsId.
+type PutDataPlanGroupsIdJSONBodyPlans0 = string
+
+// PutDataPlanGroupsIdJSONBodyPlans1 defines parameters for PutDataPlanGroupsId.
+type PutDataPlanGroupsIdJSONBodyPlans1 struct {
+	Id string `json:"id"`
+}
+
+// PutDataPlanGroupsIdJSONBody_Plans_Item defines parameters for PutDataPlanGroupsId.
+type PutDataPlanGroupsIdJSONBody_Plans_Item struct {
+	union json.RawMessage
 }
 
 // PutDataPlanGroupsIdJSONBodyType defines parameters for PutDataPlanGroupsId.
@@ -1057,8 +1111,8 @@ type PutDataPlansIdJSONBody struct {
 type PostDataSegmentsJSONBody struct {
 	Description *string `json:"description,omitempty"`
 
-	// Filters Filter map. See report endpoints for valid filter keys.
-	Filters map[string]*interface{}       `json:"filters"`
+	// Filters Querystring-encoded filters (e.g. `region=eu&plan=enterprise`). See report endpoints for valid filter keys.
+	Filters string                        `json:"filters"`
 	Mode    *PostDataSegmentsJSONBodyMode `json:"mode,omitempty"`
 	Name    string                        `json:"name"`
 }
@@ -1075,7 +1129,7 @@ type DeleteDataSegmentsId200JSONResponseBodySuccess bool
 // PutDataSegmentsIdJSONBody defines parameters for PutDataSegmentsId.
 type PutDataSegmentsIdJSONBody struct {
 	Description *string                        `json:"description,omitempty"`
-	Filters     *map[string]*interface{}       `json:"filters,omitempty"`
+	Filters     *string                        `json:"filters,omitempty"`
 	Mode        *PutDataSegmentsIdJSONBodyMode `json:"mode,omitempty"`
 	Name        *string                        `json:"name,omitempty"`
 }
@@ -1740,6 +1794,130 @@ func (t PostDataInvoicesJSONBody) MarshalJSON() ([]byte, error) {
 }
 
 func (t *PostDataInvoicesJSONBody) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsPostDataPlanGroupsJSONBodyPlans0 returns the union data inside the PostDataPlanGroupsJSONBody_Plans_Item as a PostDataPlanGroupsJSONBodyPlans0
+func (t PostDataPlanGroupsJSONBody_Plans_Item) AsPostDataPlanGroupsJSONBodyPlans0() (PostDataPlanGroupsJSONBodyPlans0, error) {
+	var body PostDataPlanGroupsJSONBodyPlans0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPostDataPlanGroupsJSONBodyPlans0 overwrites any union data inside the PostDataPlanGroupsJSONBody_Plans_Item as the provided PostDataPlanGroupsJSONBodyPlans0
+func (t *PostDataPlanGroupsJSONBody_Plans_Item) FromPostDataPlanGroupsJSONBodyPlans0(v PostDataPlanGroupsJSONBodyPlans0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePostDataPlanGroupsJSONBodyPlans0 performs a merge with any union data inside the PostDataPlanGroupsJSONBody_Plans_Item, using the provided PostDataPlanGroupsJSONBodyPlans0
+func (t *PostDataPlanGroupsJSONBody_Plans_Item) MergePostDataPlanGroupsJSONBodyPlans0(v PostDataPlanGroupsJSONBodyPlans0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPostDataPlanGroupsJSONBodyPlans1 returns the union data inside the PostDataPlanGroupsJSONBody_Plans_Item as a PostDataPlanGroupsJSONBodyPlans1
+func (t PostDataPlanGroupsJSONBody_Plans_Item) AsPostDataPlanGroupsJSONBodyPlans1() (PostDataPlanGroupsJSONBodyPlans1, error) {
+	var body PostDataPlanGroupsJSONBodyPlans1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPostDataPlanGroupsJSONBodyPlans1 overwrites any union data inside the PostDataPlanGroupsJSONBody_Plans_Item as the provided PostDataPlanGroupsJSONBodyPlans1
+func (t *PostDataPlanGroupsJSONBody_Plans_Item) FromPostDataPlanGroupsJSONBodyPlans1(v PostDataPlanGroupsJSONBodyPlans1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePostDataPlanGroupsJSONBodyPlans1 performs a merge with any union data inside the PostDataPlanGroupsJSONBody_Plans_Item, using the provided PostDataPlanGroupsJSONBodyPlans1
+func (t *PostDataPlanGroupsJSONBody_Plans_Item) MergePostDataPlanGroupsJSONBodyPlans1(v PostDataPlanGroupsJSONBodyPlans1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t PostDataPlanGroupsJSONBody_Plans_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *PostDataPlanGroupsJSONBody_Plans_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsPutDataPlanGroupsIdJSONBodyPlans0 returns the union data inside the PutDataPlanGroupsIdJSONBody_Plans_Item as a PutDataPlanGroupsIdJSONBodyPlans0
+func (t PutDataPlanGroupsIdJSONBody_Plans_Item) AsPutDataPlanGroupsIdJSONBodyPlans0() (PutDataPlanGroupsIdJSONBodyPlans0, error) {
+	var body PutDataPlanGroupsIdJSONBodyPlans0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPutDataPlanGroupsIdJSONBodyPlans0 overwrites any union data inside the PutDataPlanGroupsIdJSONBody_Plans_Item as the provided PutDataPlanGroupsIdJSONBodyPlans0
+func (t *PutDataPlanGroupsIdJSONBody_Plans_Item) FromPutDataPlanGroupsIdJSONBodyPlans0(v PutDataPlanGroupsIdJSONBodyPlans0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePutDataPlanGroupsIdJSONBodyPlans0 performs a merge with any union data inside the PutDataPlanGroupsIdJSONBody_Plans_Item, using the provided PutDataPlanGroupsIdJSONBodyPlans0
+func (t *PutDataPlanGroupsIdJSONBody_Plans_Item) MergePutDataPlanGroupsIdJSONBodyPlans0(v PutDataPlanGroupsIdJSONBodyPlans0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPutDataPlanGroupsIdJSONBodyPlans1 returns the union data inside the PutDataPlanGroupsIdJSONBody_Plans_Item as a PutDataPlanGroupsIdJSONBodyPlans1
+func (t PutDataPlanGroupsIdJSONBody_Plans_Item) AsPutDataPlanGroupsIdJSONBodyPlans1() (PutDataPlanGroupsIdJSONBodyPlans1, error) {
+	var body PutDataPlanGroupsIdJSONBodyPlans1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPutDataPlanGroupsIdJSONBodyPlans1 overwrites any union data inside the PutDataPlanGroupsIdJSONBody_Plans_Item as the provided PutDataPlanGroupsIdJSONBodyPlans1
+func (t *PutDataPlanGroupsIdJSONBody_Plans_Item) FromPutDataPlanGroupsIdJSONBodyPlans1(v PutDataPlanGroupsIdJSONBodyPlans1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePutDataPlanGroupsIdJSONBodyPlans1 performs a merge with any union data inside the PutDataPlanGroupsIdJSONBody_Plans_Item, using the provided PutDataPlanGroupsIdJSONBodyPlans1
+func (t *PutDataPlanGroupsIdJSONBody_Plans_Item) MergePutDataPlanGroupsIdJSONBodyPlans1(v PutDataPlanGroupsIdJSONBodyPlans1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t PutDataPlanGroupsIdJSONBody_Plans_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *PutDataPlanGroupsIdJSONBody_Plans_Item) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -11628,9 +11806,9 @@ type GetDataSegmentsResponse struct {
 			List  []struct {
 				Description *string `json:"description,omitempty"`
 
-				// Filters The filter map this segment expands to (e.g. `{ region: "eu", plan: "enterprise" }`).
-				Filters map[string]*interface{} `json:"filters"`
-				Id      string                  `json:"id"`
+				// Filters Querystring-encoded filters (e.g. `region=eu&plan=enterprise`). Parsed server-side with URLSearchParams.
+				Filters string `json:"filters"`
+				Id      string `json:"id"`
 
 				// Mode `filter` (default — AND across keys) or `breakdown` (split-on-key mode).
 				Mode *string `json:"mode,omitempty"`
@@ -11775,9 +11953,9 @@ type GetDataSegmentsIdResponse struct {
 	JSON200      *struct {
 		Description *string `json:"description,omitempty"`
 
-		// Filters The filter map this segment expands to (e.g. `{ region: "eu", plan: "enterprise" }`).
-		Filters map[string]*interface{} `json:"filters"`
-		Id      string                  `json:"id"`
+		// Filters Querystring-encoded filters (e.g. `region=eu&plan=enterprise`). Parsed server-side with URLSearchParams.
+		Filters string `json:"filters"`
+		Id      string `json:"id"`
 
 		// Mode `filter` (default — AND across keys) or `breakdown` (split-on-key mode).
 		Mode *string `json:"mode,omitempty"`
@@ -16891,9 +17069,9 @@ func ParseGetDataSegmentsResponse(rsp *http.Response) (*GetDataSegmentsResponse,
 				List  []struct {
 					Description *string `json:"description,omitempty"`
 
-					// Filters The filter map this segment expands to (e.g. `{ region: "eu", plan: "enterprise" }`).
-					Filters map[string]*interface{} `json:"filters"`
-					Id      string                  `json:"id"`
+					// Filters Querystring-encoded filters (e.g. `region=eu&plan=enterprise`). Parsed server-side with URLSearchParams.
+					Filters string `json:"filters"`
+					Id      string `json:"id"`
 
 					// Mode `filter` (default — AND across keys) or `breakdown` (split-on-key mode).
 					Mode *string `json:"mode,omitempty"`
@@ -17104,9 +17282,9 @@ func ParseGetDataSegmentsIdResponse(rsp *http.Response) (*GetDataSegmentsIdRespo
 		var dest struct {
 			Description *string `json:"description,omitempty"`
 
-			// Filters The filter map this segment expands to (e.g. `{ region: "eu", plan: "enterprise" }`).
-			Filters map[string]*interface{} `json:"filters"`
-			Id      string                  `json:"id"`
+			// Filters Querystring-encoded filters (e.g. `region=eu&plan=enterprise`). Parsed server-side with URLSearchParams.
+			Filters string `json:"filters"`
+			Id      string `json:"id"`
 
 			// Mode `filter` (default — AND across keys) or `breakdown` (split-on-key mode).
 			Mode *string `json:"mode,omitempty"`
