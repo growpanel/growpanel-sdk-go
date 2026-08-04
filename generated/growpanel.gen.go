@@ -493,6 +493,27 @@ func (e GetReportsMrrParamsCommitted) Valid() bool {
 	}
 }
 
+// Defines values for GetReportsMrrSubtypesParamsType.
+const (
+	Churn       GetReportsMrrSubtypesParamsType = "churn"
+	Contraction GetReportsMrrSubtypesParamsType = "contraction"
+	Expansion   GetReportsMrrSubtypesParamsType = "expansion"
+)
+
+// Valid indicates whether the value is a known member of the GetReportsMrrSubtypesParamsType enum.
+func (e GetReportsMrrSubtypesParamsType) Valid() bool {
+	switch e {
+	case Churn:
+		return true
+	case Contraction:
+		return true
+	case Expansion:
+		return true
+	default:
+		return false
+	}
+}
+
 // GetCustomersParams defines parameters for GetCustomers.
 type GetCustomersParams struct {
 	Limit         *string `form:"limit,omitempty" json:"limit,omitempty"`
@@ -1309,6 +1330,32 @@ type GetReportsMrrGrowthParams struct {
 	CompareMonth *string `form:"compareMonth,omitempty" json:"compareMonth,omitempty"`
 	Types        *string `form:"types,omitempty" json:"types,omitempty"`
 }
+
+// GetReportsMrrSubtypesParams defines parameters for GetReportsMrrSubtypes.
+type GetReportsMrrSubtypesParams struct {
+	Type          GetReportsMrrSubtypesParamsType `form:"type" json:"type"`
+	Date          *string                         `form:"date,omitempty" json:"date,omitempty"`
+	Interval      *string                         `form:"interval,omitempty" json:"interval,omitempty"`
+	BaseCurrency  *string                         `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+	Currency      *string                         `form:"currency,omitempty" json:"currency,omitempty"`
+	PaymentMethod *string                         `form:"payment_method,omitempty" json:"payment_method,omitempty"`
+	PricingModel  *string                         `form:"pricing_model,omitempty" json:"pricing_model,omitempty"`
+	Customer      *string                         `form:"customer,omitempty" json:"customer,omitempty"`
+	Plan          *string                         `form:"plan,omitempty" json:"plan,omitempty"`
+	Age           *string                         `form:"age,omitempty" json:"age,omitempty"`
+	BillingFreq   *string                         `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Region        *string                         `form:"region,omitempty" json:"region,omitempty"`
+	State         *string                         `form:"state,omitempty" json:"state,omitempty"`
+	DataSource    *string                         `form:"data_source,omitempty" json:"data_source,omitempty"`
+	Status        *string                         `form:"status,omitempty" json:"status,omitempty"`
+	HasDiscount   *string                         `form:"has_discount,omitempty" json:"has_discount,omitempty"`
+	CancelReason  *string                         `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
+	Segment       *string                         `form:"segment,omitempty" json:"segment,omitempty"`
+	FixFx         *string                         `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+}
+
+// GetReportsMrrSubtypesParamsType defines parameters for GetReportsMrrSubtypes.
+type GetReportsMrrSubtypesParamsType string
 
 // GetReportsRetentionParams defines parameters for GetReportsRetention.
 type GetReportsRetentionParams struct {
@@ -2373,6 +2420,13 @@ type ClientInterface interface {
 	//
 	// Corresponds with GET /reports/mrr-growth (the `GetReportsMrrGrowth` operationId).
 	GetReportsMrrGrowth(ctx context.Context, params *GetReportsMrrGrowthParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetReportsMrrSubtypes MRR movement subtypes (why expansion / contraction / churn happened)
+	//
+	// Decomposes a movement type into its underlying MECHANISM, per period — how you tell genuine customer behaviour from pricing/billing mechanics. e.g. whether "expansion" is real upsell (add-on, plan upgrade, quantity increase) or just a discount ending (discount_change → promo roll-off, NOT organic growth), and whether churn is voluntary vs delinquent (involuntary/failed-payment). Subtypes — expansion: quantity_change, plan_change (upgrade), add_on, price_change, frequency_change, discount_change (discount removed). contraction: quantity_change, plan_change (downgrade), price_change, frequency_change, discount_change (discount added). churn: voluntary vs delinquent. Use it to separate organic vs promo-driven NRR and catch a pricing lever masquerading as growth. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	//
+	// Corresponds with GET /reports/mrr-subtypes (the `GetReportsMrrSubtypes` operationId).
+	GetReportsMrrSubtypes(ctx context.Context, params *GetReportsMrrSubtypesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetReportsRetention Retention metrics over time
 	//
@@ -3684,6 +3738,23 @@ func (c *Client) GetReportsMrr(ctx context.Context, params *GetReportsMrrParams,
 // Corresponds with GET /reports/mrr-growth (the `GetReportsMrrGrowth` operationId).
 func (c *Client) GetReportsMrrGrowth(ctx context.Context, params *GetReportsMrrGrowthParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetReportsMrrGrowthRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetReportsMrrSubtypes MRR movement subtypes (why expansion / contraction / churn happened)
+//
+// Decomposes a movement type into its underlying MECHANISM, per period — how you tell genuine customer behaviour from pricing/billing mechanics. e.g. whether "expansion" is real upsell (add-on, plan upgrade, quantity increase) or just a discount ending (discount_change → promo roll-off, NOT organic growth), and whether churn is voluntary vs delinquent (involuntary/failed-payment). Subtypes — expansion: quantity_change, plan_change (upgrade), add_on, price_change, frequency_change, discount_change (discount removed). contraction: quantity_change, plan_change (downgrade), price_change, frequency_change, discount_change (discount added). churn: voluntary vs delinquent. Use it to separate organic vs promo-driven NRR and catch a pricing lever masquerading as growth. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+//
+// Corresponds with GET /reports/mrr-subtypes (the `GetReportsMrrSubtypes` operationId).
+func (c *Client) GetReportsMrrSubtypes(ctx context.Context, params *GetReportsMrrSubtypesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetReportsMrrSubtypesRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -10124,6 +10195,272 @@ func NewGetReportsMrrGrowthRequest(server string, params *GetReportsMrrGrowthPar
 	return req, nil
 }
 
+// NewGetReportsMrrSubtypesRequest constructs an http.Request for the GetReportsMrrSubtypes method
+func NewGetReportsMrrSubtypesRequest(server string, params *GetReportsMrrSubtypesParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/reports/mrr-subtypes")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if queryFrag, err := runtime.StyleParamWithOptions("form", true, "type", params.Type, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+			return nil, err
+		} else {
+			for _, qp := range strings.Split(queryFrag, "&") {
+				rawQueryFragments = append(rawQueryFragments, qp)
+			}
+		}
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "date", *params.Date, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Interval != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "interval", *params.Interval, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BaseCurrency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Currency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "currency", *params.Currency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PaymentMethod != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "payment_method", *params.PaymentMethod, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PricingModel != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "pricing_model", *params.PricingModel, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Customer != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "customer", *params.Customer, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Plan != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "plan", *params.Plan, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Age != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BillingFreq != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Region != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.State != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "state", *params.State, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.DataSource != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "data_source", *params.DataSource, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Status != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.HasDiscount != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "has_discount", *params.HasDiscount, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelReason != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_reason", *params.CancelReason, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Segment != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "segment", *params.Segment, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.FixFx != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewGetReportsRetentionRequest constructs an http.Request for the GetReportsRetention method
 func NewGetReportsRetentionRequest(server string, params *GetReportsRetentionParams) (*http.Request, error) {
 	var err error
@@ -11896,6 +12233,15 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with GET /reports/mrr-growth (the `GetReportsMrrGrowth` operationId).
 	GetReportsMrrGrowthWithResponse(ctx context.Context, params *GetReportsMrrGrowthParams, reqEditors ...RequestEditorFn) (*GetReportsMrrGrowthResponse, error)
+
+	// GetReportsMrrSubtypesWithResponse MRR movement subtypes (why expansion / contraction / churn happened)
+	//
+	// Decomposes a movement type into its underlying MECHANISM, per period — how you tell genuine customer behaviour from pricing/billing mechanics. e.g. whether "expansion" is real upsell (add-on, plan upgrade, quantity increase) or just a discount ending (discount_change → promo roll-off, NOT organic growth), and whether churn is voluntary vs delinquent (involuntary/failed-payment). Subtypes — expansion: quantity_change, plan_change (upgrade), add_on, price_change, frequency_change, discount_change (discount removed). contraction: quantity_change, plan_change (downgrade), price_change, frequency_change, discount_change (discount added). churn: voluntary vs delinquent. Use it to separate organic vs promo-driven NRR and catch a pricing lever masquerading as growth. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /reports/mrr-subtypes (the `GetReportsMrrSubtypes` operationId).
+	GetReportsMrrSubtypesWithResponse(ctx context.Context, params *GetReportsMrrSubtypesParams, reqEditors ...RequestEditorFn) (*GetReportsMrrSubtypesResponse, error)
 
 	// GetReportsRetentionWithResponse Retention metrics over time
 	//
@@ -19074,6 +19420,103 @@ func (r GetReportsMrrGrowthResponse) ContentType() string {
 	return ""
 }
 
+type GetReportsMrrSubtypesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// Currency ISO 4217 currency code, lowercase.
+		Currency string `json:"currency"`
+
+		// Result `{ type, labels: {subtype: human-label}, list: { <subtype>: {date: mrr}, <subtype>_customers: {date: count} } }`.
+		Result interface{} `json:"result,omitempty"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetReportsMrrSubtypesResponse) GetJSON200() *struct {
+	// Currency ISO 4217 currency code, lowercase.
+	Currency string `json:"currency"`
+
+	// Result `{ type, labels: {subtype: human-label}, list: { <subtype>: {date: mrr}, <subtype>_customers: {date: count} } }`.
+	Result interface{} `json:"result,omitempty"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetReportsMrrSubtypesResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetReportsMrrSubtypesResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetReportsMrrSubtypesResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetReportsMrrSubtypesResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetReportsMrrSubtypesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetReportsMrrSubtypesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetReportsMrrSubtypesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetReportsMrrSubtypesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type GetReportsRetentionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -21236,6 +21679,21 @@ func (c *ClientWithResponses) GetReportsMrrGrowthWithResponse(ctx context.Contex
 		return nil, err
 	}
 	return ParseGetReportsMrrGrowthResponse(rsp)
+}
+
+// GetReportsMrrSubtypesWithResponse MRR movement subtypes (why expansion / contraction / churn happened)
+//
+// Decomposes a movement type into its underlying MECHANISM, per period — how you tell genuine customer behaviour from pricing/billing mechanics. e.g. whether "expansion" is real upsell (add-on, plan upgrade, quantity increase) or just a discount ending (discount_change → promo roll-off, NOT organic growth), and whether churn is voluntary vs delinquent (involuntary/failed-payment). Subtypes — expansion: quantity_change, plan_change (upgrade), add_on, price_change, frequency_change, discount_change (discount removed). contraction: quantity_change, plan_change (downgrade), price_change, frequency_change, discount_change (discount added). churn: voluntary vs delinquent. Use it to separate organic vs promo-driven NRR and catch a pricing lever masquerading as growth. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /reports/mrr-subtypes (the `GetReportsMrrSubtypes` operationId).
+func (c *ClientWithResponses) GetReportsMrrSubtypesWithResponse(ctx context.Context, params *GetReportsMrrSubtypesParams, reqEditors ...RequestEditorFn) (*GetReportsMrrSubtypesResponse, error) {
+	rsp, err := c.GetReportsMrrSubtypes(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetReportsMrrSubtypesResponse(rsp)
 }
 
 // GetReportsRetentionWithResponse Retention metrics over time
@@ -26064,6 +26522,74 @@ func ParseGetReportsMrrGrowthResponse(rsp *http.Response) (*GetReportsMrrGrowthR
 				// Date Day of month, 0–31 (0 is a synthetic anchor at zero).
 				Date float32 `json:"date"`
 			} `json:"result"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetReportsMrrSubtypesResponse parses an HTTP response from a GetReportsMrrSubtypesWithResponse call
+func ParseGetReportsMrrSubtypesResponse(rsp *http.Response) (*GetReportsMrrSubtypesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetReportsMrrSubtypesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// Currency ISO 4217 currency code, lowercase.
+			Currency string `json:"currency"`
+
+			// Result `{ type, labels: {subtype: human-label}, list: { <subtype>: {date: mrr}, <subtype>_customers: {date: count} } }`.
+			Result interface{} `json:"result,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
