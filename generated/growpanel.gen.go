@@ -532,6 +532,7 @@ type GetCustomersParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -950,6 +951,7 @@ type GetReportsCancellationTimingParams struct {
 	TrialStarted  *string                                 `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string                                 `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string                                 `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string                                 `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string                                 `form:"region,omitempty" json:"region,omitempty"`
 	State         *string                                 `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string                                 `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -984,6 +986,7 @@ type GetReportsCancellationTimingDetailParams struct {
 	TrialStarted      *string                                       `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate      *string                                       `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq       *string                                       `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo               *string                                       `form:"geo,omitempty" json:"geo,omitempty"`
 	Region            *string                                       `form:"region,omitempty" json:"region,omitempty"`
 	State             *string                                       `form:"state,omitempty" json:"state,omitempty"`
 	DataSource        *string                                       `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1014,6 +1017,7 @@ type GetReportsCashflowFailedPaymentsParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1040,6 +1044,7 @@ type GetReportsCashflowFailedPaymentsSummaryParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1066,6 +1071,7 @@ type GetReportsCashflowFailureRateParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1091,6 +1097,7 @@ type GetReportsCashflowFailureRateSummaryParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1116,6 +1123,7 @@ type GetReportsCashflowOutstandingUnpaidParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1143,6 +1151,7 @@ type GetReportsCashflowRefundsParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1179,6 +1188,7 @@ type GetReportsChurnScheduledParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1205,6 +1215,7 @@ type GetReportsCmrrSummaryParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1233,6 +1244,7 @@ type GetReportsCohortParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1266,6 +1278,7 @@ type GetReportsCustomerConcentrationParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1311,6 +1324,7 @@ type GetReportsLeadsParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1336,6 +1350,7 @@ type GetReportsLeadsSummaryParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1362,6 +1377,7 @@ type GetReportsMapParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1392,6 +1408,7 @@ type GetReportsMrrParams struct {
 	TrialStarted  *string                       `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string                       `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string                       `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string                       `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string                       `form:"region,omitempty" json:"region,omitempty"`
 	State         *string                       `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string                       `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1434,6 +1451,7 @@ type GetReportsMrrSubtypesParams struct {
 	TrialStarted  *string                         `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string                         `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string                         `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string                         `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string                         `form:"region,omitempty" json:"region,omitempty"`
 	State         *string                         `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string                         `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1466,6 +1484,7 @@ type GetReportsRetentionParams struct {
 	TrialStarted   *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate   *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq    *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo            *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region         *string `form:"region,omitempty" json:"region,omitempty"`
 	State          *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource     *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1492,6 +1511,7 @@ type GetReportsSummaryParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1520,6 +1540,7 @@ type GetReportsTransactionsParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -1546,6 +1567,7 @@ type GetReportsTransactionsSummaryParams struct {
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
 	Region        *string `form:"region,omitempty" json:"region,omitempty"`
 	State         *string `form:"state,omitempty" json:"state,omitempty"`
 	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
@@ -4214,6 +4236,18 @@ func NewGetCustomersRequest(server string, params *GetCustomersParams) (*http.Re
 
 		}
 
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.Region != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -6149,6 +6183,18 @@ func NewGetReportsCancellationTimingRequest(server string, params *GetReportsCan
 
 		}
 
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.Region != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -6515,6 +6561,18 @@ func NewGetReportsCancellationTimingDetailRequest(server string, params *GetRepo
 
 		}
 
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.Region != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -6833,6 +6891,18 @@ func NewGetReportsCashflowFailedPaymentsRequest(server string, params *GetReport
 
 		}
 
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.Region != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -7130,6 +7200,18 @@ func NewGetReportsCashflowFailedPaymentsSummaryRequest(server string, params *Ge
 		if params.BillingFreq != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -7445,6 +7527,18 @@ func NewGetReportsCashflowFailureRateRequest(server string, params *GetReportsCa
 
 		}
 
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.Region != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -7739,6 +7833,18 @@ func NewGetReportsCashflowFailureRateSummaryRequest(server string, params *GetRe
 
 		}
 
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.Region != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -8024,6 +8130,18 @@ func NewGetReportsCashflowOutstandingUnpaidRequest(server string, params *GetRep
 		if params.BillingFreq != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -8342,6 +8460,18 @@ func NewGetReportsCashflowRefundsRequest(server string, params *GetReportsCashfl
 		if params.BillingFreq != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -8735,6 +8865,18 @@ func NewGetReportsChurnScheduledRequest(server string, params *GetReportsChurnSc
 
 		}
 
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.Region != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -9032,6 +9174,18 @@ func NewGetReportsCmrrSummaryRequest(server string, params *GetReportsCmrrSummar
 		if params.BillingFreq != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -9362,6 +9516,18 @@ func NewGetReportsCohortRequest(server string, params *GetReportsCohortParams) (
 		if params.BillingFreq != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -9742,6 +9908,18 @@ func NewGetReportsCustomerConcentrationRequest(server string, params *GetReports
 		if params.BillingFreq != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -10171,6 +10349,18 @@ func NewGetReportsLeadsRequest(server string, params *GetReportsLeadsParams) (*h
 
 		}
 
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.Region != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -10456,6 +10646,18 @@ func NewGetReportsLeadsSummaryRequest(server string, params *GetReportsLeadsSumm
 		if params.BillingFreq != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -10762,6 +10964,18 @@ func NewGetReportsMapRequest(server string, params *GetReportsMapParams) (*http.
 		if params.BillingFreq != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -11116,6 +11330,18 @@ func NewGetReportsMrrRequest(server string, params *GetReportsMrrParams) (*http.
 		if params.BillingFreq != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -11541,6 +11767,18 @@ func NewGetReportsMrrSubtypesRequest(server string, params *GetReportsMrrSubtype
 
 		}
 
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.Region != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -11883,6 +12121,18 @@ func NewGetReportsRetentionRequest(server string, params *GetReportsRetentionPar
 
 		}
 
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.Region != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -12180,6 +12430,18 @@ func NewGetReportsSummaryRequest(server string, params *GetReportsSummaryParams)
 		if params.BillingFreq != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -12519,6 +12781,18 @@ func NewGetReportsTransactionsRequest(server string, params *GetReportsTransacti
 
 		}
 
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.Region != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -12816,6 +13090,18 @@ func NewGetReportsTransactionsSummaryRequest(server string, params *GetReportsTr
 		if params.BillingFreq != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
