@@ -828,10 +828,10 @@ type PostDataPlansJSONBody struct {
 
 // PostDataPlansJSONBody0 defines parameters for PostDataPlans.
 type PostDataPlansJSONBody0 struct {
-	// BillingFreq `day`, `week`, `month`, `quarter`, `year`.
+	// BillingFreq `day`, `week`, `month`, `quarter`, `half_year`, `year`.
 	BillingFreq string `json:"billing_freq"`
 
-	// BillingFreqCount Interval count (default 1 — e.g. billing_freq=`month` + count=3 = quarterly).
+	// BillingFreqCount Interval count (default 1 — e.g. billing_freq=`month` + count=3 = quarterly, or count=6 for half-yearly). You may also name the period directly with billing_freq=`quarter` or `half_year` and leave count at 1.
 	BillingFreqCount *float32 `json:"billing_freq_count,omitempty"`
 	Currency         string   `json:"currency"`
 	DataSource       string   `json:"data_source"`
@@ -847,10 +847,10 @@ type PostDataPlansJSONBody0 struct {
 
 // PostDataPlansJSONBody1 defines parameters for PostDataPlans.
 type PostDataPlansJSONBody1 = []struct {
-	// BillingFreq `day`, `week`, `month`, `quarter`, `year`.
+	// BillingFreq `day`, `week`, `month`, `quarter`, `half_year`, `year`.
 	BillingFreq string `json:"billing_freq"`
 
-	// BillingFreqCount Interval count (default 1 — e.g. billing_freq=`month` + count=3 = quarterly).
+	// BillingFreqCount Interval count (default 1 — e.g. billing_freq=`month` + count=3 = quarterly, or count=6 for half-yearly). You may also name the period directly with billing_freq=`quarter` or `half_year` and leave count at 1.
 	BillingFreqCount *float32 `json:"billing_freq_count,omitempty"`
 	Currency         string   `json:"currency"`
 	DataSource       string   `json:"data_source"`
@@ -16684,10 +16684,10 @@ type GetDataPlansResponse struct {
 		Result struct {
 			Count float32 `json:"count"`
 			List  []struct {
-				// BillingFreq `day`, `week`, `month`, `quarter`, `year`.
+				// BillingFreq `day`, `week`, `month`, `quarter`, `half_year`, `year`.
 				BillingFreq string `json:"billing_freq"`
 
-				// BillingFreqCount Interval count (default 1 — e.g. billing_freq=`month` + count=3 = quarterly).
+				// BillingFreqCount Interval count (default 1 — e.g. billing_freq=`month` + count=3 = quarterly, or count=6 for half-yearly). You may also name the period directly with billing_freq=`quarter` or `half_year` and leave count at 1.
 				BillingFreqCount *float32 `json:"billing_freq_count,omitempty"`
 				Currency         string   `json:"currency"`
 				DataSource       string   `json:"data_source"`
@@ -16722,10 +16722,10 @@ func (r GetDataPlansResponse) GetJSON200() *struct {
 	Result struct {
 		Count float32 `json:"count"`
 		List  []struct {
-			// BillingFreq `day`, `week`, `month`, `quarter`, `year`.
+			// BillingFreq `day`, `week`, `month`, `quarter`, `half_year`, `year`.
 			BillingFreq string `json:"billing_freq"`
 
-			// BillingFreqCount Interval count (default 1 — e.g. billing_freq=`month` + count=3 = quarterly).
+			// BillingFreqCount Interval count (default 1 — e.g. billing_freq=`month` + count=3 = quarterly, or count=6 for half-yearly). You may also name the period directly with billing_freq=`quarter` or `half_year` and leave count at 1.
 			BillingFreqCount *float32 `json:"billing_freq_count,omitempty"`
 			Currency         string   `json:"currency"`
 			DataSource       string   `json:"data_source"`
@@ -17942,7 +17942,7 @@ type GetPlansResponse struct {
 		Result struct {
 			Count float32 `json:"count"`
 			List  []struct {
-				// BillingFreq `day`, `week`, `month`, `quarter`, `year`.
+				// BillingFreq `day`, `week`, `month`, `quarter`, `half_year`, `year`.
 				BillingFreq string `json:"billing_freq"`
 
 				// Currency ISO 4217 currency code, lowercase.
@@ -17984,7 +17984,7 @@ func (r GetPlansResponse) GetJSON200() *struct {
 	Result struct {
 		Count float32 `json:"count"`
 		List  []struct {
-			// BillingFreq `day`, `week`, `month`, `quarter`, `year`.
+			// BillingFreq `day`, `week`, `month`, `quarter`, `half_year`, `year`.
 			BillingFreq string `json:"billing_freq"`
 
 			// Currency ISO 4217 currency code, lowercase.
@@ -25367,10 +25367,10 @@ func ParseGetDataPlansResponse(rsp *http.Response) (*GetDataPlansResponse, error
 			Result struct {
 				Count float32 `json:"count"`
 				List  []struct {
-					// BillingFreq `day`, `week`, `month`, `quarter`, `year`.
+					// BillingFreq `day`, `week`, `month`, `quarter`, `half_year`, `year`.
 					BillingFreq string `json:"billing_freq"`
 
-					// BillingFreqCount Interval count (default 1 — e.g. billing_freq=`month` + count=3 = quarterly).
+					// BillingFreqCount Interval count (default 1 — e.g. billing_freq=`month` + count=3 = quarterly, or count=6 for half-yearly). You may also name the period directly with billing_freq=`quarter` or `half_year` and leave count at 1.
 					BillingFreqCount *float32 `json:"billing_freq_count,omitempty"`
 					Currency         string   `json:"currency"`
 					DataSource       string   `json:"data_source"`
@@ -26251,7 +26251,7 @@ func ParseGetPlansResponse(rsp *http.Response) (*GetPlansResponse, error) {
 			Result struct {
 				Count float32 `json:"count"`
 				List  []struct {
-					// BillingFreq `day`, `week`, `month`, `quarter`, `year`.
+					// BillingFreq `day`, `week`, `month`, `quarter`, `half_year`, `year`.
 					BillingFreq string `json:"billing_freq"`
 
 					// Currency ISO 4217 currency code, lowercase.
