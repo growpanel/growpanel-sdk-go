@@ -529,6 +529,7 @@ type GetCustomersParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -948,6 +949,7 @@ type GetReportsCancellationTimingParams struct {
 	CreatedDate   *string                                 `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string                                 `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string                                 `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string                                 `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string                                 `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string                                 `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string                                 `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -983,6 +985,7 @@ type GetReportsCancellationTimingDetailParams struct {
 	CreatedDate       *string                                       `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted       *string                                       `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate        *string                                       `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate       *string                                       `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted      *string                                       `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate      *string                                       `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq       *string                                       `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1014,6 +1017,7 @@ type GetReportsCashflowFailedPaymentsParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1041,6 +1045,7 @@ type GetReportsCashflowFailedPaymentsSummaryParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1068,6 +1073,7 @@ type GetReportsCashflowFailureRateParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1094,6 +1100,7 @@ type GetReportsCashflowFailureRateSummaryParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1120,6 +1127,7 @@ type GetReportsCashflowOutstandingUnpaidParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1148,6 +1156,7 @@ type GetReportsCashflowRefundsParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1185,6 +1194,7 @@ type GetReportsChurnScheduledParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1212,6 +1222,7 @@ type GetReportsCmrrSummaryParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1241,6 +1252,7 @@ type GetReportsCohortParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1275,6 +1287,7 @@ type GetReportsCustomerConcentrationParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1321,6 +1334,7 @@ type GetReportsLeadsParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1347,6 +1361,7 @@ type GetReportsLeadsSummaryParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1374,6 +1389,7 @@ type GetReportsMapParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1405,6 +1421,7 @@ type GetReportsMrrParams struct {
 	CreatedDate   *string                       `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string                       `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string                       `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string                       `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string                       `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string                       `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string                       `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1448,6 +1465,7 @@ type GetReportsMrrSubtypesParams struct {
 	CreatedDate   *string                         `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string                         `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string                         `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string                         `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string                         `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string                         `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string                         `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1481,6 +1499,7 @@ type GetReportsRetentionParams struct {
 	CreatedDate    *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted    *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate     *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate    *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted   *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate   *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq    *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1508,6 +1527,7 @@ type GetReportsSummaryParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1537,6 +1557,7 @@ type GetReportsTransactionsParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -1564,6 +1585,7 @@ type GetReportsTransactionsSummaryParams struct {
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
 	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
 	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
 	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
@@ -4200,6 +4222,18 @@ func NewGetCustomersRequest(server string, params *GetCustomersParams) (*http.Re
 
 		}
 
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.TrialStarted != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -6147,6 +6181,18 @@ func NewGetReportsCancellationTimingRequest(server string, params *GetReportsCan
 
 		}
 
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.TrialStarted != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -6525,6 +6571,18 @@ func NewGetReportsCancellationTimingDetailRequest(server string, params *GetRepo
 
 		}
 
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.TrialStarted != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -6855,6 +6913,18 @@ func NewGetReportsCashflowFailedPaymentsRequest(server string, params *GetReport
 
 		}
 
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.TrialStarted != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -7164,6 +7234,18 @@ func NewGetReportsCashflowFailedPaymentsSummaryRequest(server string, params *Ge
 		if params.CancelDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -7491,6 +7573,18 @@ func NewGetReportsCashflowFailureRateRequest(server string, params *GetReportsCa
 
 		}
 
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.TrialStarted != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -7797,6 +7891,18 @@ func NewGetReportsCashflowFailureRateSummaryRequest(server string, params *GetRe
 
 		}
 
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.TrialStarted != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -8094,6 +8200,18 @@ func NewGetReportsCashflowOutstandingUnpaidRequest(server string, params *GetRep
 		if params.CancelDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -8424,6 +8542,18 @@ func NewGetReportsCashflowRefundsRequest(server string, params *GetReportsCashfl
 		if params.CancelDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -8829,6 +8959,18 @@ func NewGetReportsChurnScheduledRequest(server string, params *GetReportsChurnSc
 
 		}
 
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.TrialStarted != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -9138,6 +9280,18 @@ func NewGetReportsCmrrSummaryRequest(server string, params *GetReportsCmrrSummar
 		if params.CancelDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -9480,6 +9634,18 @@ func NewGetReportsCohortRequest(server string, params *GetReportsCohortParams) (
 		if params.CancelDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -9872,6 +10038,18 @@ func NewGetReportsCustomerConcentrationRequest(server string, params *GetReports
 		if params.CancelDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -10313,6 +10491,18 @@ func NewGetReportsLeadsRequest(server string, params *GetReportsLeadsParams) (*h
 
 		}
 
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.TrialStarted != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -10610,6 +10800,18 @@ func NewGetReportsLeadsSummaryRequest(server string, params *GetReportsLeadsSumm
 		if params.CancelDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -10928,6 +11130,18 @@ func NewGetReportsMapRequest(server string, params *GetReportsMapParams) (*http.
 		if params.CancelDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -11294,6 +11508,18 @@ func NewGetReportsMrrRequest(server string, params *GetReportsMrrParams) (*http.
 		if params.CancelDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -11731,6 +11957,18 @@ func NewGetReportsMrrSubtypesRequest(server string, params *GetReportsMrrSubtype
 
 		}
 
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.TrialStarted != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -12085,6 +12323,18 @@ func NewGetReportsRetentionRequest(server string, params *GetReportsRetentionPar
 
 		}
 
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.TrialStarted != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -12394,6 +12644,18 @@ func NewGetReportsSummaryRequest(server string, params *GetReportsSummaryParams)
 		if params.CancelDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -12745,6 +13007,18 @@ func NewGetReportsTransactionsRequest(server string, params *GetReportsTransacti
 
 		}
 
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.TrialStarted != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -13054,6 +13328,18 @@ func NewGetReportsTransactionsSummaryRequest(server string, params *GetReportsTr
 		if params.CancelDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -14058,7 +14344,10 @@ type GetCustomersResponse struct {
 
 				// Payments Number of successful payments to date.
 				Payments *float32 `json:"payments,omitempty"`
-				State    *string  `json:"state,omitempty"`
+
+				// RenewalDate ISO 8601 datetime.
+				RenewalDate *string `json:"renewal_date,omitempty"`
+				State       *string `json:"state,omitempty"`
 
 				// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
 				Status *string `json:"status,omitempty"`
@@ -14131,7 +14420,10 @@ func (r GetCustomersResponse) GetJSON200() *struct {
 
 			// Payments Number of successful payments to date.
 			Payments *float32 `json:"payments,omitempty"`
-			State    *string  `json:"state,omitempty"`
+
+			// RenewalDate ISO 8601 datetime.
+			RenewalDate *string `json:"renewal_date,omitempty"`
+			State       *string `json:"state,omitempty"`
 
 			// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
 			Status *string `json:"status,omitempty"`
@@ -14257,6 +14549,9 @@ type GetCustomersIdResponse struct {
 
 		// PaidStarted ISO 8601 datetime.
 		PaidStarted string `json:"paid_started"`
+
+		// RenewalDate ISO 8601 datetime.
+		RenewalDate string `json:"renewal_date"`
 		State       string `json:"state"`
 
 		// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
@@ -14340,6 +14635,9 @@ func (r GetCustomersIdResponse) GetJSON200() *struct {
 
 	// PaidStarted ISO 8601 datetime.
 	PaidStarted string `json:"paid_started"`
+
+	// RenewalDate ISO 8601 datetime.
+	RenewalDate string `json:"renewal_date"`
 	State       string `json:"state"`
 
 	// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
@@ -23563,7 +23861,10 @@ func ParseGetCustomersResponse(rsp *http.Response) (*GetCustomersResponse, error
 
 					// Payments Number of successful payments to date.
 					Payments *float32 `json:"payments,omitempty"`
-					State    *string  `json:"state,omitempty"`
+
+					// RenewalDate ISO 8601 datetime.
+					RenewalDate *string `json:"renewal_date,omitempty"`
+					State       *string `json:"state,omitempty"`
 
 					// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
 					Status *string `json:"status,omitempty"`
@@ -23686,6 +23987,9 @@ func ParseGetCustomersIdResponse(rsp *http.Response) (*GetCustomersIdResponse, e
 
 			// PaidStarted ISO 8601 datetime.
 			PaidStarted string `json:"paid_started"`
+
+			// RenewalDate ISO 8601 datetime.
+			RenewalDate string `json:"renewal_date"`
 			State       string `json:"state"`
 
 			// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
