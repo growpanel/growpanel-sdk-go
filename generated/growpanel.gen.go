@@ -331,6 +331,24 @@ func (e PutDataSegmentsId200JSONResponseBodySuccess) Valid() bool {
 	}
 }
 
+// Defines values for GetForecastCashflowForecastDetailParamsSort.
+const (
+	Amount GetForecastCashflowForecastDetailParamsSort = "amount"
+	Date   GetForecastCashflowForecastDetailParamsSort = "date"
+)
+
+// Valid indicates whether the value is a known member of the GetForecastCashflowForecastDetailParamsSort enum.
+func (e GetForecastCashflowForecastDetailParamsSort) Valid() bool {
+	switch e {
+	case Amount:
+		return true
+	case Date:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for DeleteIntegrationsWebhooksId200JSONResponseBodySuccess.
 const (
 	DeleteIntegrationsWebhooksId200JSONResponseBodySuccessTrue DeleteIntegrationsWebhooksId200JSONResponseBodySuccess = true
@@ -912,6 +930,145 @@ type PutDataSegmentsIdJSONBodyMode string
 // PutDataSegmentsId200JSONResponseBodySuccess defines parameters for PutDataSegmentsId.
 type PutDataSegmentsId200JSONResponseBodySuccess bool
 
+// GetForecastAiSummaryParams defines parameters for GetForecastAiSummary.
+type GetForecastAiSummaryParams struct {
+	Horizon         *string `form:"horizon,omitempty" json:"horizon,omitempty"`
+	Interval        *string `form:"interval,omitempty" json:"interval,omitempty"`
+	MonthsBack      *string `form:"months_back,omitempty" json:"months_back,omitempty"`
+	BaseCurrency    *string `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+	NewMrrChangePct *string `form:"new_mrr_change_pct,omitempty" json:"new_mrr_change_pct,omitempty"`
+	ChurnChangePct  *string `form:"churn_change_pct,omitempty" json:"churn_change_pct,omitempty"`
+	PriceChangePct  *string `form:"price_change_pct,omitempty" json:"price_change_pct,omitempty"`
+	PriceScope      *string `form:"price_scope,omitempty" json:"price_scope,omitempty"`
+	Currency        *string `form:"currency,omitempty" json:"currency,omitempty"`
+	PaymentMethod   *string `form:"payment_method,omitempty" json:"payment_method,omitempty"`
+	PricingModel    *string `form:"pricing_model,omitempty" json:"pricing_model,omitempty"`
+	Customer        *string `form:"customer,omitempty" json:"customer,omitempty"`
+	Plan            *string `form:"plan,omitempty" json:"plan,omitempty"`
+	Age             *string `form:"age,omitempty" json:"age,omitempty"`
+	CreatedDate     *string `form:"created_date,omitempty" json:"created_date,omitempty"`
+	PaidStarted     *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
+	CancelDate      *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate     *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
+	TrialStarted    *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
+	TrialEndDate    *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
+	BillingFreq     *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo             *string `form:"geo,omitempty" json:"geo,omitempty"`
+	Region          *string `form:"region,omitempty" json:"region,omitempty"`
+	State           *string `form:"state,omitempty" json:"state,omitempty"`
+	DataSource      *string `form:"data_source,omitempty" json:"data_source,omitempty"`
+	Status          *string `form:"status,omitempty" json:"status,omitempty"`
+	HasDiscount     *string `form:"has_discount,omitempty" json:"has_discount,omitempty"`
+	CancelReason    *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
+	Segment         *string `form:"segment,omitempty" json:"segment,omitempty"`
+	FixFx           *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+}
+
+// GetForecastAiSummaryTableParams defines parameters for GetForecastAiSummaryTable.
+type GetForecastAiSummaryTableParams struct {
+	Horizon         *string `form:"horizon,omitempty" json:"horizon,omitempty"`
+	Interval        *string `form:"interval,omitempty" json:"interval,omitempty"`
+	MonthsBack      *string `form:"months_back,omitempty" json:"months_back,omitempty"`
+	BaseCurrency    *string `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+	NewMrrChangePct *string `form:"new_mrr_change_pct,omitempty" json:"new_mrr_change_pct,omitempty"`
+	ChurnChangePct  *string `form:"churn_change_pct,omitempty" json:"churn_change_pct,omitempty"`
+	PriceChangePct  *string `form:"price_change_pct,omitempty" json:"price_change_pct,omitempty"`
+	PriceScope      *string `form:"price_scope,omitempty" json:"price_scope,omitempty"`
+	Currency        *string `form:"currency,omitempty" json:"currency,omitempty"`
+	PaymentMethod   *string `form:"payment_method,omitempty" json:"payment_method,omitempty"`
+	PricingModel    *string `form:"pricing_model,omitempty" json:"pricing_model,omitempty"`
+	Customer        *string `form:"customer,omitempty" json:"customer,omitempty"`
+	Plan            *string `form:"plan,omitempty" json:"plan,omitempty"`
+	Age             *string `form:"age,omitempty" json:"age,omitempty"`
+	CreatedDate     *string `form:"created_date,omitempty" json:"created_date,omitempty"`
+	PaidStarted     *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
+	CancelDate      *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate     *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
+	TrialStarted    *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
+	TrialEndDate    *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
+	BillingFreq     *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo             *string `form:"geo,omitempty" json:"geo,omitempty"`
+	Region          *string `form:"region,omitempty" json:"region,omitempty"`
+	State           *string `form:"state,omitempty" json:"state,omitempty"`
+	DataSource      *string `form:"data_source,omitempty" json:"data_source,omitempty"`
+	Status          *string `form:"status,omitempty" json:"status,omitempty"`
+	HasDiscount     *string `form:"has_discount,omitempty" json:"has_discount,omitempty"`
+	CancelReason    *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
+	Segment         *string `form:"segment,omitempty" json:"segment,omitempty"`
+	FixFx           *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+}
+
+// GetForecastCashflowForecastParams defines parameters for GetForecastCashflowForecast.
+type GetForecastCashflowForecastParams struct {
+	Horizon        *string `form:"horizon,omitempty" json:"horizon,omitempty"`
+	Interval       *string `form:"interval,omitempty" json:"interval,omitempty"`
+	BaseCurrency   *string `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+	Breakdown      *string `form:"breakdown,omitempty" json:"breakdown,omitempty"`
+	IncludeOneTime *string `form:"includeOneTime,omitempty" json:"includeOneTime,omitempty"`
+	IncludeRefunds *string `form:"includeRefunds,omitempty" json:"includeRefunds,omitempty"`
+	IncludeDelay   *string `form:"includeDelay,omitempty" json:"includeDelay,omitempty"`
+	Currency       *string `form:"currency,omitempty" json:"currency,omitempty"`
+	PaymentMethod  *string `form:"payment_method,omitempty" json:"payment_method,omitempty"`
+	PricingModel   *string `form:"pricing_model,omitempty" json:"pricing_model,omitempty"`
+	Customer       *string `form:"customer,omitempty" json:"customer,omitempty"`
+	Plan           *string `form:"plan,omitempty" json:"plan,omitempty"`
+	Age            *string `form:"age,omitempty" json:"age,omitempty"`
+	CreatedDate    *string `form:"created_date,omitempty" json:"created_date,omitempty"`
+	PaidStarted    *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
+	CancelDate     *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate    *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
+	TrialStarted   *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
+	TrialEndDate   *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
+	BillingFreq    *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo            *string `form:"geo,omitempty" json:"geo,omitempty"`
+	Region         *string `form:"region,omitempty" json:"region,omitempty"`
+	State          *string `form:"state,omitempty" json:"state,omitempty"`
+	DataSource     *string `form:"data_source,omitempty" json:"data_source,omitempty"`
+	Status         *string `form:"status,omitempty" json:"status,omitempty"`
+	HasDiscount    *string `form:"has_discount,omitempty" json:"has_discount,omitempty"`
+	CancelReason   *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
+	Segment        *string `form:"segment,omitempty" json:"segment,omitempty"`
+	FixFx          *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+}
+
+// GetForecastCashflowForecastDetailParams defines parameters for GetForecastCashflowForecastDetail.
+type GetForecastCashflowForecastDetailParams struct {
+	SelectedDate  *string                                      `form:"selected-date,omitempty" json:"selected-date,omitempty"`
+	SelectedType  *string                                      `form:"selected-type,omitempty" json:"selected-type,omitempty"`
+	From          *string                                      `form:"from,omitempty" json:"from,omitempty"`
+	To            *string                                      `form:"to,omitempty" json:"to,omitempty"`
+	Types         *string                                      `form:"types,omitempty" json:"types,omitempty"`
+	Sort          *GetForecastCashflowForecastDetailParamsSort `form:"sort,omitempty" json:"sort,omitempty"`
+	Limit         *string                                      `form:"limit,omitempty" json:"limit,omitempty"`
+	Interval      *string                                      `form:"interval,omitempty" json:"interval,omitempty"`
+	BaseCurrency  *string                                      `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+	Currency      *string                                      `form:"currency,omitempty" json:"currency,omitempty"`
+	PaymentMethod *string                                      `form:"payment_method,omitempty" json:"payment_method,omitempty"`
+	PricingModel  *string                                      `form:"pricing_model,omitempty" json:"pricing_model,omitempty"`
+	Customer      *string                                      `form:"customer,omitempty" json:"customer,omitempty"`
+	Plan          *string                                      `form:"plan,omitempty" json:"plan,omitempty"`
+	Age           *string                                      `form:"age,omitempty" json:"age,omitempty"`
+	CreatedDate   *string                                      `form:"created_date,omitempty" json:"created_date,omitempty"`
+	PaidStarted   *string                                      `form:"paid_started,omitempty" json:"paid_started,omitempty"`
+	CancelDate    *string                                      `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string                                      `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
+	TrialStarted  *string                                      `form:"trial_started,omitempty" json:"trial_started,omitempty"`
+	TrialEndDate  *string                                      `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
+	BillingFreq   *string                                      `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string                                      `form:"geo,omitempty" json:"geo,omitempty"`
+	Region        *string                                      `form:"region,omitempty" json:"region,omitempty"`
+	State         *string                                      `form:"state,omitempty" json:"state,omitempty"`
+	DataSource    *string                                      `form:"data_source,omitempty" json:"data_source,omitempty"`
+	Status        *string                                      `form:"status,omitempty" json:"status,omitempty"`
+	HasDiscount   *string                                      `form:"has_discount,omitempty" json:"has_discount,omitempty"`
+	CancelReason  *string                                      `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
+	Segment       *string                                      `form:"segment,omitempty" json:"segment,omitempty"`
+	FixFx         *string                                      `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+}
+
+// GetForecastCashflowForecastDetailParamsSort defines parameters for GetForecastCashflowForecastDetail.
+type GetForecastCashflowForecastDetailParamsSort string
+
 // PostIntegrationsWebhooksJSONBody defines parameters for PostIntegrationsWebhooks.
 type PostIntegrationsWebhooksJSONBody struct {
 	// EventType One of: movement.new, movement.expansion, movement.contraction, movement.churn, movement.reactivation, failed_payment, invoice.paid, customer.created, customer.updated, plan.created, data_source.import_completed.
@@ -1320,6 +1477,35 @@ type GetReportsLatestActivityParamsIncludeScheduled string
 // GetReportsLatestActivity200JSONResponseBodyResultSource defines parameters for GetReportsLatestActivity.
 type GetReportsLatestActivity200JSONResponseBodyResultSource string
 
+// GetReportsLeadOutcomesParams defines parameters for GetReportsLeadOutcomes.
+type GetReportsLeadOutcomesParams struct {
+	Date          *string `form:"date,omitempty" json:"date,omitempty"`
+	Interval      *string `form:"interval,omitempty" json:"interval,omitempty"`
+	BaseCurrency  *string `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+	Currency      *string `form:"currency,omitempty" json:"currency,omitempty"`
+	PaymentMethod *string `form:"payment_method,omitempty" json:"payment_method,omitempty"`
+	PricingModel  *string `form:"pricing_model,omitempty" json:"pricing_model,omitempty"`
+	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
+	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
+	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
+	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
+	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
+	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
+	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
+	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
+	Region        *string `form:"region,omitempty" json:"region,omitempty"`
+	State         *string `form:"state,omitempty" json:"state,omitempty"`
+	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
+	Status        *string `form:"status,omitempty" json:"status,omitempty"`
+	HasDiscount   *string `form:"has_discount,omitempty" json:"has_discount,omitempty"`
+	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
+	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
+	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+}
+
 // GetReportsLeadsParams defines parameters for GetReportsLeads.
 type GetReportsLeadsParams struct {
 	Date          *string `form:"date,omitempty" json:"date,omitempty"`
@@ -1575,6 +1761,35 @@ type GetReportsTransactionsParams struct {
 // GetReportsTransactionsSummaryParams defines parameters for GetReportsTransactionsSummary.
 type GetReportsTransactionsSummaryParams struct {
 	Date          *string `form:"date,omitempty" json:"date,omitempty"`
+	BaseCurrency  *string `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+	Currency      *string `form:"currency,omitempty" json:"currency,omitempty"`
+	PaymentMethod *string `form:"payment_method,omitempty" json:"payment_method,omitempty"`
+	PricingModel  *string `form:"pricing_model,omitempty" json:"pricing_model,omitempty"`
+	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
+	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
+	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
+	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
+	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
+	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
+	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
+	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
+	Region        *string `form:"region,omitempty" json:"region,omitempty"`
+	State         *string `form:"state,omitempty" json:"state,omitempty"`
+	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
+	Status        *string `form:"status,omitempty" json:"status,omitempty"`
+	HasDiscount   *string `form:"has_discount,omitempty" json:"has_discount,omitempty"`
+	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
+	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
+	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+}
+
+// GetReportsTrialOutcomesParams defines parameters for GetReportsTrialOutcomes.
+type GetReportsTrialOutcomesParams struct {
+	Date          *string `form:"date,omitempty" json:"date,omitempty"`
+	Interval      *string `form:"interval,omitempty" json:"interval,omitempty"`
 	BaseCurrency  *string `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
 	Currency      *string `form:"currency,omitempty" json:"currency,omitempty"`
 	PaymentMethod *string `form:"payment_method,omitempty" json:"payment_method,omitempty"`
@@ -2377,6 +2592,34 @@ type ClientInterface interface {
 	// Corresponds with PUT /data/segments/{id} (the `PutDataSegmentsId` operationId).
 	PutDataSegmentsId(ctx context.Context, id string, body PutDataSegmentsIdJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetForecastAiSummary MRR forecast — projection + scenario levers
+	//
+	// Deterministic MRR projection built from the account's own recent movements, with optional scenario levers. Returns the baseline-vs-scenario trajectory, the baseline rates it is derived from, and 1/2/3-year snapshots. Transparent customer-count model, reproducible by hand. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	//
+	// Corresponds with GET /forecast/ai/summary (the `GetForecastAiSummary` operationId).
+	GetForecastAiSummary(ctx context.Context, params *GetForecastAiSummaryParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetForecastAiSummaryTable MRR forecast — period decomposition table
+	//
+	// The MRR forecast broken down per period into new business, existing MRR change, customer count and total MRR — the table behind /forecast/ai/summary. Accepts the same query params.
+	//
+	// Corresponds with GET /forecast/ai/summary-table (the `GetForecastAiSummaryTable` operationId).
+	GetForecastAiSummaryTable(ctx context.Context, params *GetForecastAiSummaryTableParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetForecastCashflowForecast Cashflow forecast — projected cash collection
+	//
+	// Projects the cash the account will collect, period by period, from the subscriptions it has today. Each active subscription is walked forward on its own billing schedule, so annual plans land as one payment on their renewal date rather than spread across the year. A committed-cash view — it does not model new customers (use the MRR forecast for growth modelling). Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	//
+	// Corresponds with GET /forecast/cashflow-forecast (the `GetForecastCashflowForecast` operationId).
+	GetForecastCashflowForecast(ctx context.Context, params *GetForecastCashflowForecastParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetForecastCashflowForecastDetail Cashflow forecast — customers renewing in a period
+	//
+	// The individual subscriptions behind one cell of the cashflow forecast: who renews, when, and for how much. Drill-down for /forecast/cashflow-forecast.
+	//
+	// Corresponds with GET /forecast/cashflow-forecast-detail (the `GetForecastCashflowForecastDetail` operationId).
+	GetForecastCashflowForecastDetail(ctx context.Context, params *GetForecastCashflowForecastDetailParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetIntegrationsWebhooks List webhook subscriptions
 	//
 	// Webhooks let you push event notifications to any HTTPS URL — useful for Zapier / n8n / Make integrations.
@@ -2540,6 +2783,13 @@ type ClientInterface interface {
 	// Corresponds with GET /reports/latest-activity (the `GetReportsLatestActivity` operationId).
 	GetReportsLatestActivity(ctx context.Context, params *GetReportsLatestActivityParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetReportsLeadOutcomes Lead outcomes over time
+	//
+	// Per-period breakdown of what happened to the leads created in each period: converted to paying, started a trial, still a lead, or lost, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	//
+	// Corresponds with GET /reports/lead-outcomes (the `GetReportsLeadOutcomes` operationId).
+	GetReportsLeadOutcomes(ctx context.Context, params *GetReportsLeadOutcomesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetReportsLeads Leads and conversion funnel over time
 	//
 	// Per-period funnel metrics: lead counts, trial counts, conversion rates, and average time-to-paid. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
@@ -2609,6 +2859,13 @@ type ClientInterface interface {
 	//
 	// Corresponds with GET /reports/transactions-summary (the `GetReportsTransactionsSummary` operationId).
 	GetReportsTransactionsSummary(ctx context.Context, params *GetReportsTransactionsSummaryParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetReportsTrialOutcomes Trial outcomes over time
+	//
+	// Per-period breakdown of what happened to the trials started in each period: converted, still on trial, cancelled, or ended without purchase, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	//
+	// Corresponds with GET /reports/trial-outcomes (the `GetReportsTrialOutcomes` operationId).
+	GetReportsTrialOutcomes(ctx context.Context, params *GetReportsTrialOutcomesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetSettingsNotifications Get notification preferences
 	//
@@ -3424,6 +3681,74 @@ func (c *Client) PutDataSegmentsId(ctx context.Context, id string, body PutDataS
 	return c.Client.Do(req)
 }
 
+// GetForecastAiSummary MRR forecast — projection + scenario levers
+//
+// Deterministic MRR projection built from the account's own recent movements, with optional scenario levers. Returns the baseline-vs-scenario trajectory, the baseline rates it is derived from, and 1/2/3-year snapshots. Transparent customer-count model, reproducible by hand. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+//
+// Corresponds with GET /forecast/ai/summary (the `GetForecastAiSummary` operationId).
+func (c *Client) GetForecastAiSummary(ctx context.Context, params *GetForecastAiSummaryParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetForecastAiSummaryRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetForecastAiSummaryTable MRR forecast — period decomposition table
+//
+// The MRR forecast broken down per period into new business, existing MRR change, customer count and total MRR — the table behind /forecast/ai/summary. Accepts the same query params.
+//
+// Corresponds with GET /forecast/ai/summary-table (the `GetForecastAiSummaryTable` operationId).
+func (c *Client) GetForecastAiSummaryTable(ctx context.Context, params *GetForecastAiSummaryTableParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetForecastAiSummaryTableRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetForecastCashflowForecast Cashflow forecast — projected cash collection
+//
+// Projects the cash the account will collect, period by period, from the subscriptions it has today. Each active subscription is walked forward on its own billing schedule, so annual plans land as one payment on their renewal date rather than spread across the year. A committed-cash view — it does not model new customers (use the MRR forecast for growth modelling). Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+//
+// Corresponds with GET /forecast/cashflow-forecast (the `GetForecastCashflowForecast` operationId).
+func (c *Client) GetForecastCashflowForecast(ctx context.Context, params *GetForecastCashflowForecastParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetForecastCashflowForecastRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetForecastCashflowForecastDetail Cashflow forecast — customers renewing in a period
+//
+// The individual subscriptions behind one cell of the cashflow forecast: who renews, when, and for how much. Drill-down for /forecast/cashflow-forecast.
+//
+// Corresponds with GET /forecast/cashflow-forecast-detail (the `GetForecastCashflowForecastDetail` operationId).
+func (c *Client) GetForecastCashflowForecastDetail(ctx context.Context, params *GetForecastCashflowForecastDetailParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetForecastCashflowForecastDetailRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // GetIntegrationsWebhooks List webhook subscriptions
 //
 // Webhooks let you push event notifications to any HTTPS URL — useful for Zapier / n8n / Make integrations.
@@ -3817,6 +4142,23 @@ func (c *Client) GetReportsLatestActivity(ctx context.Context, params *GetReport
 	return c.Client.Do(req)
 }
 
+// GetReportsLeadOutcomes Lead outcomes over time
+//
+// Per-period breakdown of what happened to the leads created in each period: converted to paying, started a trial, still a lead, or lost, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+//
+// Corresponds with GET /reports/lead-outcomes (the `GetReportsLeadOutcomes` operationId).
+func (c *Client) GetReportsLeadOutcomes(ctx context.Context, params *GetReportsLeadOutcomesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetReportsLeadOutcomesRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // GetReportsLeads Leads and conversion funnel over time
 //
 // Per-period funnel metrics: lead counts, trial counts, conversion rates, and average time-to-paid. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
@@ -3977,6 +4319,23 @@ func (c *Client) GetReportsTransactions(ctx context.Context, params *GetReportsT
 // Corresponds with GET /reports/transactions-summary (the `GetReportsTransactionsSummary` operationId).
 func (c *Client) GetReportsTransactionsSummary(ctx context.Context, params *GetReportsTransactionsSummaryParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetReportsTransactionsSummaryRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetReportsTrialOutcomes Trial outcomes over time
+//
+// Per-period breakdown of what happened to the trials started in each period: converted, still on trial, cancelled, or ended without purchase, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+//
+// Corresponds with GET /reports/trial-outcomes (the `GetReportsTrialOutcomes` operationId).
+func (c *Client) GetReportsTrialOutcomes(ctx context.Context, params *GetReportsTrialOutcomesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetReportsTrialOutcomesRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -5774,6 +6133,1614 @@ func NewPutDataSegmentsIdRequestWithBody(server string, id string, contentType s
 	}
 
 	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewGetForecastAiSummaryRequest constructs an http.Request for the GetForecastAiSummary method
+func NewGetForecastAiSummaryRequest(server string, params *GetForecastAiSummaryParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/forecast/ai/summary")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Horizon != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "horizon", *params.Horizon, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Interval != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "interval", *params.Interval, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.MonthsBack != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "months_back", *params.MonthsBack, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BaseCurrency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.NewMrrChangePct != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "new_mrr_change_pct", *params.NewMrrChangePct, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.ChurnChangePct != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "churn_change_pct", *params.ChurnChangePct, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PriceChangePct != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "price_change_pct", *params.PriceChangePct, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PriceScope != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "price_scope", *params.PriceScope, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Currency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "currency", *params.Currency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PaymentMethod != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "payment_method", *params.PaymentMethod, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PricingModel != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "pricing_model", *params.PricingModel, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Customer != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "customer", *params.Customer, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Plan != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "plan", *params.Plan, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Age != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CreatedDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PaidStarted != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "paid_started", *params.PaidStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TrialStarted != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TrialEndDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_end_date", *params.TrialEndDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BillingFreq != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Region != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.State != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "state", *params.State, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.DataSource != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "data_source", *params.DataSource, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Status != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.HasDiscount != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "has_discount", *params.HasDiscount, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelReason != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_reason", *params.CancelReason, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Segment != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "segment", *params.Segment, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.FixFx != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetForecastAiSummaryTableRequest constructs an http.Request for the GetForecastAiSummaryTable method
+func NewGetForecastAiSummaryTableRequest(server string, params *GetForecastAiSummaryTableParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/forecast/ai/summary-table")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Horizon != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "horizon", *params.Horizon, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Interval != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "interval", *params.Interval, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.MonthsBack != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "months_back", *params.MonthsBack, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BaseCurrency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.NewMrrChangePct != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "new_mrr_change_pct", *params.NewMrrChangePct, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.ChurnChangePct != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "churn_change_pct", *params.ChurnChangePct, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PriceChangePct != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "price_change_pct", *params.PriceChangePct, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PriceScope != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "price_scope", *params.PriceScope, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Currency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "currency", *params.Currency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PaymentMethod != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "payment_method", *params.PaymentMethod, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PricingModel != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "pricing_model", *params.PricingModel, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Customer != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "customer", *params.Customer, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Plan != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "plan", *params.Plan, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Age != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CreatedDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PaidStarted != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "paid_started", *params.PaidStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TrialStarted != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TrialEndDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_end_date", *params.TrialEndDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BillingFreq != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Region != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.State != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "state", *params.State, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.DataSource != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "data_source", *params.DataSource, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Status != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.HasDiscount != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "has_discount", *params.HasDiscount, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelReason != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_reason", *params.CancelReason, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Segment != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "segment", *params.Segment, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.FixFx != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetForecastCashflowForecastRequest constructs an http.Request for the GetForecastCashflowForecast method
+func NewGetForecastCashflowForecastRequest(server string, params *GetForecastCashflowForecastParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/forecast/cashflow-forecast")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Horizon != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "horizon", *params.Horizon, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Interval != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "interval", *params.Interval, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BaseCurrency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Breakdown != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "breakdown", *params.Breakdown, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.IncludeOneTime != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "includeOneTime", *params.IncludeOneTime, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.IncludeRefunds != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "includeRefunds", *params.IncludeRefunds, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.IncludeDelay != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "includeDelay", *params.IncludeDelay, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Currency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "currency", *params.Currency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PaymentMethod != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "payment_method", *params.PaymentMethod, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PricingModel != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "pricing_model", *params.PricingModel, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Customer != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "customer", *params.Customer, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Plan != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "plan", *params.Plan, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Age != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CreatedDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PaidStarted != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "paid_started", *params.PaidStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TrialStarted != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TrialEndDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_end_date", *params.TrialEndDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BillingFreq != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Region != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.State != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "state", *params.State, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.DataSource != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "data_source", *params.DataSource, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Status != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.HasDiscount != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "has_discount", *params.HasDiscount, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelReason != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_reason", *params.CancelReason, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Segment != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "segment", *params.Segment, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.FixFx != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetForecastCashflowForecastDetailRequest constructs an http.Request for the GetForecastCashflowForecastDetail method
+func NewGetForecastCashflowForecastDetailRequest(server string, params *GetForecastCashflowForecastDetailParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/forecast/cashflow-forecast-detail")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.SelectedDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "selected-date", *params.SelectedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.SelectedType != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "selected-type", *params.SelectedType, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.From != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "from", *params.From, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.To != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "to", *params.To, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Types != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "types", *params.Types, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "sort", *params.Sort, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "limit", *params.Limit, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Interval != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "interval", *params.Interval, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BaseCurrency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Currency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "currency", *params.Currency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PaymentMethod != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "payment_method", *params.PaymentMethod, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PricingModel != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "pricing_model", *params.PricingModel, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Customer != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "customer", *params.Customer, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Plan != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "plan", *params.Plan, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Age != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CreatedDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PaidStarted != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "paid_started", *params.PaidStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TrialStarted != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TrialEndDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_end_date", *params.TrialEndDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BillingFreq != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Region != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.State != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "state", *params.State, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.DataSource != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "data_source", *params.DataSource, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Status != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.HasDiscount != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "has_discount", *params.HasDiscount, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelReason != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_reason", *params.CancelReason, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Segment != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "segment", *params.Segment, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.FixFx != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
 
 	return req, nil
 }
@@ -10319,6 +12286,348 @@ func NewGetReportsLatestActivityRequest(server string, params *GetReportsLatestA
 	return req, nil
 }
 
+// NewGetReportsLeadOutcomesRequest constructs an http.Request for the GetReportsLeadOutcomes method
+func NewGetReportsLeadOutcomesRequest(server string, params *GetReportsLeadOutcomesParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/reports/lead-outcomes")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "date", *params.Date, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Interval != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "interval", *params.Interval, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BaseCurrency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Currency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "currency", *params.Currency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PaymentMethod != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "payment_method", *params.PaymentMethod, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PricingModel != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "pricing_model", *params.PricingModel, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Customer != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "customer", *params.Customer, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Plan != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "plan", *params.Plan, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Age != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CreatedDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PaidStarted != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "paid_started", *params.PaidStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TrialStarted != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TrialEndDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_end_date", *params.TrialEndDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BillingFreq != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Region != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.State != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "state", *params.State, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.DataSource != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "data_source", *params.DataSource, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Status != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.HasDiscount != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "has_discount", *params.HasDiscount, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelReason != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_reason", *params.CancelReason, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Segment != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "segment", *params.Segment, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.FixFx != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewGetReportsLeadsRequest constructs an http.Request for the GetReportsLeads method
 func NewGetReportsLeadsRequest(server string, params *GetReportsLeadsParams) (*http.Request, error) {
 	var err error
@@ -13507,6 +15816,348 @@ func NewGetReportsTransactionsSummaryRequest(server string, params *GetReportsTr
 	return req, nil
 }
 
+// NewGetReportsTrialOutcomesRequest constructs an http.Request for the GetReportsTrialOutcomes method
+func NewGetReportsTrialOutcomesRequest(server string, params *GetReportsTrialOutcomesParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/reports/trial-outcomes")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "date", *params.Date, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Interval != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "interval", *params.Interval, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BaseCurrency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Currency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "currency", *params.Currency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PaymentMethod != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "payment_method", *params.PaymentMethod, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PricingModel != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "pricing_model", *params.PricingModel, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Customer != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "customer", *params.Customer, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Plan != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "plan", *params.Plan, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Age != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CreatedDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PaidStarted != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "paid_started", *params.PaidStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TrialStarted != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TrialEndDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_end_date", *params.TrialEndDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BillingFreq != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Region != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.State != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "state", *params.State, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.DataSource != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "data_source", *params.DataSource, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Status != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.HasDiscount != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "has_discount", *params.HasDiscount, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelReason != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_reason", *params.CancelReason, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Segment != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "segment", *params.Segment, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.FixFx != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewGetSettingsNotificationsRequest constructs an http.Request for the GetSettingsNotifications method
 func NewGetSettingsNotificationsRequest(server string) (*http.Request, error) {
 	var err error
@@ -13990,6 +16641,42 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with PUT /data/segments/{id} (the `PutDataSegmentsId` operationId).
 	PutDataSegmentsIdWithResponse(ctx context.Context, id string, body PutDataSegmentsIdJSONRequestBody, reqEditors ...RequestEditorFn) (*PutDataSegmentsIdResponse, error)
 
+	// GetForecastAiSummaryWithResponse MRR forecast — projection + scenario levers
+	//
+	// Deterministic MRR projection built from the account's own recent movements, with optional scenario levers. Returns the baseline-vs-scenario trajectory, the baseline rates it is derived from, and 1/2/3-year snapshots. Transparent customer-count model, reproducible by hand. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /forecast/ai/summary (the `GetForecastAiSummary` operationId).
+	GetForecastAiSummaryWithResponse(ctx context.Context, params *GetForecastAiSummaryParams, reqEditors ...RequestEditorFn) (*GetForecastAiSummaryResponse, error)
+
+	// GetForecastAiSummaryTableWithResponse MRR forecast — period decomposition table
+	//
+	// The MRR forecast broken down per period into new business, existing MRR change, customer count and total MRR — the table behind /forecast/ai/summary. Accepts the same query params.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /forecast/ai/summary-table (the `GetForecastAiSummaryTable` operationId).
+	GetForecastAiSummaryTableWithResponse(ctx context.Context, params *GetForecastAiSummaryTableParams, reqEditors ...RequestEditorFn) (*GetForecastAiSummaryTableResponse, error)
+
+	// GetForecastCashflowForecastWithResponse Cashflow forecast — projected cash collection
+	//
+	// Projects the cash the account will collect, period by period, from the subscriptions it has today. Each active subscription is walked forward on its own billing schedule, so annual plans land as one payment on their renewal date rather than spread across the year. A committed-cash view — it does not model new customers (use the MRR forecast for growth modelling). Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /forecast/cashflow-forecast (the `GetForecastCashflowForecast` operationId).
+	GetForecastCashflowForecastWithResponse(ctx context.Context, params *GetForecastCashflowForecastParams, reqEditors ...RequestEditorFn) (*GetForecastCashflowForecastResponse, error)
+
+	// GetForecastCashflowForecastDetailWithResponse Cashflow forecast — customers renewing in a period
+	//
+	// The individual subscriptions behind one cell of the cashflow forecast: who renews, when, and for how much. Drill-down for /forecast/cashflow-forecast.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /forecast/cashflow-forecast-detail (the `GetForecastCashflowForecastDetail` operationId).
+	GetForecastCashflowForecastDetailWithResponse(ctx context.Context, params *GetForecastCashflowForecastDetailParams, reqEditors ...RequestEditorFn) (*GetForecastCashflowForecastDetailResponse, error)
+
 	// GetIntegrationsWebhooksWithResponse List webhook subscriptions
 	//
 	// Webhooks let you push event notifications to any HTTPS URL — useful for Zapier / n8n / Make integrations.
@@ -14191,6 +16878,15 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with GET /reports/latest-activity (the `GetReportsLatestActivity` operationId).
 	GetReportsLatestActivityWithResponse(ctx context.Context, params *GetReportsLatestActivityParams, reqEditors ...RequestEditorFn) (*GetReportsLatestActivityResponse, error)
 
+	// GetReportsLeadOutcomesWithResponse Lead outcomes over time
+	//
+	// Per-period breakdown of what happened to the leads created in each period: converted to paying, started a trial, still a lead, or lost, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /reports/lead-outcomes (the `GetReportsLeadOutcomes` operationId).
+	GetReportsLeadOutcomesWithResponse(ctx context.Context, params *GetReportsLeadOutcomesParams, reqEditors ...RequestEditorFn) (*GetReportsLeadOutcomesResponse, error)
+
 	// GetReportsLeadsWithResponse Leads and conversion funnel over time
 	//
 	// Per-period funnel metrics: lead counts, trial counts, conversion rates, and average time-to-paid. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
@@ -14280,6 +16976,15 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with GET /reports/transactions-summary (the `GetReportsTransactionsSummary` operationId).
 	GetReportsTransactionsSummaryWithResponse(ctx context.Context, params *GetReportsTransactionsSummaryParams, reqEditors ...RequestEditorFn) (*GetReportsTransactionsSummaryResponse, error)
+
+	// GetReportsTrialOutcomesWithResponse Trial outcomes over time
+	//
+	// Per-period breakdown of what happened to the trials started in each period: converted, still on trial, cancelled, or ended without purchase, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /reports/trial-outcomes (the `GetReportsTrialOutcomes` operationId).
+	GetReportsTrialOutcomesWithResponse(ctx context.Context, params *GetReportsTrialOutcomesParams, reqEditors ...RequestEditorFn) (*GetReportsTrialOutcomesResponse, error)
 
 	// GetSettingsNotificationsWithResponse Get notification preferences
 	//
@@ -17892,6 +20597,628 @@ func (r PutDataSegmentsIdResponse) ContentType() string {
 	return ""
 }
 
+type GetForecastAiSummaryResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// AsOf Period start date in ISO 8601 (YYYY-MM-DD).
+		AsOf string `json:"as_of"`
+
+		// BaseCurrency ISO 4217 currency code, lowercase.
+		BaseCurrency string `json:"base_currency"`
+
+		// CurrentMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		CurrentMrr    float32 `json:"current_mrr"`
+		HorizonMonths float32 `json:"horizon_months"`
+
+		// Rates The baseline rates the projection is built from.
+		Rates struct {
+			// Arpa Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			Arpa *float32 `json:"arpa,omitempty"`
+
+			// Asp Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			Asp                  *float32 `json:"asp,omitempty"`
+			CurrentCustomers     *float32 `json:"current_customers,omitempty"`
+			NewCustomersPerMonth *float32 `json:"new_customers_per_month,omitempty"`
+
+			// NrrRate Monthly net revenue retention (1.0 = flat).
+			NrrRate *float32 `json:"nrr_rate,omitempty"`
+		} `json:"rates"`
+		Result []struct {
+			// ConfidenceLower Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			ConfidenceLower *float32 `json:"confidence_lower,omitempty"`
+
+			// ConfidenceUpper Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			ConfidenceUpper *float32 `json:"confidence_upper,omitempty"`
+
+			// Date Period start date in ISO 8601 (YYYY-MM-DD).
+			Date *string `json:"date,omitempty"`
+
+			// GoalMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			GoalMrr *float32 `json:"goal_mrr,omitempty"`
+
+			// ScenarioMrr Scenario MRR when levers are applied; null across the historical range.
+			ScenarioMrr *float32 `json:"scenario_mrr,omitempty"`
+
+			// TotalMrr Baseline MRR — actual for past periods, projected for future ones.
+			TotalMrr *float32 `json:"total_mrr,omitempty"`
+		} `json:"result"`
+		ScenarioApplied bool `json:"scenario_applied"`
+		Summary         struct {
+			// Forecast180 Projected MRR in 3 years.
+			Forecast180 *float32 `json:"forecast_180,omitempty"`
+
+			// Forecast30 Projected MRR in 1 year.
+			Forecast30 *float32 `json:"forecast_30,omitempty"`
+
+			// Forecast365 Projected MRR at the end of the horizon.
+			Forecast365 *float32 `json:"forecast_365,omitempty"`
+
+			// Forecast60 Projected MRR in 2 years.
+			Forecast60 *float32 `json:"forecast_60,omitempty"`
+
+			// ForecastCurrent Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			ForecastCurrent *float32 `json:"forecast_current,omitempty"`
+		} `json:"summary"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetForecastAiSummaryResponse) GetJSON200() *struct {
+	// AsOf Period start date in ISO 8601 (YYYY-MM-DD).
+	AsOf string `json:"as_of"`
+
+	// BaseCurrency ISO 4217 currency code, lowercase.
+	BaseCurrency string `json:"base_currency"`
+
+	// CurrentMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+	CurrentMrr    float32 `json:"current_mrr"`
+	HorizonMonths float32 `json:"horizon_months"`
+
+	// Rates The baseline rates the projection is built from.
+	Rates struct {
+		// Arpa Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		Arpa *float32 `json:"arpa,omitempty"`
+
+		// Asp Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		Asp                  *float32 `json:"asp,omitempty"`
+		CurrentCustomers     *float32 `json:"current_customers,omitempty"`
+		NewCustomersPerMonth *float32 `json:"new_customers_per_month,omitempty"`
+
+		// NrrRate Monthly net revenue retention (1.0 = flat).
+		NrrRate *float32 `json:"nrr_rate,omitempty"`
+	} `json:"rates"`
+	Result []struct {
+		// ConfidenceLower Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		ConfidenceLower *float32 `json:"confidence_lower,omitempty"`
+
+		// ConfidenceUpper Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		ConfidenceUpper *float32 `json:"confidence_upper,omitempty"`
+
+		// Date Period start date in ISO 8601 (YYYY-MM-DD).
+		Date *string `json:"date,omitempty"`
+
+		// GoalMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		GoalMrr *float32 `json:"goal_mrr,omitempty"`
+
+		// ScenarioMrr Scenario MRR when levers are applied; null across the historical range.
+		ScenarioMrr *float32 `json:"scenario_mrr,omitempty"`
+
+		// TotalMrr Baseline MRR — actual for past periods, projected for future ones.
+		TotalMrr *float32 `json:"total_mrr,omitempty"`
+	} `json:"result"`
+	ScenarioApplied bool `json:"scenario_applied"`
+	Summary         struct {
+		// Forecast180 Projected MRR in 3 years.
+		Forecast180 *float32 `json:"forecast_180,omitempty"`
+
+		// Forecast30 Projected MRR in 1 year.
+		Forecast30 *float32 `json:"forecast_30,omitempty"`
+
+		// Forecast365 Projected MRR at the end of the horizon.
+		Forecast365 *float32 `json:"forecast_365,omitempty"`
+
+		// Forecast60 Projected MRR in 2 years.
+		Forecast60 *float32 `json:"forecast_60,omitempty"`
+
+		// ForecastCurrent Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		ForecastCurrent *float32 `json:"forecast_current,omitempty"`
+	} `json:"summary"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetForecastAiSummaryResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetForecastAiSummaryResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetForecastAiSummaryResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetForecastAiSummaryResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetForecastAiSummaryResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetForecastAiSummaryResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetForecastAiSummaryResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetForecastAiSummaryResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetForecastAiSummaryTableResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// Currency ISO 4217 currency code, lowercase.
+		Currency string `json:"currency"`
+
+		// Result list[<metric>][<date>] — metrics include new_biz, net_change, customers and total_mrr.
+		Result struct {
+			List map[string]map[string]float32 `json:"list"`
+		} `json:"result"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetForecastAiSummaryTableResponse) GetJSON200() *struct {
+	// Currency ISO 4217 currency code, lowercase.
+	Currency string `json:"currency"`
+
+	// Result list[<metric>][<date>] — metrics include new_biz, net_change, customers and total_mrr.
+	Result struct {
+		List map[string]map[string]float32 `json:"list"`
+	} `json:"result"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetForecastAiSummaryTableResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetForecastAiSummaryTableResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetForecastAiSummaryTableResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetForecastAiSummaryTableResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetForecastAiSummaryTableResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetForecastAiSummaryTableResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetForecastAiSummaryTableResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetForecastAiSummaryTableResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetForecastCashflowForecastResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// Currency ISO 4217 currency code, lowercase.
+		Currency string `json:"currency"`
+
+		// Excluded Number of customers that carry MRR but have no known renewal date, so their cash is not projected.
+		Excluded float32 `json:"excluded"`
+		Horizon  float32 `json:"horizon"`
+		Interval string  `json:"interval"`
+
+		// PaymentTiming What the includeDelay option applied (present when includeDelay=1).
+		PaymentTiming struct {
+			Applied             *bool    `json:"applied,omitempty"`
+			AvgDelayDays        *float32 `json:"avg_delay_days,omitempty"`
+			InvoicedPct         *float32 `json:"invoiced_pct,omitempty"`
+			PermanentFailurePct *float32 `json:"permanent_failure_pct,omitempty"`
+		} `json:"payment_timing"`
+		Result []struct {
+			AnnualCustomers *float32 `json:"annual_customers,omitempty"`
+
+			// AnnualRenewals Cash from yearly plans billing in this period (counted in full when billed, not spread across the year).
+			AnnualRenewals *float32 `json:"annual_renewals,omitempty"`
+
+			// CashIn Total expected cash received in this period.
+			CashIn            *float32 `json:"cash_in,omitempty"`
+			CustomersRenewing *float32 `json:"customers_renewing,omitempty"`
+
+			// Date Period start date in ISO 8601 (YYYY-MM-DD).
+			Date             *string  `json:"date,omitempty"`
+			MonthlyCustomers *float32 `json:"monthly_customers,omitempty"`
+
+			// MonthlyRenewals Cash from monthly plans billing in this period.
+			MonthlyRenewals *float32 `json:"monthly_renewals,omitempty"`
+
+			// OneTimeEstimate Estimated one-time / usage cash (avg of the last 6 months). Present when includeOneTime=1.
+			OneTimeEstimate    *float32 `json:"one_time_estimate,omitempty"`
+			QuarterlyCustomers *float32 `json:"quarterly_customers,omitempty"`
+
+			// QuarterlyRenewals Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			QuarterlyRenewals *float32 `json:"quarterly_renewals,omitempty"`
+
+			// RefundEstimate Estimated refunds (negative). Present when includeRefunds=1.
+			RefundEstimate  *float32 `json:"refund_estimate,omitempty"`
+			WeeklyCustomers *float32 `json:"weekly_customers,omitempty"`
+
+			// WeeklyRenewals Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			WeeklyRenewals *float32 `json:"weekly_renewals,omitempty"`
+		} `json:"result"`
+		Summary struct {
+			// AnnualConcentration Share (0–1) of forecast cash concentrated in annual renewals.
+			AnnualConcentration *float32 `json:"annual_concentration,omitempty"`
+
+			// AvgMonthly Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			AvgMonthly *float32 `json:"avg_monthly,omitempty"`
+
+			// Total Total forecast cash over the horizon.
+			Total *float32 `json:"total,omitempty"`
+		} `json:"summary"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetForecastCashflowForecastResponse) GetJSON200() *struct {
+	// Currency ISO 4217 currency code, lowercase.
+	Currency string `json:"currency"`
+
+	// Excluded Number of customers that carry MRR but have no known renewal date, so their cash is not projected.
+	Excluded float32 `json:"excluded"`
+	Horizon  float32 `json:"horizon"`
+	Interval string  `json:"interval"`
+
+	// PaymentTiming What the includeDelay option applied (present when includeDelay=1).
+	PaymentTiming struct {
+		Applied             *bool    `json:"applied,omitempty"`
+		AvgDelayDays        *float32 `json:"avg_delay_days,omitempty"`
+		InvoicedPct         *float32 `json:"invoiced_pct,omitempty"`
+		PermanentFailurePct *float32 `json:"permanent_failure_pct,omitempty"`
+	} `json:"payment_timing"`
+	Result []struct {
+		AnnualCustomers *float32 `json:"annual_customers,omitempty"`
+
+		// AnnualRenewals Cash from yearly plans billing in this period (counted in full when billed, not spread across the year).
+		AnnualRenewals *float32 `json:"annual_renewals,omitempty"`
+
+		// CashIn Total expected cash received in this period.
+		CashIn            *float32 `json:"cash_in,omitempty"`
+		CustomersRenewing *float32 `json:"customers_renewing,omitempty"`
+
+		// Date Period start date in ISO 8601 (YYYY-MM-DD).
+		Date             *string  `json:"date,omitempty"`
+		MonthlyCustomers *float32 `json:"monthly_customers,omitempty"`
+
+		// MonthlyRenewals Cash from monthly plans billing in this period.
+		MonthlyRenewals *float32 `json:"monthly_renewals,omitempty"`
+
+		// OneTimeEstimate Estimated one-time / usage cash (avg of the last 6 months). Present when includeOneTime=1.
+		OneTimeEstimate    *float32 `json:"one_time_estimate,omitempty"`
+		QuarterlyCustomers *float32 `json:"quarterly_customers,omitempty"`
+
+		// QuarterlyRenewals Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		QuarterlyRenewals *float32 `json:"quarterly_renewals,omitempty"`
+
+		// RefundEstimate Estimated refunds (negative). Present when includeRefunds=1.
+		RefundEstimate  *float32 `json:"refund_estimate,omitempty"`
+		WeeklyCustomers *float32 `json:"weekly_customers,omitempty"`
+
+		// WeeklyRenewals Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		WeeklyRenewals *float32 `json:"weekly_renewals,omitempty"`
+	} `json:"result"`
+	Summary struct {
+		// AnnualConcentration Share (0–1) of forecast cash concentrated in annual renewals.
+		AnnualConcentration *float32 `json:"annual_concentration,omitempty"`
+
+		// AvgMonthly Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		AvgMonthly *float32 `json:"avg_monthly,omitempty"`
+
+		// Total Total forecast cash over the horizon.
+		Total *float32 `json:"total,omitempty"`
+	} `json:"summary"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetForecastCashflowForecastResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetForecastCashflowForecastResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetForecastCashflowForecastResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetForecastCashflowForecastResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetForecastCashflowForecastResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetForecastCashflowForecastResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetForecastCashflowForecastResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetForecastCashflowForecastResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetForecastCashflowForecastDetailResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// Currency ISO 4217 currency code, lowercase.
+		Currency string `json:"currency"`
+		Result   struct {
+			List map[string]struct {
+				// Amount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				Amount        *float32 `json:"amount,omitempty"`
+				BillingFreq   *string  `json:"billing_freq,omitempty"`
+				CustomerEmail *string  `json:"customer_email,omitempty"`
+				CustomerId    *string  `json:"customer_id,omitempty"`
+				CustomerName  *string  `json:"customer_name,omitempty"`
+
+				// PeriodEnd Next billing date.
+				PeriodEnd *string `json:"period_end,omitempty"`
+			} `json:"list"`
+		} `json:"result"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetForecastCashflowForecastDetailResponse) GetJSON200() *struct {
+	// Currency ISO 4217 currency code, lowercase.
+	Currency string `json:"currency"`
+	Result   struct {
+		List map[string]struct {
+			// Amount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			Amount        *float32 `json:"amount,omitempty"`
+			BillingFreq   *string  `json:"billing_freq,omitempty"`
+			CustomerEmail *string  `json:"customer_email,omitempty"`
+			CustomerId    *string  `json:"customer_id,omitempty"`
+			CustomerName  *string  `json:"customer_name,omitempty"`
+
+			// PeriodEnd Next billing date.
+			PeriodEnd *string `json:"period_end,omitempty"`
+		} `json:"list"`
+	} `json:"result"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetForecastCashflowForecastDetailResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetForecastCashflowForecastDetailResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetForecastCashflowForecastDetailResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetForecastCashflowForecastDetailResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetForecastCashflowForecastDetailResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetForecastCashflowForecastDetailResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetForecastCashflowForecastDetailResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetForecastCashflowForecastDetailResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type GetIntegrationsWebhooksResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -20589,6 +23916,125 @@ func (r GetReportsLatestActivityResponse) ContentType() string {
 	return ""
 }
 
+type GetReportsLeadOutcomesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		Result []struct {
+			ActiveTrial *float32 `json:"active_trial,omitempty"`
+
+			// ConversionRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+			ConversionRate *float32 `json:"conversion_rate,omitempty"`
+			Converted      *float32 `json:"converted,omitempty"`
+
+			// Date Period start date in ISO 8601 (YYYY-MM-DD).
+			Date  *string  `json:"date,omitempty"`
+			Leads *float32 `json:"leads,omitempty"`
+			Lost  *float32 `json:"lost,omitempty"`
+
+			// Other Present only when non-zero.
+			Other     *float32 `json:"other,omitempty"`
+			StillLead *float32 `json:"still_lead,omitempty"`
+		} `json:"result"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetReportsLeadOutcomesResponse) GetJSON200() *struct {
+	Result []struct {
+		ActiveTrial *float32 `json:"active_trial,omitempty"`
+
+		// ConversionRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+		ConversionRate *float32 `json:"conversion_rate,omitempty"`
+		Converted      *float32 `json:"converted,omitempty"`
+
+		// Date Period start date in ISO 8601 (YYYY-MM-DD).
+		Date  *string  `json:"date,omitempty"`
+		Leads *float32 `json:"leads,omitempty"`
+		Lost  *float32 `json:"lost,omitempty"`
+
+		// Other Present only when non-zero.
+		Other     *float32 `json:"other,omitempty"`
+		StillLead *float32 `json:"still_lead,omitempty"`
+	} `json:"result"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetReportsLeadOutcomesResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetReportsLeadOutcomesResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetReportsLeadOutcomesResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetReportsLeadOutcomesResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetReportsLeadOutcomesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetReportsLeadOutcomesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetReportsLeadOutcomesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetReportsLeadOutcomesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type GetReportsLeadsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -22423,6 +25869,125 @@ func (r GetReportsTransactionsSummaryResponse) ContentType() string {
 	return ""
 }
 
+type GetReportsTrialOutcomesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		Result []struct {
+			ActiveTrial *float32 `json:"active_trial,omitempty"`
+			Cancelled   *float32 `json:"cancelled,omitempty"`
+
+			// ConversionRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+			ConversionRate *float32 `json:"conversion_rate,omitempty"`
+			Converted      *float32 `json:"converted,omitempty"`
+
+			// Date Period start date in ISO 8601 (YYYY-MM-DD).
+			Date            *string  `json:"date,omitempty"`
+			EndedNoPurchase *float32 `json:"ended_no_purchase,omitempty"`
+
+			// Other Present only when non-zero.
+			Other  *float32 `json:"other,omitempty"`
+			Trials *float32 `json:"trials,omitempty"`
+		} `json:"result"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetReportsTrialOutcomesResponse) GetJSON200() *struct {
+	Result []struct {
+		ActiveTrial *float32 `json:"active_trial,omitempty"`
+		Cancelled   *float32 `json:"cancelled,omitempty"`
+
+		// ConversionRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+		ConversionRate *float32 `json:"conversion_rate,omitempty"`
+		Converted      *float32 `json:"converted,omitempty"`
+
+		// Date Period start date in ISO 8601 (YYYY-MM-DD).
+		Date            *string  `json:"date,omitempty"`
+		EndedNoPurchase *float32 `json:"ended_no_purchase,omitempty"`
+
+		// Other Present only when non-zero.
+		Other  *float32 `json:"other,omitempty"`
+		Trials *float32 `json:"trials,omitempty"`
+	} `json:"result"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetReportsTrialOutcomesResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetReportsTrialOutcomesResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetReportsTrialOutcomesResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetReportsTrialOutcomesResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetReportsTrialOutcomesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetReportsTrialOutcomesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetReportsTrialOutcomesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetReportsTrialOutcomesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type GetSettingsNotificationsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -23281,6 +26846,66 @@ func (c *ClientWithResponses) PutDataSegmentsIdWithResponse(ctx context.Context,
 	return ParsePutDataSegmentsIdResponse(rsp)
 }
 
+// GetForecastAiSummaryWithResponse MRR forecast — projection + scenario levers
+//
+// Deterministic MRR projection built from the account's own recent movements, with optional scenario levers. Returns the baseline-vs-scenario trajectory, the baseline rates it is derived from, and 1/2/3-year snapshots. Transparent customer-count model, reproducible by hand. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /forecast/ai/summary (the `GetForecastAiSummary` operationId).
+func (c *ClientWithResponses) GetForecastAiSummaryWithResponse(ctx context.Context, params *GetForecastAiSummaryParams, reqEditors ...RequestEditorFn) (*GetForecastAiSummaryResponse, error) {
+	rsp, err := c.GetForecastAiSummary(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetForecastAiSummaryResponse(rsp)
+}
+
+// GetForecastAiSummaryTableWithResponse MRR forecast — period decomposition table
+//
+// The MRR forecast broken down per period into new business, existing MRR change, customer count and total MRR — the table behind /forecast/ai/summary. Accepts the same query params.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /forecast/ai/summary-table (the `GetForecastAiSummaryTable` operationId).
+func (c *ClientWithResponses) GetForecastAiSummaryTableWithResponse(ctx context.Context, params *GetForecastAiSummaryTableParams, reqEditors ...RequestEditorFn) (*GetForecastAiSummaryTableResponse, error) {
+	rsp, err := c.GetForecastAiSummaryTable(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetForecastAiSummaryTableResponse(rsp)
+}
+
+// GetForecastCashflowForecastWithResponse Cashflow forecast — projected cash collection
+//
+// Projects the cash the account will collect, period by period, from the subscriptions it has today. Each active subscription is walked forward on its own billing schedule, so annual plans land as one payment on their renewal date rather than spread across the year. A committed-cash view — it does not model new customers (use the MRR forecast for growth modelling). Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /forecast/cashflow-forecast (the `GetForecastCashflowForecast` operationId).
+func (c *ClientWithResponses) GetForecastCashflowForecastWithResponse(ctx context.Context, params *GetForecastCashflowForecastParams, reqEditors ...RequestEditorFn) (*GetForecastCashflowForecastResponse, error) {
+	rsp, err := c.GetForecastCashflowForecast(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetForecastCashflowForecastResponse(rsp)
+}
+
+// GetForecastCashflowForecastDetailWithResponse Cashflow forecast — customers renewing in a period
+//
+// The individual subscriptions behind one cell of the cashflow forecast: who renews, when, and for how much. Drill-down for /forecast/cashflow-forecast.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /forecast/cashflow-forecast-detail (the `GetForecastCashflowForecastDetail` operationId).
+func (c *ClientWithResponses) GetForecastCashflowForecastDetailWithResponse(ctx context.Context, params *GetForecastCashflowForecastDetailParams, reqEditors ...RequestEditorFn) (*GetForecastCashflowForecastDetailResponse, error) {
+	rsp, err := c.GetForecastCashflowForecastDetail(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetForecastCashflowForecastDetailResponse(rsp)
+}
+
 // GetIntegrationsWebhooksWithResponse List webhook subscriptions
 //
 // Webhooks let you push event notifications to any HTTPS URL — useful for Zapier / n8n / Make integrations.
@@ -23620,6 +27245,21 @@ func (c *ClientWithResponses) GetReportsLatestActivityWithResponse(ctx context.C
 	return ParseGetReportsLatestActivityResponse(rsp)
 }
 
+// GetReportsLeadOutcomesWithResponse Lead outcomes over time
+//
+// Per-period breakdown of what happened to the leads created in each period: converted to paying, started a trial, still a lead, or lost, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /reports/lead-outcomes (the `GetReportsLeadOutcomes` operationId).
+func (c *ClientWithResponses) GetReportsLeadOutcomesWithResponse(ctx context.Context, params *GetReportsLeadOutcomesParams, reqEditors ...RequestEditorFn) (*GetReportsLeadOutcomesResponse, error) {
+	rsp, err := c.GetReportsLeadOutcomes(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetReportsLeadOutcomesResponse(rsp)
+}
+
 // GetReportsLeadsWithResponse Leads and conversion funnel over time
 //
 // Per-period funnel metrics: lead counts, trial counts, conversion rates, and average time-to-paid. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
@@ -23768,6 +27408,21 @@ func (c *ClientWithResponses) GetReportsTransactionsSummaryWithResponse(ctx cont
 		return nil, err
 	}
 	return ParseGetReportsTransactionsSummaryResponse(rsp)
+}
+
+// GetReportsTrialOutcomesWithResponse Trial outcomes over time
+//
+// Per-period breakdown of what happened to the trials started in each period: converted, still on trial, cancelled, or ended without purchase, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /reports/trial-outcomes (the `GetReportsTrialOutcomes` operationId).
+func (c *ClientWithResponses) GetReportsTrialOutcomesWithResponse(ctx context.Context, params *GetReportsTrialOutcomesParams, reqEditors ...RequestEditorFn) (*GetReportsTrialOutcomesResponse, error) {
+	rsp, err := c.GetReportsTrialOutcomes(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetReportsTrialOutcomesResponse(rsp)
 }
 
 // GetSettingsNotificationsWithResponse Get notification preferences
@@ -26297,6 +29952,395 @@ func ParsePutDataSegmentsIdResponse(rsp *http.Response) (*PutDataSegmentsIdRespo
 	return response, nil
 }
 
+// ParseGetForecastAiSummaryResponse parses an HTTP response from a GetForecastAiSummaryWithResponse call
+func ParseGetForecastAiSummaryResponse(rsp *http.Response) (*GetForecastAiSummaryResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetForecastAiSummaryResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// AsOf Period start date in ISO 8601 (YYYY-MM-DD).
+			AsOf string `json:"as_of"`
+
+			// BaseCurrency ISO 4217 currency code, lowercase.
+			BaseCurrency string `json:"base_currency"`
+
+			// CurrentMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			CurrentMrr    float32 `json:"current_mrr"`
+			HorizonMonths float32 `json:"horizon_months"`
+
+			// Rates The baseline rates the projection is built from.
+			Rates struct {
+				// Arpa Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				Arpa *float32 `json:"arpa,omitempty"`
+
+				// Asp Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				Asp                  *float32 `json:"asp,omitempty"`
+				CurrentCustomers     *float32 `json:"current_customers,omitempty"`
+				NewCustomersPerMonth *float32 `json:"new_customers_per_month,omitempty"`
+
+				// NrrRate Monthly net revenue retention (1.0 = flat).
+				NrrRate *float32 `json:"nrr_rate,omitempty"`
+			} `json:"rates"`
+			Result []struct {
+				// ConfidenceLower Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				ConfidenceLower *float32 `json:"confidence_lower,omitempty"`
+
+				// ConfidenceUpper Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				ConfidenceUpper *float32 `json:"confidence_upper,omitempty"`
+
+				// Date Period start date in ISO 8601 (YYYY-MM-DD).
+				Date *string `json:"date,omitempty"`
+
+				// GoalMrr Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				GoalMrr *float32 `json:"goal_mrr,omitempty"`
+
+				// ScenarioMrr Scenario MRR when levers are applied; null across the historical range.
+				ScenarioMrr *float32 `json:"scenario_mrr,omitempty"`
+
+				// TotalMrr Baseline MRR — actual for past periods, projected for future ones.
+				TotalMrr *float32 `json:"total_mrr,omitempty"`
+			} `json:"result"`
+			ScenarioApplied bool `json:"scenario_applied"`
+			Summary         struct {
+				// Forecast180 Projected MRR in 3 years.
+				Forecast180 *float32 `json:"forecast_180,omitempty"`
+
+				// Forecast30 Projected MRR in 1 year.
+				Forecast30 *float32 `json:"forecast_30,omitempty"`
+
+				// Forecast365 Projected MRR at the end of the horizon.
+				Forecast365 *float32 `json:"forecast_365,omitempty"`
+
+				// Forecast60 Projected MRR in 2 years.
+				Forecast60 *float32 `json:"forecast_60,omitempty"`
+
+				// ForecastCurrent Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				ForecastCurrent *float32 `json:"forecast_current,omitempty"`
+			} `json:"summary"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetForecastAiSummaryTableResponse parses an HTTP response from a GetForecastAiSummaryTableWithResponse call
+func ParseGetForecastAiSummaryTableResponse(rsp *http.Response) (*GetForecastAiSummaryTableResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetForecastAiSummaryTableResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// Currency ISO 4217 currency code, lowercase.
+			Currency string `json:"currency"`
+
+			// Result list[<metric>][<date>] — metrics include new_biz, net_change, customers and total_mrr.
+			Result struct {
+				List map[string]map[string]float32 `json:"list"`
+			} `json:"result"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetForecastCashflowForecastResponse parses an HTTP response from a GetForecastCashflowForecastWithResponse call
+func ParseGetForecastCashflowForecastResponse(rsp *http.Response) (*GetForecastCashflowForecastResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetForecastCashflowForecastResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// Currency ISO 4217 currency code, lowercase.
+			Currency string `json:"currency"`
+
+			// Excluded Number of customers that carry MRR but have no known renewal date, so their cash is not projected.
+			Excluded float32 `json:"excluded"`
+			Horizon  float32 `json:"horizon"`
+			Interval string  `json:"interval"`
+
+			// PaymentTiming What the includeDelay option applied (present when includeDelay=1).
+			PaymentTiming struct {
+				Applied             *bool    `json:"applied,omitempty"`
+				AvgDelayDays        *float32 `json:"avg_delay_days,omitempty"`
+				InvoicedPct         *float32 `json:"invoiced_pct,omitempty"`
+				PermanentFailurePct *float32 `json:"permanent_failure_pct,omitempty"`
+			} `json:"payment_timing"`
+			Result []struct {
+				AnnualCustomers *float32 `json:"annual_customers,omitempty"`
+
+				// AnnualRenewals Cash from yearly plans billing in this period (counted in full when billed, not spread across the year).
+				AnnualRenewals *float32 `json:"annual_renewals,omitempty"`
+
+				// CashIn Total expected cash received in this period.
+				CashIn            *float32 `json:"cash_in,omitempty"`
+				CustomersRenewing *float32 `json:"customers_renewing,omitempty"`
+
+				// Date Period start date in ISO 8601 (YYYY-MM-DD).
+				Date             *string  `json:"date,omitempty"`
+				MonthlyCustomers *float32 `json:"monthly_customers,omitempty"`
+
+				// MonthlyRenewals Cash from monthly plans billing in this period.
+				MonthlyRenewals *float32 `json:"monthly_renewals,omitempty"`
+
+				// OneTimeEstimate Estimated one-time / usage cash (avg of the last 6 months). Present when includeOneTime=1.
+				OneTimeEstimate    *float32 `json:"one_time_estimate,omitempty"`
+				QuarterlyCustomers *float32 `json:"quarterly_customers,omitempty"`
+
+				// QuarterlyRenewals Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				QuarterlyRenewals *float32 `json:"quarterly_renewals,omitempty"`
+
+				// RefundEstimate Estimated refunds (negative). Present when includeRefunds=1.
+				RefundEstimate  *float32 `json:"refund_estimate,omitempty"`
+				WeeklyCustomers *float32 `json:"weekly_customers,omitempty"`
+
+				// WeeklyRenewals Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				WeeklyRenewals *float32 `json:"weekly_renewals,omitempty"`
+			} `json:"result"`
+			Summary struct {
+				// AnnualConcentration Share (0–1) of forecast cash concentrated in annual renewals.
+				AnnualConcentration *float32 `json:"annual_concentration,omitempty"`
+
+				// AvgMonthly Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				AvgMonthly *float32 `json:"avg_monthly,omitempty"`
+
+				// Total Total forecast cash over the horizon.
+				Total *float32 `json:"total,omitempty"`
+			} `json:"summary"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetForecastCashflowForecastDetailResponse parses an HTTP response from a GetForecastCashflowForecastDetailWithResponse call
+func ParseGetForecastCashflowForecastDetailResponse(rsp *http.Response) (*GetForecastCashflowForecastDetailResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetForecastCashflowForecastDetailResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// Currency ISO 4217 currency code, lowercase.
+			Currency string `json:"currency"`
+			Result   struct {
+				List map[string]struct {
+					// Amount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					Amount        *float32 `json:"amount,omitempty"`
+					BillingFreq   *string  `json:"billing_freq,omitempty"`
+					CustomerEmail *string  `json:"customer_email,omitempty"`
+					CustomerId    *string  `json:"customer_id,omitempty"`
+					CustomerName  *string  `json:"customer_name,omitempty"`
+
+					// PeriodEnd Next billing date.
+					PeriodEnd *string `json:"period_end,omitempty"`
+				} `json:"list"`
+			} `json:"result"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseGetIntegrationsWebhooksResponse parses an HTTP response from a GetIntegrationsWebhooksWithResponse call
 func ParseGetIntegrationsWebhooksResponse(rsp *http.Response) (*GetIntegrationsWebhooksResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -28069,6 +32113,85 @@ func ParseGetReportsLatestActivityResponse(rsp *http.Response) (*GetReportsLates
 	return response, nil
 }
 
+// ParseGetReportsLeadOutcomesResponse parses an HTTP response from a GetReportsLeadOutcomesWithResponse call
+func ParseGetReportsLeadOutcomesResponse(rsp *http.Response) (*GetReportsLeadOutcomesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetReportsLeadOutcomesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			Result []struct {
+				ActiveTrial *float32 `json:"active_trial,omitempty"`
+
+				// ConversionRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+				ConversionRate *float32 `json:"conversion_rate,omitempty"`
+				Converted      *float32 `json:"converted,omitempty"`
+
+				// Date Period start date in ISO 8601 (YYYY-MM-DD).
+				Date  *string  `json:"date,omitempty"`
+				Leads *float32 `json:"leads,omitempty"`
+				Lost  *float32 `json:"lost,omitempty"`
+
+				// Other Present only when non-zero.
+				Other     *float32 `json:"other,omitempty"`
+				StillLead *float32 `json:"still_lead,omitempty"`
+			} `json:"result"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseGetReportsLeadsResponse parses an HTTP response from a GetReportsLeadsWithResponse call
 func ParseGetReportsLeadsResponse(rsp *http.Response) (*GetReportsLeadsResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -29134,6 +33257,85 @@ func ParseGetReportsTransactionsSummaryResponse(rsp *http.Response) (*GetReports
 				// YtdChangePct Period-over-period change as a percentage. `null` when the baseline is zero.
 				YtdChangePct *float32 `json:"ytd_change_pct,omitempty"`
 			} `json:"summary"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetReportsTrialOutcomesResponse parses an HTTP response from a GetReportsTrialOutcomesWithResponse call
+func ParseGetReportsTrialOutcomesResponse(rsp *http.Response) (*GetReportsTrialOutcomesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetReportsTrialOutcomesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			Result []struct {
+				ActiveTrial *float32 `json:"active_trial,omitempty"`
+				Cancelled   *float32 `json:"cancelled,omitempty"`
+
+				// ConversionRate Percentage on a 0–100 scale (so 25 = 25%). May exceed 100 for NRR.
+				ConversionRate *float32 `json:"conversion_rate,omitempty"`
+				Converted      *float32 `json:"converted,omitempty"`
+
+				// Date Period start date in ISO 8601 (YYYY-MM-DD).
+				Date            *string  `json:"date,omitempty"`
+				EndedNoPurchase *float32 `json:"ended_no_purchase,omitempty"`
+
+				// Other Present only when non-zero.
+				Other  *float32 `json:"other,omitempty"`
+				Trials *float32 `json:"trials,omitempty"`
+			} `json:"result"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
