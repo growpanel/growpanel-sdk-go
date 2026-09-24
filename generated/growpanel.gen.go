@@ -544,6 +544,8 @@ type GetCustomersParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -946,6 +948,8 @@ type GetForecastAiSummaryParams struct {
 	Customer        *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan            *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age             *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr             *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr   *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate     *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted     *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate      *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -980,6 +984,8 @@ type GetForecastAiSummaryTableParams struct {
 	Customer        *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan            *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age             *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr             *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr   *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate     *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted     *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate      *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1013,6 +1019,8 @@ type GetForecastCashflowForecastParams struct {
 	Customer       *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan           *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age            *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr            *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr  *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate    *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted    *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate     *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1048,6 +1056,8 @@ type GetForecastCashflowForecastDetailParams struct {
 	Customer      *string                                      `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string                                      `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string                                      `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string                                      `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string                                      `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string                                      `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string                                      `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string                                      `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1103,6 +1113,8 @@ type GetReportsCancellationTimingParams struct {
 	Customer      *string                                 `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string                                 `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string                                 `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string                                 `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string                                 `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string                                 `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string                                 `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string                                 `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1139,6 +1151,8 @@ type GetReportsCancellationTimingDetailParams struct {
 	Customer          *string                                       `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan              *string                                       `form:"plan,omitempty" json:"plan,omitempty"`
 	Age               *string                                       `form:"age,omitempty" json:"age,omitempty"`
+	Mrr               *string                                       `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr     *string                                       `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate       *string                                       `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted       *string                                       `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate        *string                                       `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1171,6 +1185,8 @@ type GetReportsCashflowFailedPaymentsParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1199,6 +1215,8 @@ type GetReportsCashflowFailedPaymentsSummaryParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1227,6 +1245,8 @@ type GetReportsCashflowFailureRateParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1254,6 +1274,8 @@ type GetReportsCashflowFailureRateSummaryParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1281,6 +1303,8 @@ type GetReportsCashflowOutstandingUnpaidParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1310,6 +1334,8 @@ type GetReportsCashflowRefundsParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1348,6 +1374,8 @@ type GetReportsChurnScheduledParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1376,6 +1404,8 @@ type GetReportsCmrrSummaryParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1406,6 +1436,8 @@ type GetReportsCohortParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1441,6 +1473,8 @@ type GetReportsCustomerConcentrationParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1488,6 +1522,8 @@ type GetReportsLeadOutcomesParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1517,6 +1553,8 @@ type GetReportsLeadsParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1544,6 +1582,8 @@ type GetReportsLeadsSummaryParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1572,6 +1612,8 @@ type GetReportsMapParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1604,6 +1646,8 @@ type GetReportsMrrParams struct {
 	Customer      *string                       `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string                       `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string                       `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string                       `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string                       `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string                       `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string                       `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string                       `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1648,6 +1692,8 @@ type GetReportsMrrSubtypesParams struct {
 	Customer      *string                         `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string                         `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string                         `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string                         `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string                         `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string                         `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string                         `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string                         `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1682,6 +1728,8 @@ type GetReportsRetentionParams struct {
 	Customer       *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan           *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age            *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr            *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr  *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate    *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted    *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate     *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1710,6 +1758,8 @@ type GetReportsSummaryParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1740,6 +1790,8 @@ type GetReportsTransactionsParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1768,6 +1820,8 @@ type GetReportsTransactionsSummaryParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -1797,6 +1851,8 @@ type GetReportsTrialOutcomesParams struct {
 	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
 	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
 	Age           *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
 	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
 	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
 	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
@@ -4545,6 +4601,30 @@ func NewGetCustomersRequest(server string, params *GetCustomersParams) (*http.Re
 
 		}
 
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.CreatedDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -6333,6 +6413,30 @@ func NewGetForecastAiSummaryRequest(server string, params *GetForecastAiSummaryP
 
 		}
 
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.CreatedDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -6735,6 +6839,30 @@ func NewGetForecastAiSummaryTableRequest(server string, params *GetForecastAiSum
 
 		}
 
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.CreatedDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -7116,6 +7244,30 @@ func NewGetForecastCashflowForecastRequest(server string, params *GetForecastCas
 		if params.Age != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -7530,6 +7682,30 @@ func NewGetForecastCashflowForecastDetailRequest(server string, params *GetForec
 		if params.Age != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -8112,6 +8288,30 @@ func NewGetReportsCancellationTimingRequest(server string, params *GetReportsCan
 
 		}
 
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.CreatedDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -8502,6 +8702,30 @@ func NewGetReportsCancellationTimingDetailRequest(server string, params *GetRepo
 
 		}
 
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.CreatedDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -8844,6 +9068,30 @@ func NewGetReportsCashflowFailedPaymentsRequest(server string, params *GetReport
 
 		}
 
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.CreatedDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -9165,6 +9413,30 @@ func NewGetReportsCashflowFailedPaymentsSummaryRequest(server string, params *Ge
 		if params.Age != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -9504,6 +9776,30 @@ func NewGetReportsCashflowFailureRateRequest(server string, params *GetReportsCa
 
 		}
 
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.CreatedDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -9822,6 +10118,30 @@ func NewGetReportsCashflowFailureRateSummaryRequest(server string, params *GetRe
 
 		}
 
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.CreatedDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -10131,6 +10451,30 @@ func NewGetReportsCashflowOutstandingUnpaidRequest(server string, params *GetRep
 		if params.Age != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -10473,6 +10817,30 @@ func NewGetReportsCashflowRefundsRequest(server string, params *GetReportsCashfl
 		if params.Age != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -10890,6 +11258,30 @@ func NewGetReportsChurnScheduledRequest(server string, params *GetReportsChurnSc
 
 		}
 
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.CreatedDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -11211,6 +11603,30 @@ func NewGetReportsCmrrSummaryRequest(server string, params *GetReportsCmrrSummar
 		if params.Age != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -11565,6 +11981,30 @@ func NewGetReportsCohortRequest(server string, params *GetReportsCohortParams) (
 		if params.Age != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -11969,6 +12409,30 @@ func NewGetReportsCustomerConcentrationRequest(server string, params *GetReports
 		if params.Age != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -12422,6 +12886,30 @@ func NewGetReportsLeadOutcomesRequest(server string, params *GetReportsLeadOutco
 
 		}
 
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.CreatedDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -12764,6 +13252,30 @@ func NewGetReportsLeadsRequest(server string, params *GetReportsLeadsParams) (*h
 
 		}
 
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.CreatedDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -13073,6 +13585,30 @@ func NewGetReportsLeadsSummaryRequest(server string, params *GetReportsLeadsSumm
 		if params.Age != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -13403,6 +13939,30 @@ func NewGetReportsMapRequest(server string, params *GetReportsMapParams) (*http.
 		if params.Age != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -13781,6 +14341,30 @@ func NewGetReportsMrrRequest(server string, params *GetReportsMrrParams) (*http.
 		if params.Age != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -14230,6 +14814,30 @@ func NewGetReportsMrrSubtypesRequest(server string, params *GetReportsMrrSubtype
 
 		}
 
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.CreatedDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -14596,6 +15204,30 @@ func NewGetReportsRetentionRequest(server string, params *GetReportsRetentionPar
 
 		}
 
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.CreatedDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -14917,6 +15549,30 @@ func NewGetReportsSummaryRequest(server string, params *GetReportsSummaryParams)
 		if params.Age != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -15280,6 +15936,30 @@ func NewGetReportsTransactionsRequest(server string, params *GetReportsTransacti
 
 		}
 
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.CreatedDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
@@ -15601,6 +16281,30 @@ func NewGetReportsTransactionsSummaryRequest(server string, params *GetReportsTr
 		if params.Age != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -15943,6 +16647,30 @@ func NewGetReportsTrialOutcomesRequest(server string, params *GetReportsTrialOut
 		if params.Age != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
