@@ -436,6 +436,24 @@ func (e GetReportsLatestActivityParamsIncludeFailed) Valid() bool {
 	}
 }
 
+// Defines values for GetReportsLatestActivityParamsIncludeRecovered.
+const (
+	GetReportsLatestActivityParamsIncludeRecoveredN0 GetReportsLatestActivityParamsIncludeRecovered = "0"
+	GetReportsLatestActivityParamsIncludeRecoveredN1 GetReportsLatestActivityParamsIncludeRecovered = "1"
+)
+
+// Valid indicates whether the value is a known member of the GetReportsLatestActivityParamsIncludeRecovered enum.
+func (e GetReportsLatestActivityParamsIncludeRecovered) Valid() bool {
+	switch e {
+	case GetReportsLatestActivityParamsIncludeRecoveredN0:
+		return true
+	case GetReportsLatestActivityParamsIncludeRecoveredN1:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for GetReportsLatestActivityParamsIncludeScheduled.
 const (
 	GetReportsLatestActivityParamsIncludeScheduledN0 GetReportsLatestActivityParamsIncludeScheduled = "0"
@@ -1498,12 +1516,16 @@ type GetReportsLatestActivityParams struct {
 	Limit            *string                                         `form:"limit,omitempty" json:"limit,omitempty"`
 	Days             *string                                         `form:"days,omitempty" json:"days,omitempty"`
 	IncludeFailed    *GetReportsLatestActivityParamsIncludeFailed    `form:"include_failed,omitempty" json:"include_failed,omitempty"`
+	IncludeRecovered *GetReportsLatestActivityParamsIncludeRecovered `form:"include_recovered,omitempty" json:"include_recovered,omitempty"`
 	IncludeScheduled *GetReportsLatestActivityParamsIncludeScheduled `form:"include_scheduled,omitempty" json:"include_scheduled,omitempty"`
 	BaseCurrency     *string                                         `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
 }
 
 // GetReportsLatestActivityParamsIncludeFailed defines parameters for GetReportsLatestActivity.
 type GetReportsLatestActivityParamsIncludeFailed string
+
+// GetReportsLatestActivityParamsIncludeRecovered defines parameters for GetReportsLatestActivity.
+type GetReportsLatestActivityParamsIncludeRecovered string
 
 // GetReportsLatestActivityParamsIncludeScheduled defines parameters for GetReportsLatestActivity.
 type GetReportsLatestActivityParamsIncludeScheduled string
@@ -12703,6 +12725,18 @@ func NewGetReportsLatestActivityRequest(server string, params *GetReportsLatestA
 		if params.IncludeFailed != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "include_failed", *params.IncludeFailed, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.IncludeRecovered != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "include_recovered", *params.IncludeRecovered, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
