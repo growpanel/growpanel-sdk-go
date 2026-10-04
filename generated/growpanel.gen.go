@@ -474,9 +474,10 @@ func (e GetReportsLatestActivityParamsIncludeScheduled) Valid() bool {
 
 // Defines values for GetReportsLatestActivity200JSONResponseBodyResultSource.
 const (
-	FailedPayment GetReportsLatestActivity200JSONResponseBodyResultSource = "failed_payment"
-	Movement      GetReportsLatestActivity200JSONResponseBodyResultSource = "movement"
-	Scheduled     GetReportsLatestActivity200JSONResponseBodyResultSource = "scheduled"
+	FailedPayment    GetReportsLatestActivity200JSONResponseBodyResultSource = "failed_payment"
+	Movement         GetReportsLatestActivity200JSONResponseBodyResultSource = "movement"
+	PaymentRecovered GetReportsLatestActivity200JSONResponseBodyResultSource = "payment_recovered"
+	Scheduled        GetReportsLatestActivity200JSONResponseBodyResultSource = "scheduled"
 )
 
 // Valid indicates whether the value is a known member of the GetReportsLatestActivity200JSONResponseBodyResultSource enum.
@@ -485,6 +486,8 @@ func (e GetReportsLatestActivity200JSONResponseBodyResultSource) Valid() bool {
 	case FailedPayment:
 		return true
 	case Movement:
+		return true
+	case PaymentRecovered:
 		return true
 	case Scheduled:
 		return true
@@ -544,6 +547,45 @@ func (e GetReportsMrrSubtypesParamsType) Valid() bool {
 	case Contraction:
 		return true
 	case Expansion:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GetReportsPausedParamsSort.
+const (
+	ExpectedBack GetReportsPausedParamsSort = "expected_back"
+	Mrr          GetReportsPausedParamsSort = "mrr"
+	PausedSince  GetReportsPausedParamsSort = "paused_since"
+)
+
+// Valid indicates whether the value is a known member of the GetReportsPausedParamsSort enum.
+func (e GetReportsPausedParamsSort) Valid() bool {
+	switch e {
+	case ExpectedBack:
+		return true
+	case Mrr:
+		return true
+	case PausedSince:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GetReportsPausedParamsOrder.
+const (
+	Asc  GetReportsPausedParamsOrder = "asc"
+	Desc GetReportsPausedParamsOrder = "desc"
+)
+
+// Valid indicates whether the value is a known member of the GetReportsPausedParamsOrder enum.
+func (e GetReportsPausedParamsOrder) Valid() bool {
+	switch e {
+	case Asc:
+		return true
+	case Desc:
 		return true
 	default:
 		return false
@@ -1109,7 +1151,7 @@ type GetForecastCashflowForecastDetailParamsSort string
 
 // PostIntegrationsWebhooksJSONBody defines parameters for PostIntegrationsWebhooks.
 type PostIntegrationsWebhooksJSONBody struct {
-	// EventType One of: movement.new, movement.expansion, movement.contraction, movement.churn, movement.reactivation, failed_payment, invoice.paid, customer.created, customer.updated, plan.created, data_source.import_completed.
+	// EventType One of: movement.new, movement.expansion, movement.contraction, movement.churn, movement.reactivation, movement.paused, movement.resumed, failed_payment, invoice.paid, customer.created, customer.updated, plan.created, data_source.import_completed.
 	EventType string `json:"event_type"`
 
 	// Url HTTPS URL to POST events to.
@@ -1782,6 +1824,46 @@ type GetReportsMrrSubtypesParams struct {
 
 // GetReportsMrrSubtypesParamsType defines parameters for GetReportsMrrSubtypes.
 type GetReportsMrrSubtypesParamsType string
+
+// GetReportsPausedParams defines parameters for GetReportsPaused.
+type GetReportsPausedParams struct {
+	BaseCurrency  *string                      `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+	Limit         *string                      `form:"limit,omitempty" json:"limit,omitempty"`
+	Sort          *GetReportsPausedParamsSort  `form:"sort,omitempty" json:"sort,omitempty"`
+	Order         *GetReportsPausedParamsOrder `form:"order,omitempty" json:"order,omitempty"`
+	Currency      *string                      `form:"currency,omitempty" json:"currency,omitempty"`
+	PaymentMethod *string                      `form:"payment_method,omitempty" json:"payment_method,omitempty"`
+	PricingModel  *string                      `form:"pricing_model,omitempty" json:"pricing_model,omitempty"`
+	Customer      *string                      `form:"customer,omitempty" json:"customer,omitempty"`
+	Plan          *string                      `form:"plan,omitempty" json:"plan,omitempty"`
+	Age           *string                      `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string                      `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string                      `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
+	TotalPaid     *string                      `form:"total_paid,omitempty" json:"total_paid,omitempty"`
+	Payments      *string                      `form:"payments,omitempty" json:"payments,omitempty"`
+	CreatedDate   *string                      `form:"created_date,omitempty" json:"created_date,omitempty"`
+	PaidStarted   *string                      `form:"paid_started,omitempty" json:"paid_started,omitempty"`
+	CancelDate    *string                      `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string                      `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
+	TrialStarted  *string                      `form:"trial_started,omitempty" json:"trial_started,omitempty"`
+	TrialEndDate  *string                      `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
+	BillingFreq   *string                      `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string                      `form:"geo,omitempty" json:"geo,omitempty"`
+	Region        *string                      `form:"region,omitempty" json:"region,omitempty"`
+	State         *string                      `form:"state,omitempty" json:"state,omitempty"`
+	DataSource    *string                      `form:"data_source,omitempty" json:"data_source,omitempty"`
+	Status        *string                      `form:"status,omitempty" json:"status,omitempty"`
+	HasDiscount   *string                      `form:"has_discount,omitempty" json:"has_discount,omitempty"`
+	CancelReason  *string                      `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
+	Segment       *string                      `form:"segment,omitempty" json:"segment,omitempty"`
+	FixFx         *string                      `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+}
+
+// GetReportsPausedParamsSort defines parameters for GetReportsPaused.
+type GetReportsPausedParamsSort string
+
+// GetReportsPausedParamsOrder defines parameters for GetReportsPaused.
+type GetReportsPausedParamsOrder string
 
 // GetReportsRetentionParams defines parameters for GetReportsRetention.
 type GetReportsRetentionParams struct {
@@ -2965,6 +3047,13 @@ type ClientInterface interface {
 	//
 	// Corresponds with GET /reports/mrr-subtypes (the `GetReportsMrrSubtypes` operationId).
 	GetReportsMrrSubtypes(ctx context.Context, params *GetReportsMrrSubtypesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetReportsPaused Paused subscriptions right now
+	//
+	// Snapshot of subscriptions paused in the billing system right now (Stripe paused collection or status `paused`, Chargebee and Recurly pauses): paused MRR, paused subscribers, MRR due back within 30 days, and the paused customers. Billing systems only report current pauses, so there is no pause history and the `date` range is ignored. Paused MRR is not churn and is left out of churn rates. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	//
+	// Corresponds with GET /reports/paused (the `GetReportsPaused` operationId).
+	GetReportsPaused(ctx context.Context, params *GetReportsPausedParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetReportsRetention Retention metrics over time
 	//
@@ -4385,6 +4474,23 @@ func (c *Client) GetReportsMrrGrowth(ctx context.Context, params *GetReportsMrrG
 // Corresponds with GET /reports/mrr-subtypes (the `GetReportsMrrSubtypes` operationId).
 func (c *Client) GetReportsMrrSubtypes(ctx context.Context, params *GetReportsMrrSubtypesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetReportsMrrSubtypesRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetReportsPaused Paused subscriptions right now
+//
+// Snapshot of subscriptions paused in the billing system right now (Stripe paused collection or status `paused`, Chargebee and Recurly pauses): paused MRR, paused subscribers, MRR due back within 30 days, and the paused customers. Billing systems only report current pauses, so there is no pause history and the `date` range is ignored. Paused MRR is not churn and is left out of churn rates. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+//
+// Corresponds with GET /reports/paused (the `GetReportsPaused` operationId).
+func (c *Client) GetReportsPaused(ctx context.Context, params *GetReportsPausedParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetReportsPausedRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -15686,6 +15792,408 @@ func NewGetReportsMrrSubtypesRequest(server string, params *GetReportsMrrSubtype
 	return req, nil
 }
 
+// NewGetReportsPausedRequest constructs an http.Request for the GetReportsPaused method
+func NewGetReportsPausedRequest(server string, params *GetReportsPausedParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/reports/paused")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.BaseCurrency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "limit", *params.Limit, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "sort", *params.Sort, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Order != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "order", *params.Order, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Currency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "currency", *params.Currency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PaymentMethod != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "payment_method", *params.PaymentMethod, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PricingModel != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "pricing_model", *params.PricingModel, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Customer != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "customer", *params.Customer, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Plan != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "plan", *params.Plan, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Age != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mrr", *params.Mrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LastActiveMrr != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "last_active_mrr", *params.LastActiveMrr, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TotalPaid != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "total_paid", *params.TotalPaid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Payments != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "payments", *params.Payments, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CreatedDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_date", *params.CreatedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PaidStarted != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "paid_started", *params.PaidStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_date", *params.CancelDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RenewalDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "renewal_date", *params.RenewalDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TrialStarted != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_started", *params.TrialStarted, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TrialEndDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "trial_end_date", *params.TrialEndDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BillingFreq != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "billing_freq", *params.BillingFreq, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Geo != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "geo", *params.Geo, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Region != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "region", *params.Region, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.State != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "state", *params.State, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.DataSource != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "data_source", *params.DataSource, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Status != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.HasDiscount != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "has_discount", *params.HasDiscount, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelReason != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_reason", *params.CancelReason, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Segment != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "segment", *params.Segment, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.FixFx != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewGetReportsRetentionRequest constructs an http.Request for the GetReportsRetention method
 func NewGetReportsRetentionRequest(server string, params *GetReportsRetentionParams) (*http.Request, error) {
 	var err error
@@ -18431,6 +18939,15 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with GET /reports/mrr-subtypes (the `GetReportsMrrSubtypes` operationId).
 	GetReportsMrrSubtypesWithResponse(ctx context.Context, params *GetReportsMrrSubtypesParams, reqEditors ...RequestEditorFn) (*GetReportsMrrSubtypesResponse, error)
 
+	// GetReportsPausedWithResponse Paused subscriptions right now
+	//
+	// Snapshot of subscriptions paused in the billing system right now (Stripe paused collection or status `paused`, Chargebee and Recurly pauses): paused MRR, paused subscribers, MRR due back within 30 days, and the paused customers. Billing systems only report current pauses, so there is no pause history and the `date` range is ignored. Paused MRR is not churn and is left out of churn rates. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /reports/paused (the `GetReportsPaused` operationId).
+	GetReportsPausedWithResponse(ctx context.Context, params *GetReportsPausedParams, reqEditors ...RequestEditorFn) (*GetReportsPausedResponse, error)
+
 	// GetReportsRetentionWithResponse Retention metrics over time
 	//
 	// NRR, GRR, customer retention, and cohort size across the requested window. Baseline is the start period; each row is one period offset forward. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
@@ -18544,7 +19061,7 @@ type GetCustomersResponse struct {
 				RenewalDate *string `json:"renewal_date,omitempty"`
 				State       *string `json:"state,omitempty"`
 
-				// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
+				// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `paused`, `canceled`, `trial_ended`. `paused` = every MRR-bearing subscription is paused.
 				Status *string `json:"status,omitempty"`
 
 				// TotalPaidBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
@@ -18620,7 +19137,7 @@ func (r GetCustomersResponse) GetJSON200() *struct {
 			RenewalDate *string `json:"renewal_date,omitempty"`
 			State       *string `json:"state,omitempty"`
 
-			// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
+			// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `paused`, `canceled`, `trial_ended`. `paused` = every MRR-bearing subscription is paused.
 			Status *string `json:"status,omitempty"`
 
 			// TotalPaidBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
@@ -18749,7 +19266,7 @@ type GetCustomersIdResponse struct {
 		RenewalDate string `json:"renewal_date"`
 		State       string `json:"state"`
 
-		// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
+		// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `paused`, `canceled`, `trial_ended`. `paused` = every MRR-bearing subscription is paused.
 		Status string `json:"status"`
 
 		// TotalPaidBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
@@ -18835,7 +19352,7 @@ func (r GetCustomersIdResponse) GetJSON200() *struct {
 	RenewalDate string `json:"renewal_date"`
 	State       string `json:"state"`
 
-	// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
+	// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `paused`, `canceled`, `trial_ended`. `paused` = every MRR-bearing subscription is paused.
 	Status string `json:"status"`
 
 	// TotalPaidBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
@@ -25288,6 +25805,9 @@ type GetReportsLatestActivityResponse struct {
 			// EffectiveDate When the event takes effect (future for scheduled events).
 			EffectiveDate string `json:"effective_date"`
 
+			// Label Human-readable event name, e.g. `Paused` or `Scheduled to churn`.
+			Label *string `json:"label,omitempty"`
+
 			// OverdueDate When the payment first went past due (failed_payment only).
 			OverdueDate *string `json:"overdue_date,omitempty"`
 
@@ -25295,7 +25815,7 @@ type GetReportsLatestActivityResponse struct {
 			Source  GetReportsLatestActivity200JSONResponseBodyResultSource `json:"source"`
 			Subtype *string                                                 `json:"subtype,omitempty"`
 
-			// Type Event type — `new`, `expansion`, `contraction`, `churn`, `reactivation`, or `failed_payment`.
+			// Type Event type — `new`, `expansion`, `contraction`, `churn`, `reactivation`, `paused`, `resumed`, `failed_payment` or `payment_recovered`.
 			Type string `json:"type"`
 		} `json:"result"`
 	}
@@ -25335,6 +25855,9 @@ func (r GetReportsLatestActivityResponse) GetJSON200() *struct {
 		// EffectiveDate When the event takes effect (future for scheduled events).
 		EffectiveDate string `json:"effective_date"`
 
+		// Label Human-readable event name, e.g. `Paused` or `Scheduled to churn`.
+		Label *string `json:"label,omitempty"`
+
 		// OverdueDate When the payment first went past due (failed_payment only).
 		OverdueDate *string `json:"overdue_date,omitempty"`
 
@@ -25342,7 +25865,7 @@ func (r GetReportsLatestActivityResponse) GetJSON200() *struct {
 		Source  GetReportsLatestActivity200JSONResponseBodyResultSource `json:"source"`
 		Subtype *string                                                 `json:"subtype,omitempty"`
 
-		// Type Event type — `new`, `expansion`, `contraction`, `churn`, `reactivation`, or `failed_payment`.
+		// Type Event type — `new`, `expansion`, `contraction`, `churn`, `reactivation`, `paused`, `resumed`, `failed_payment` or `payment_recovered`.
 		Type string `json:"type"`
 	} `json:"result"`
 } {
@@ -26097,6 +26620,12 @@ type GetReportsMrrResponse struct {
 			New          *float32 `json:"new,omitempty"`
 			NewCustomers *float32 `json:"new_customers,omitempty"`
 
+			// Paused MRR of subscriptions that are paused right now (negative), dated when their paid period ran out. Pauses are not churn: churn rates, quick ratio and retention leave them out. When a pause ends the movement disappears, as if there had been no pause.
+			Paused *float32 `json:"paused,omitempty"`
+
+			// PausedCustomers Customers with a pause in this period.
+			PausedCustomers *float32 `json:"paused_customers,omitempty"`
+
 			// Quantity Total subscription quantity at period end.
 			Quantity *float32 `json:"quantity,omitempty"`
 
@@ -26106,6 +26635,12 @@ type GetReportsMrrResponse struct {
 			// Reactivation MRR recovered from previously-churned customers.
 			Reactivation          *float32 `json:"reactivation,omitempty"`
 			ReactivationCustomers *float32 `json:"reactivation_customers,omitempty"`
+
+			// Resumed Scheduled resumes of paused subscriptions (future periods, with committed=true only).
+			Resumed *float32 `json:"resumed,omitempty"`
+
+			// ResumedCustomers Customers with a scheduled resume in this period.
+			ResumedCustomers *float32 `json:"resumed_customers,omitempty"`
 
 			// TotalArr ARR at the end of this period (= MRR × 12).
 			TotalArr       *float32 `json:"total_arr,omitempty"`
@@ -26181,6 +26716,12 @@ func (r GetReportsMrrResponse) GetJSON200() *struct {
 		New          *float32 `json:"new,omitempty"`
 		NewCustomers *float32 `json:"new_customers,omitempty"`
 
+		// Paused MRR of subscriptions that are paused right now (negative), dated when their paid period ran out. Pauses are not churn: churn rates, quick ratio and retention leave them out. When a pause ends the movement disappears, as if there had been no pause.
+		Paused *float32 `json:"paused,omitempty"`
+
+		// PausedCustomers Customers with a pause in this period.
+		PausedCustomers *float32 `json:"paused_customers,omitempty"`
+
 		// Quantity Total subscription quantity at period end.
 		Quantity *float32 `json:"quantity,omitempty"`
 
@@ -26190,6 +26731,12 @@ func (r GetReportsMrrResponse) GetJSON200() *struct {
 		// Reactivation MRR recovered from previously-churned customers.
 		Reactivation          *float32 `json:"reactivation,omitempty"`
 		ReactivationCustomers *float32 `json:"reactivation_customers,omitempty"`
+
+		// Resumed Scheduled resumes of paused subscriptions (future periods, with committed=true only).
+		Resumed *float32 `json:"resumed,omitempty"`
+
+		// ResumedCustomers Customers with a scheduled resume in this period.
+		ResumedCustomers *float32 `json:"resumed_customers,omitempty"`
 
 		// TotalArr ARR at the end of this period (= MRR × 12).
 		TotalArr       *float32 `json:"total_arr,omitempty"`
@@ -26461,6 +27008,191 @@ func (r GetReportsMrrSubtypesResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r GetReportsMrrSubtypesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetReportsPausedResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// Currency ISO 4217 currency code, lowercase.
+		Currency string `json:"currency"`
+		Result   struct {
+			// HasPauses Whether anything is paused right now.
+			HasPauses bool `json:"has_pauses"`
+			List      []struct {
+				// Currency Currency of the paused subscriptions (lower-case ISO 4217).
+				Currency      *string `json:"currency,omitempty"`
+				CustomerEmail *string `json:"customer_email,omitempty"`
+				CustomerId    *string `json:"customer_id,omitempty"`
+				CustomerName  *string `json:"customer_name,omitempty"`
+
+				// DueBack30BaseCurrency MRR scheduled to resume within the next 30 days, in the base currency.
+				DueBack30BaseCurrency *float32 `json:"due_back_30_base_currency,omitempty"`
+
+				// ExpectedBack Earliest scheduled resume, or null when the billing system has no resume date.
+				ExpectedBack *string `json:"expected_back,omitempty"`
+
+				// FullyPaused Every MRR-bearing subscription is paused (customer status `paused`, left the subscriber count). False = some subscriptions are paused, others still billed.
+				FullyPaused *bool `json:"fully_paused,omitempty"`
+
+				// MrrBeforePause MRR the paused subscriptions carried before the pause, in `currency`.
+				MrrBeforePause *float32 `json:"mrr_before_pause,omitempty"`
+
+				// MrrBeforePauseBaseCurrency Same, converted to the base currency.
+				MrrBeforePauseBaseCurrency *float32 `json:"mrr_before_pause_base_currency,omitempty"`
+
+				// PausedSince When the pause took effect (end of the last paid period).
+				PausedSince *string `json:"paused_since,omitempty"`
+			} `json:"list"`
+			Summary struct {
+				DueBack30Customers *float32 `json:"due_back_30_customers,omitempty"`
+
+				// DueBack30Mrr MRR scheduled to resume within 30 days (base currency).
+				DueBack30Mrr *float32 `json:"due_back_30_mrr,omitempty"`
+
+				// PausedCustomersCurrent Customers with at least one paused subscription.
+				PausedCustomersCurrent *float32 `json:"paused_customers_current,omitempty"`
+
+				// PausedMrrCurrent Total MRR paused right now (base currency).
+				PausedMrrCurrent *float32 `json:"paused_mrr_current,omitempty"`
+
+				// PausedSubscribersCurrent Customers with every MRR-bearing subscription paused.
+				PausedSubscribersCurrent *float32 `json:"paused_subscribers_current,omitempty"`
+			} `json:"summary"`
+
+			// Total Customers in the full list (before `limit`).
+			Total float32 `json:"total"`
+		} `json:"result"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetReportsPausedResponse) GetJSON200() *struct {
+	// Currency ISO 4217 currency code, lowercase.
+	Currency string `json:"currency"`
+	Result   struct {
+		// HasPauses Whether anything is paused right now.
+		HasPauses bool `json:"has_pauses"`
+		List      []struct {
+			// Currency Currency of the paused subscriptions (lower-case ISO 4217).
+			Currency      *string `json:"currency,omitempty"`
+			CustomerEmail *string `json:"customer_email,omitempty"`
+			CustomerId    *string `json:"customer_id,omitempty"`
+			CustomerName  *string `json:"customer_name,omitempty"`
+
+			// DueBack30BaseCurrency MRR scheduled to resume within the next 30 days, in the base currency.
+			DueBack30BaseCurrency *float32 `json:"due_back_30_base_currency,omitempty"`
+
+			// ExpectedBack Earliest scheduled resume, or null when the billing system has no resume date.
+			ExpectedBack *string `json:"expected_back,omitempty"`
+
+			// FullyPaused Every MRR-bearing subscription is paused (customer status `paused`, left the subscriber count). False = some subscriptions are paused, others still billed.
+			FullyPaused *bool `json:"fully_paused,omitempty"`
+
+			// MrrBeforePause MRR the paused subscriptions carried before the pause, in `currency`.
+			MrrBeforePause *float32 `json:"mrr_before_pause,omitempty"`
+
+			// MrrBeforePauseBaseCurrency Same, converted to the base currency.
+			MrrBeforePauseBaseCurrency *float32 `json:"mrr_before_pause_base_currency,omitempty"`
+
+			// PausedSince When the pause took effect (end of the last paid period).
+			PausedSince *string `json:"paused_since,omitempty"`
+		} `json:"list"`
+		Summary struct {
+			DueBack30Customers *float32 `json:"due_back_30_customers,omitempty"`
+
+			// DueBack30Mrr MRR scheduled to resume within 30 days (base currency).
+			DueBack30Mrr *float32 `json:"due_back_30_mrr,omitempty"`
+
+			// PausedCustomersCurrent Customers with at least one paused subscription.
+			PausedCustomersCurrent *float32 `json:"paused_customers_current,omitempty"`
+
+			// PausedMrrCurrent Total MRR paused right now (base currency).
+			PausedMrrCurrent *float32 `json:"paused_mrr_current,omitempty"`
+
+			// PausedSubscribersCurrent Customers with every MRR-bearing subscription paused.
+			PausedSubscribersCurrent *float32 `json:"paused_subscribers_current,omitempty"`
+		} `json:"summary"`
+
+		// Total Customers in the full list (before `limit`).
+		Total float32 `json:"total"`
+	} `json:"result"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetReportsPausedResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetReportsPausedResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetReportsPausedResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetReportsPausedResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetReportsPausedResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetReportsPausedResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetReportsPausedResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetReportsPausedResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -28840,6 +29572,21 @@ func (c *ClientWithResponses) GetReportsMrrSubtypesWithResponse(ctx context.Cont
 	return ParseGetReportsMrrSubtypesResponse(rsp)
 }
 
+// GetReportsPausedWithResponse Paused subscriptions right now
+//
+// Snapshot of subscriptions paused in the billing system right now (Stripe paused collection or status `paused`, Chargebee and Recurly pauses): paused MRR, paused subscribers, MRR due back within 30 days, and the paused customers. Billing systems only report current pauses, so there is no pause history and the `date` range is ignored. Paused MRR is not churn and is left out of churn rates. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /reports/paused (the `GetReportsPaused` operationId).
+func (c *ClientWithResponses) GetReportsPausedWithResponse(ctx context.Context, params *GetReportsPausedParams, reqEditors ...RequestEditorFn) (*GetReportsPausedResponse, error) {
+	rsp, err := c.GetReportsPaused(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetReportsPausedResponse(rsp)
+}
+
 // GetReportsRetentionWithResponse Retention metrics over time
 //
 // NRR, GRR, customer retention, and cohort size across the requested window. Baseline is the start period; each row is one period offset forward. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
@@ -29011,7 +29758,7 @@ func ParseGetCustomersResponse(rsp *http.Response) (*GetCustomersResponse, error
 					RenewalDate *string `json:"renewal_date,omitempty"`
 					State       *string `json:"state,omitempty"`
 
-					// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
+					// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `paused`, `canceled`, `trial_ended`. `paused` = every MRR-bearing subscription is paused.
 					Status *string `json:"status,omitempty"`
 
 					// TotalPaidBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
@@ -29137,7 +29884,7 @@ func ParseGetCustomersIdResponse(rsp *http.Response) (*GetCustomersIdResponse, e
 			RenewalDate string `json:"renewal_date"`
 			State       string `json:"state"`
 
-			// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `canceled`, `trial_ended`.
+			// Status Customer status. One of `lead`, `trialing`, `active`, `past_due`, `paused`, `canceled`, `trial_ended`. `paused` = every MRR-bearing subscription is paused.
 			Status string `json:"status"`
 
 			// TotalPaidBaseCurrency Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
@@ -33546,6 +34293,9 @@ func ParseGetReportsLatestActivityResponse(rsp *http.Response) (*GetReportsLates
 				// EffectiveDate When the event takes effect (future for scheduled events).
 				EffectiveDate string `json:"effective_date"`
 
+				// Label Human-readable event name, e.g. `Paused` or `Scheduled to churn`.
+				Label *string `json:"label,omitempty"`
+
 				// OverdueDate When the payment first went past due (failed_payment only).
 				OverdueDate *string `json:"overdue_date,omitempty"`
 
@@ -33553,7 +34303,7 @@ func ParseGetReportsLatestActivityResponse(rsp *http.Response) (*GetReportsLates
 				Source  GetReportsLatestActivity200JSONResponseBodyResultSource `json:"source"`
 				Subtype *string                                                 `json:"subtype,omitempty"`
 
-				// Type Event type — `new`, `expansion`, `contraction`, `churn`, `reactivation`, or `failed_payment`.
+				// Type Event type — `new`, `expansion`, `contraction`, `churn`, `reactivation`, `paused`, `resumed`, `failed_payment` or `payment_recovered`.
 				Type string `json:"type"`
 			} `json:"result"`
 		}
@@ -34063,6 +34813,12 @@ func ParseGetReportsMrrResponse(rsp *http.Response) (*GetReportsMrrResponse, err
 				New          *float32 `json:"new,omitempty"`
 				NewCustomers *float32 `json:"new_customers,omitempty"`
 
+				// Paused MRR of subscriptions that are paused right now (negative), dated when their paid period ran out. Pauses are not churn: churn rates, quick ratio and retention leave them out. When a pause ends the movement disappears, as if there had been no pause.
+				Paused *float32 `json:"paused,omitempty"`
+
+				// PausedCustomers Customers with a pause in this period.
+				PausedCustomers *float32 `json:"paused_customers,omitempty"`
+
 				// Quantity Total subscription quantity at period end.
 				Quantity *float32 `json:"quantity,omitempty"`
 
@@ -34072,6 +34828,12 @@ func ParseGetReportsMrrResponse(rsp *http.Response) (*GetReportsMrrResponse, err
 				// Reactivation MRR recovered from previously-churned customers.
 				Reactivation          *float32 `json:"reactivation,omitempty"`
 				ReactivationCustomers *float32 `json:"reactivation_customers,omitempty"`
+
+				// Resumed Scheduled resumes of paused subscriptions (future periods, with committed=true only).
+				Resumed *float32 `json:"resumed,omitempty"`
+
+				// ResumedCustomers Customers with a scheduled resume in this period.
+				ResumedCustomers *float32 `json:"resumed_customers,omitempty"`
 
 				// TotalArr ARR at the end of this period (= MRR × 12).
 				TotalArr       *float32 `json:"total_arr,omitempty"`
@@ -34223,6 +34985,118 @@ func ParseGetReportsMrrSubtypesResponse(rsp *http.Response) (*GetReportsMrrSubty
 
 			// Result `{ type, labels: {subtype: human-label}, list: { <subtype>: {date: mrr}, <subtype>_customers: {date: count} } }`.
 			Result interface{} `json:"result,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetReportsPausedResponse parses an HTTP response from a GetReportsPausedWithResponse call
+func ParseGetReportsPausedResponse(rsp *http.Response) (*GetReportsPausedResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetReportsPausedResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// Currency ISO 4217 currency code, lowercase.
+			Currency string `json:"currency"`
+			Result   struct {
+				// HasPauses Whether anything is paused right now.
+				HasPauses bool `json:"has_pauses"`
+				List      []struct {
+					// Currency Currency of the paused subscriptions (lower-case ISO 4217).
+					Currency      *string `json:"currency,omitempty"`
+					CustomerEmail *string `json:"customer_email,omitempty"`
+					CustomerId    *string `json:"customer_id,omitempty"`
+					CustomerName  *string `json:"customer_name,omitempty"`
+
+					// DueBack30BaseCurrency MRR scheduled to resume within the next 30 days, in the base currency.
+					DueBack30BaseCurrency *float32 `json:"due_back_30_base_currency,omitempty"`
+
+					// ExpectedBack Earliest scheduled resume, or null when the billing system has no resume date.
+					ExpectedBack *string `json:"expected_back,omitempty"`
+
+					// FullyPaused Every MRR-bearing subscription is paused (customer status `paused`, left the subscriber count). False = some subscriptions are paused, others still billed.
+					FullyPaused *bool `json:"fully_paused,omitempty"`
+
+					// MrrBeforePause MRR the paused subscriptions carried before the pause, in `currency`.
+					MrrBeforePause *float32 `json:"mrr_before_pause,omitempty"`
+
+					// MrrBeforePauseBaseCurrency Same, converted to the base currency.
+					MrrBeforePauseBaseCurrency *float32 `json:"mrr_before_pause_base_currency,omitempty"`
+
+					// PausedSince When the pause took effect (end of the last paid period).
+					PausedSince *string `json:"paused_since,omitempty"`
+				} `json:"list"`
+				Summary struct {
+					DueBack30Customers *float32 `json:"due_back_30_customers,omitempty"`
+
+					// DueBack30Mrr MRR scheduled to resume within 30 days (base currency).
+					DueBack30Mrr *float32 `json:"due_back_30_mrr,omitempty"`
+
+					// PausedCustomersCurrent Customers with at least one paused subscription.
+					PausedCustomersCurrent *float32 `json:"paused_customers_current,omitempty"`
+
+					// PausedMrrCurrent Total MRR paused right now (base currency).
+					PausedMrrCurrent *float32 `json:"paused_mrr_current,omitempty"`
+
+					// PausedSubscribersCurrent Customers with every MRR-bearing subscription paused.
+					PausedSubscribersCurrent *float32 `json:"paused_subscribers_current,omitempty"`
+				} `json:"summary"`
+
+				// Total Customers in the full list (before `limit`).
+				Total float32 `json:"total"`
+			} `json:"result"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
