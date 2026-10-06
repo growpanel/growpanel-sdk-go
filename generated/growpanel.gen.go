@@ -48,31 +48,31 @@ func (e PutDataCustomersId200JSONResponseBodySuccess) Valid() bool {
 
 // Defines values for PostDataDataSourcesJSONBodyType.
 const (
-	Alunta       PostDataDataSourcesJSONBodyType = "alunta"
-	Api          PostDataDataSourcesJSONBodyType = "api"
-	Chargebee    PostDataDataSourcesJSONBodyType = "chargebee"
-	Csv          PostDataDataSourcesJSONBodyType = "csv"
-	GoogleSheets PostDataDataSourcesJSONBodyType = "google-sheets"
-	Recurly      PostDataDataSourcesJSONBodyType = "recurly"
-	Stripe       PostDataDataSourcesJSONBodyType = "stripe"
+	PostDataDataSourcesJSONBodyTypeAlunta       PostDataDataSourcesJSONBodyType = "alunta"
+	PostDataDataSourcesJSONBodyTypeApi          PostDataDataSourcesJSONBodyType = "api"
+	PostDataDataSourcesJSONBodyTypeChargebee    PostDataDataSourcesJSONBodyType = "chargebee"
+	PostDataDataSourcesJSONBodyTypeGoogleSheets PostDataDataSourcesJSONBodyType = "google-sheets"
+	PostDataDataSourcesJSONBodyTypeManual       PostDataDataSourcesJSONBodyType = "manual"
+	PostDataDataSourcesJSONBodyTypeRecurly      PostDataDataSourcesJSONBodyType = "recurly"
+	PostDataDataSourcesJSONBodyTypeStripe       PostDataDataSourcesJSONBodyType = "stripe"
 )
 
 // Valid indicates whether the value is a known member of the PostDataDataSourcesJSONBodyType enum.
 func (e PostDataDataSourcesJSONBodyType) Valid() bool {
 	switch e {
-	case Alunta:
+	case PostDataDataSourcesJSONBodyTypeAlunta:
 		return true
-	case Api:
+	case PostDataDataSourcesJSONBodyTypeApi:
 		return true
-	case Chargebee:
+	case PostDataDataSourcesJSONBodyTypeChargebee:
 		return true
-	case Csv:
+	case PostDataDataSourcesJSONBodyTypeGoogleSheets:
 		return true
-	case GoogleSheets:
+	case PostDataDataSourcesJSONBodyTypeManual:
 		return true
-	case Recurly:
+	case PostDataDataSourcesJSONBodyTypeRecurly:
 		return true
-	case Stripe:
+	case PostDataDataSourcesJSONBodyTypeStripe:
 		return true
 	default:
 		return false
