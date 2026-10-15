@@ -333,16 +333,16 @@ func (e PutDataSegmentsId200JSONResponseBodySuccess) Valid() bool {
 
 // Defines values for GetForecastCashflowForecastDetailParamsSort.
 const (
-	Amount GetForecastCashflowForecastDetailParamsSort = "amount"
-	Date   GetForecastCashflowForecastDetailParamsSort = "date"
+	GetForecastCashflowForecastDetailParamsSortAmount GetForecastCashflowForecastDetailParamsSort = "amount"
+	GetForecastCashflowForecastDetailParamsSortDate   GetForecastCashflowForecastDetailParamsSort = "date"
 )
 
 // Valid indicates whether the value is a known member of the GetForecastCashflowForecastDetailParamsSort enum.
 func (e GetForecastCashflowForecastDetailParamsSort) Valid() bool {
 	switch e {
-	case Amount:
+	case GetForecastCashflowForecastDetailParamsSortAmount:
 		return true
-	case Date:
+	case GetForecastCashflowForecastDetailParamsSortDate:
 		return true
 	default:
 		return false
@@ -576,16 +576,115 @@ func (e GetReportsPausedParamsSort) Valid() bool {
 
 // Defines values for GetReportsPausedParamsOrder.
 const (
-	Asc  GetReportsPausedParamsOrder = "asc"
-	Desc GetReportsPausedParamsOrder = "desc"
+	GetReportsPausedParamsOrderAsc  GetReportsPausedParamsOrder = "asc"
+	GetReportsPausedParamsOrderDesc GetReportsPausedParamsOrder = "desc"
 )
 
 // Valid indicates whether the value is a known member of the GetReportsPausedParamsOrder enum.
 func (e GetReportsPausedParamsOrder) Valid() bool {
 	switch e {
-	case Asc:
+	case GetReportsPausedParamsOrderAsc:
 		return true
-	case Desc:
+	case GetReportsPausedParamsOrderDesc:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GetReportsPayoutFeesParamsBreakdown.
+const (
+	GetReportsPayoutFeesParamsBreakdownCurrency GetReportsPayoutFeesParamsBreakdown = "currency"
+)
+
+// Valid indicates whether the value is a known member of the GetReportsPayoutFeesParamsBreakdown enum.
+func (e GetReportsPayoutFeesParamsBreakdown) Valid() bool {
+	switch e {
+	case GetReportsPayoutFeesParamsBreakdownCurrency:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GetReportsPayoutFeesDetailParamsBreakdown.
+const (
+	GetReportsPayoutFeesDetailParamsBreakdownCurrency GetReportsPayoutFeesDetailParamsBreakdown = "currency"
+)
+
+// Valid indicates whether the value is a known member of the GetReportsPayoutFeesDetailParamsBreakdown enum.
+func (e GetReportsPayoutFeesDetailParamsBreakdown) Valid() bool {
+	switch e {
+	case GetReportsPayoutFeesDetailParamsBreakdownCurrency:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GetReportsPayoutFeesTableParamsBreakdown.
+const (
+	GetReportsPayoutFeesTableParamsBreakdownCurrency GetReportsPayoutFeesTableParamsBreakdown = "currency"
+)
+
+// Valid indicates whether the value is a known member of the GetReportsPayoutFeesTableParamsBreakdown enum.
+func (e GetReportsPayoutFeesTableParamsBreakdown) Valid() bool {
+	switch e {
+	case GetReportsPayoutFeesTableParamsBreakdownCurrency:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GetReportsPayoutsListParamsSort.
+const (
+	GetReportsPayoutsListParamsSortDate GetReportsPayoutsListParamsSort = "date"
+	GetReportsPayoutsListParamsSortFees GetReportsPayoutsListParamsSort = "fees"
+	GetReportsPayoutsListParamsSortPaid GetReportsPayoutsListParamsSort = "paid"
+)
+
+// Valid indicates whether the value is a known member of the GetReportsPayoutsListParamsSort enum.
+func (e GetReportsPayoutsListParamsSort) Valid() bool {
+	switch e {
+	case GetReportsPayoutsListParamsSortDate:
+		return true
+	case GetReportsPayoutsListParamsSortFees:
+		return true
+	case GetReportsPayoutsListParamsSortPaid:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GetReportsPayoutsListParamsOrder.
+const (
+	GetReportsPayoutsListParamsOrderAsc  GetReportsPayoutsListParamsOrder = "asc"
+	GetReportsPayoutsListParamsOrderDesc GetReportsPayoutsListParamsOrder = "desc"
+)
+
+// Valid indicates whether the value is a known member of the GetReportsPayoutsListParamsOrder enum.
+func (e GetReportsPayoutsListParamsOrder) Valid() bool {
+	switch e {
+	case GetReportsPayoutsListParamsOrderAsc:
+		return true
+	case GetReportsPayoutsListParamsOrderDesc:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GetReportsTransactionsParamsPayouts.
+const (
+	GetReportsTransactionsParamsPayoutsN1 GetReportsTransactionsParamsPayouts = "1"
+)
+
+// Valid indicates whether the value is a known member of the GetReportsTransactionsParamsPayouts enum.
+func (e GetReportsTransactionsParamsPayouts) Valid() bool {
+	switch e {
+	case GetReportsTransactionsParamsPayoutsN1:
 		return true
 	default:
 		return false
@@ -624,6 +723,7 @@ type GetCustomersParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetCustomersIdParams defines parameters for GetCustomersId.
@@ -1030,6 +1130,7 @@ type GetForecastAiSummaryParams struct {
 	CancelReason    *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment         *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx           *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields          *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetForecastAiSummaryTableParams defines parameters for GetForecastAiSummaryTable.
@@ -1068,43 +1169,46 @@ type GetForecastAiSummaryTableParams struct {
 	CancelReason    *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment         *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx           *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields          *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetForecastCashflowForecastParams defines parameters for GetForecastCashflowForecast.
 type GetForecastCashflowForecastParams struct {
-	Horizon        *string `form:"horizon,omitempty" json:"horizon,omitempty"`
-	Interval       *string `form:"interval,omitempty" json:"interval,omitempty"`
-	BaseCurrency   *string `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
-	Breakdown      *string `form:"breakdown,omitempty" json:"breakdown,omitempty"`
-	IncludeOneTime *string `form:"includeOneTime,omitempty" json:"includeOneTime,omitempty"`
-	IncludeRefunds *string `form:"includeRefunds,omitempty" json:"includeRefunds,omitempty"`
-	IncludeDelay   *string `form:"includeDelay,omitempty" json:"includeDelay,omitempty"`
-	Currency       *string `form:"currency,omitempty" json:"currency,omitempty"`
-	PaymentMethod  *string `form:"payment_method,omitempty" json:"payment_method,omitempty"`
-	PricingModel   *string `form:"pricing_model,omitempty" json:"pricing_model,omitempty"`
-	Customer       *string `form:"customer,omitempty" json:"customer,omitempty"`
-	Plan           *string `form:"plan,omitempty" json:"plan,omitempty"`
-	Age            *string `form:"age,omitempty" json:"age,omitempty"`
-	Mrr            *string `form:"mrr,omitempty" json:"mrr,omitempty"`
-	LastActiveMrr  *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
-	TotalPaid      *string `form:"total_paid,omitempty" json:"total_paid,omitempty"`
-	Payments       *string `form:"payments,omitempty" json:"payments,omitempty"`
-	CreatedDate    *string `form:"created_date,omitempty" json:"created_date,omitempty"`
-	PaidStarted    *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
-	CancelDate     *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
-	RenewalDate    *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
-	TrialStarted   *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
-	TrialEndDate   *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
-	BillingFreq    *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
-	Geo            *string `form:"geo,omitempty" json:"geo,omitempty"`
-	Region         *string `form:"region,omitempty" json:"region,omitempty"`
-	State          *string `form:"state,omitempty" json:"state,omitempty"`
-	DataSource     *string `form:"data_source,omitempty" json:"data_source,omitempty"`
-	Status         *string `form:"status,omitempty" json:"status,omitempty"`
-	HasDiscount    *string `form:"has_discount,omitempty" json:"has_discount,omitempty"`
-	CancelReason   *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
-	Segment        *string `form:"segment,omitempty" json:"segment,omitempty"`
-	FixFx          *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Horizon         *string `form:"horizon,omitempty" json:"horizon,omitempty"`
+	Interval        *string `form:"interval,omitempty" json:"interval,omitempty"`
+	BaseCurrency    *string `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+	Breakdown       *string `form:"breakdown,omitempty" json:"breakdown,omitempty"`
+	IncludeOneTime  *string `form:"includeOneTime,omitempty" json:"includeOneTime,omitempty"`
+	IncludeRefunds  *string `form:"includeRefunds,omitempty" json:"includeRefunds,omitempty"`
+	IncludeDelay    *string `form:"includeDelay,omitempty" json:"includeDelay,omitempty"`
+	IncludeReceived *string `form:"includeReceived,omitempty" json:"includeReceived,omitempty"`
+	Currency        *string `form:"currency,omitempty" json:"currency,omitempty"`
+	PaymentMethod   *string `form:"payment_method,omitempty" json:"payment_method,omitempty"`
+	PricingModel    *string `form:"pricing_model,omitempty" json:"pricing_model,omitempty"`
+	Customer        *string `form:"customer,omitempty" json:"customer,omitempty"`
+	Plan            *string `form:"plan,omitempty" json:"plan,omitempty"`
+	Age             *string `form:"age,omitempty" json:"age,omitempty"`
+	Mrr             *string `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr   *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
+	TotalPaid       *string `form:"total_paid,omitempty" json:"total_paid,omitempty"`
+	Payments        *string `form:"payments,omitempty" json:"payments,omitempty"`
+	CreatedDate     *string `form:"created_date,omitempty" json:"created_date,omitempty"`
+	PaidStarted     *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
+	CancelDate      *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate     *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
+	TrialStarted    *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
+	TrialEndDate    *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
+	BillingFreq     *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo             *string `form:"geo,omitempty" json:"geo,omitempty"`
+	Region          *string `form:"region,omitempty" json:"region,omitempty"`
+	State           *string `form:"state,omitempty" json:"state,omitempty"`
+	DataSource      *string `form:"data_source,omitempty" json:"data_source,omitempty"`
+	Status          *string `form:"status,omitempty" json:"status,omitempty"`
+	HasDiscount     *string `form:"has_discount,omitempty" json:"has_discount,omitempty"`
+	CancelReason    *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
+	Segment         *string `form:"segment,omitempty" json:"segment,omitempty"`
+	FixFx           *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields          *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetForecastCashflowForecastDetailParams defines parameters for GetForecastCashflowForecastDetail.
@@ -1144,6 +1248,7 @@ type GetForecastCashflowForecastDetailParams struct {
 	CancelReason  *string                                      `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string                                      `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string                                      `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string                                      `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetForecastCashflowForecastDetailParamsSort defines parameters for GetForecastCashflowForecastDetail.
@@ -1203,6 +1308,7 @@ type GetReportsCancellationTimingParams struct {
 	CancelReason  *string                                 `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string                                 `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string                                 `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string                                 `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsCancellationTimingParamsMode defines parameters for GetReportsCancellationTiming.
@@ -1243,6 +1349,7 @@ type GetReportsCancellationTimingDetailParams struct {
 	CancelReason      *string                                       `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment           *string                                       `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx             *string                                       `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields            *string                                       `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsCancellationTimingDetailParamsMode defines parameters for GetReportsCancellationTimingDetail.
@@ -1279,6 +1386,7 @@ type GetReportsCashflowFailedPaymentsParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsCashflowFailedPaymentsSummaryParams defines parameters for GetReportsCashflowFailedPaymentsSummary.
@@ -1311,6 +1419,7 @@ type GetReportsCashflowFailedPaymentsSummaryParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsCashflowFailureRateParams defines parameters for GetReportsCashflowFailureRate.
@@ -1343,6 +1452,7 @@ type GetReportsCashflowFailureRateParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsCashflowFailureRateSummaryParams defines parameters for GetReportsCashflowFailureRateSummary.
@@ -1374,6 +1484,7 @@ type GetReportsCashflowFailureRateSummaryParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsCashflowOutstandingUnpaidParams defines parameters for GetReportsCashflowOutstandingUnpaid.
@@ -1405,6 +1516,7 @@ type GetReportsCashflowOutstandingUnpaidParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsCashflowRefundsParams defines parameters for GetReportsCashflowRefunds.
@@ -1438,6 +1550,7 @@ type GetReportsCashflowRefundsParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsChurnReasonsSummaryParams defines parameters for GetReportsChurnReasonsSummary.
@@ -1480,6 +1593,7 @@ type GetReportsChurnScheduledParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsCmrrSummaryParams defines parameters for GetReportsCmrrSummary.
@@ -1512,6 +1626,7 @@ type GetReportsCmrrSummaryParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsCohortParams defines parameters for GetReportsCohort.
@@ -1546,6 +1661,7 @@ type GetReportsCohortParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsCustomVariablesParams defines parameters for GetReportsCustomVariables.
@@ -1585,6 +1701,7 @@ type GetReportsCustomerConcentrationParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsLatestActivityParams defines parameters for GetReportsLatestActivity.
@@ -1640,6 +1757,7 @@ type GetReportsLeadOutcomesParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsLeadsParams defines parameters for GetReportsLeads.
@@ -1673,6 +1791,7 @@ type GetReportsLeadsParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsLeadsSummaryParams defines parameters for GetReportsLeadsSummary.
@@ -1704,6 +1823,7 @@ type GetReportsLeadsSummaryParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsMapParams defines parameters for GetReportsMap.
@@ -1736,6 +1856,7 @@ type GetReportsMapParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsMrrParams defines parameters for GetReportsMrr.
@@ -1772,6 +1893,7 @@ type GetReportsMrrParams struct {
 	CancelReason  *string                       `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string                       `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string                       `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string                       `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsMrrParamsCompare defines parameters for GetReportsMrr.
@@ -1820,6 +1942,7 @@ type GetReportsMrrSubtypesParams struct {
 	CancelReason  *string                         `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string                         `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string                         `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string                         `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsMrrSubtypesParamsType defines parameters for GetReportsMrrSubtypes.
@@ -1857,6 +1980,7 @@ type GetReportsPausedParams struct {
 	CancelReason  *string                      `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string                      `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string                      `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string                      `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsPausedParamsSort defines parameters for GetReportsPaused.
@@ -1864,6 +1988,84 @@ type GetReportsPausedParamsSort string
 
 // GetReportsPausedParamsOrder defines parameters for GetReportsPaused.
 type GetReportsPausedParamsOrder string
+
+// GetReportsPayoutFeesParams defines parameters for GetReportsPayoutFees.
+type GetReportsPayoutFeesParams struct {
+	Date         *string                              `form:"date,omitempty" json:"date,omitempty"`
+	Interval     *string                              `form:"interval,omitempty" json:"interval,omitempty"`
+	BaseCurrency *string                              `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+	Breakdown    *GetReportsPayoutFeesParamsBreakdown `form:"breakdown,omitempty" json:"breakdown,omitempty"`
+	FeeKind      *string                              `form:"fee_kind,omitempty" json:"fee_kind,omitempty"`
+	Currency     *string                              `form:"currency,omitempty" json:"currency,omitempty"`
+}
+
+// GetReportsPayoutFeesParamsBreakdown defines parameters for GetReportsPayoutFees.
+type GetReportsPayoutFeesParamsBreakdown string
+
+// GetReportsPayoutFeesDetailParams defines parameters for GetReportsPayoutFeesDetail.
+type GetReportsPayoutFeesDetailParams struct {
+	Date         *string                                    `form:"date,omitempty" json:"date,omitempty"`
+	Interval     *string                                    `form:"interval,omitempty" json:"interval,omitempty"`
+	BaseCurrency *string                                    `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+	Breakdown    *GetReportsPayoutFeesDetailParamsBreakdown `form:"breakdown,omitempty" json:"breakdown,omitempty"`
+	FeeKind      *string                                    `form:"fee_kind,omitempty" json:"fee_kind,omitempty"`
+	Currency     *string                                    `form:"currency,omitempty" json:"currency,omitempty"`
+	SelectedDate string                                     `form:"selected-date" json:"selected-date"`
+	FeeGroup     *string                                    `form:"fee_group,omitempty" json:"fee_group,omitempty"`
+	Limit        *string                                    `form:"limit,omitempty" json:"limit,omitempty"`
+}
+
+// GetReportsPayoutFeesDetailParamsBreakdown defines parameters for GetReportsPayoutFeesDetail.
+type GetReportsPayoutFeesDetailParamsBreakdown string
+
+// GetReportsPayoutFeesTableParams defines parameters for GetReportsPayoutFeesTable.
+type GetReportsPayoutFeesTableParams struct {
+	Date         *string                                   `form:"date,omitempty" json:"date,omitempty"`
+	Interval     *string                                   `form:"interval,omitempty" json:"interval,omitempty"`
+	BaseCurrency *string                                   `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+	Breakdown    *GetReportsPayoutFeesTableParamsBreakdown `form:"breakdown,omitempty" json:"breakdown,omitempty"`
+	FeeKind      *string                                   `form:"fee_kind,omitempty" json:"fee_kind,omitempty"`
+	Currency     *string                                   `form:"currency,omitempty" json:"currency,omitempty"`
+}
+
+// GetReportsPayoutFeesTableParamsBreakdown defines parameters for GetReportsPayoutFeesTable.
+type GetReportsPayoutFeesTableParamsBreakdown string
+
+// GetReportsPayoutsParams defines parameters for GetReportsPayouts.
+type GetReportsPayoutsParams struct {
+	Date         *string `form:"date,omitempty" json:"date,omitempty"`
+	Interval     *string `form:"interval,omitempty" json:"interval,omitempty"`
+	BaseCurrency *string `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+}
+
+// GetReportsPayoutsBalanceParams defines parameters for GetReportsPayoutsBalance.
+type GetReportsPayoutsBalanceParams struct {
+	BaseCurrency *string `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+}
+
+// GetReportsPayoutsListParams defines parameters for GetReportsPayoutsList.
+type GetReportsPayoutsListParams struct {
+	Date         *string                           `form:"date,omitempty" json:"date,omitempty"`
+	Interval     *string                           `form:"interval,omitempty" json:"interval,omitempty"`
+	BaseCurrency *string                           `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+	SelectedDate *string                           `form:"selected-date,omitempty" json:"selected-date,omitempty"`
+	Limit        *string                           `form:"limit,omitempty" json:"limit,omitempty"`
+	Sort         *GetReportsPayoutsListParamsSort  `form:"sort,omitempty" json:"sort,omitempty"`
+	Order        *GetReportsPayoutsListParamsOrder `form:"order,omitempty" json:"order,omitempty"`
+}
+
+// GetReportsPayoutsListParamsSort defines parameters for GetReportsPayoutsList.
+type GetReportsPayoutsListParamsSort string
+
+// GetReportsPayoutsListParamsOrder defines parameters for GetReportsPayoutsList.
+type GetReportsPayoutsListParamsOrder string
+
+// GetReportsPayoutsTableParams defines parameters for GetReportsPayoutsTable.
+type GetReportsPayoutsTableParams struct {
+	Date         *string `form:"date,omitempty" json:"date,omitempty"`
+	Interval     *string `form:"interval,omitempty" json:"interval,omitempty"`
+	BaseCurrency *string `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+}
 
 // GetReportsRetentionParams defines parameters for GetReportsRetention.
 type GetReportsRetentionParams struct {
@@ -1898,6 +2100,7 @@ type GetReportsRetentionParams struct {
 	CancelReason   *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment        *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx          *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields         *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsSummaryParams defines parameters for GetReportsSummary.
@@ -1930,41 +2133,48 @@ type GetReportsSummaryParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsTransactionsParams defines parameters for GetReportsTransactions.
 type GetReportsTransactionsParams struct {
-	Date          *string `form:"date,omitempty" json:"date,omitempty"`
-	Interval      *string `form:"interval,omitempty" json:"interval,omitempty"`
-	Breakdown     *string `form:"breakdown,omitempty" json:"breakdown,omitempty"`
-	BaseCurrency  *string `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
-	Currency      *string `form:"currency,omitempty" json:"currency,omitempty"`
-	PaymentMethod *string `form:"payment_method,omitempty" json:"payment_method,omitempty"`
-	PricingModel  *string `form:"pricing_model,omitempty" json:"pricing_model,omitempty"`
-	Customer      *string `form:"customer,omitempty" json:"customer,omitempty"`
-	Plan          *string `form:"plan,omitempty" json:"plan,omitempty"`
-	Age           *string `form:"age,omitempty" json:"age,omitempty"`
-	Mrr           *string `form:"mrr,omitempty" json:"mrr,omitempty"`
-	LastActiveMrr *string `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
-	TotalPaid     *string `form:"total_paid,omitempty" json:"total_paid,omitempty"`
-	Payments      *string `form:"payments,omitempty" json:"payments,omitempty"`
-	CreatedDate   *string `form:"created_date,omitempty" json:"created_date,omitempty"`
-	PaidStarted   *string `form:"paid_started,omitempty" json:"paid_started,omitempty"`
-	CancelDate    *string `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
-	RenewalDate   *string `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
-	TrialStarted  *string `form:"trial_started,omitempty" json:"trial_started,omitempty"`
-	TrialEndDate  *string `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
-	BillingFreq   *string `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
-	Geo           *string `form:"geo,omitempty" json:"geo,omitempty"`
-	Region        *string `form:"region,omitempty" json:"region,omitempty"`
-	State         *string `form:"state,omitempty" json:"state,omitempty"`
-	DataSource    *string `form:"data_source,omitempty" json:"data_source,omitempty"`
-	Status        *string `form:"status,omitempty" json:"status,omitempty"`
-	HasDiscount   *string `form:"has_discount,omitempty" json:"has_discount,omitempty"`
-	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
-	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
-	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Date          *string                              `form:"date,omitempty" json:"date,omitempty"`
+	Interval      *string                              `form:"interval,omitempty" json:"interval,omitempty"`
+	Breakdown     *string                              `form:"breakdown,omitempty" json:"breakdown,omitempty"`
+	BaseCurrency  *string                              `form:"baseCurrency,omitempty" json:"baseCurrency,omitempty"`
+	Payouts       *GetReportsTransactionsParamsPayouts `form:"payouts,omitempty" json:"payouts,omitempty"`
+	Category      *string                              `form:"category,omitempty" json:"category,omitempty"`
+	Currency      *string                              `form:"currency,omitempty" json:"currency,omitempty"`
+	PaymentMethod *string                              `form:"payment_method,omitempty" json:"payment_method,omitempty"`
+	PricingModel  *string                              `form:"pricing_model,omitempty" json:"pricing_model,omitempty"`
+	Customer      *string                              `form:"customer,omitempty" json:"customer,omitempty"`
+	Plan          *string                              `form:"plan,omitempty" json:"plan,omitempty"`
+	Age           *string                              `form:"age,omitempty" json:"age,omitempty"`
+	Mrr           *string                              `form:"mrr,omitempty" json:"mrr,omitempty"`
+	LastActiveMrr *string                              `form:"last_active_mrr,omitempty" json:"last_active_mrr,omitempty"`
+	TotalPaid     *string                              `form:"total_paid,omitempty" json:"total_paid,omitempty"`
+	Payments      *string                              `form:"payments,omitempty" json:"payments,omitempty"`
+	CreatedDate   *string                              `form:"created_date,omitempty" json:"created_date,omitempty"`
+	PaidStarted   *string                              `form:"paid_started,omitempty" json:"paid_started,omitempty"`
+	CancelDate    *string                              `form:"cancel_date,omitempty" json:"cancel_date,omitempty"`
+	RenewalDate   *string                              `form:"renewal_date,omitempty" json:"renewal_date,omitempty"`
+	TrialStarted  *string                              `form:"trial_started,omitempty" json:"trial_started,omitempty"`
+	TrialEndDate  *string                              `form:"trial_end_date,omitempty" json:"trial_end_date,omitempty"`
+	BillingFreq   *string                              `form:"billing_freq,omitempty" json:"billing_freq,omitempty"`
+	Geo           *string                              `form:"geo,omitempty" json:"geo,omitempty"`
+	Region        *string                              `form:"region,omitempty" json:"region,omitempty"`
+	State         *string                              `form:"state,omitempty" json:"state,omitempty"`
+	DataSource    *string                              `form:"data_source,omitempty" json:"data_source,omitempty"`
+	Status        *string                              `form:"status,omitempty" json:"status,omitempty"`
+	HasDiscount   *string                              `form:"has_discount,omitempty" json:"has_discount,omitempty"`
+	CancelReason  *string                              `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
+	Segment       *string                              `form:"segment,omitempty" json:"segment,omitempty"`
+	FixFx         *string                              `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string                              `form:"fields,omitempty" json:"fields,omitempty"`
 }
+
+// GetReportsTransactionsParamsPayouts defines parameters for GetReportsTransactions.
+type GetReportsTransactionsParamsPayouts string
 
 // GetReportsTransactionsSummaryParams defines parameters for GetReportsTransactionsSummary.
 type GetReportsTransactionsSummaryParams struct {
@@ -1996,6 +2206,7 @@ type GetReportsTransactionsSummaryParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // GetReportsTrialOutcomesParams defines parameters for GetReportsTrialOutcomes.
@@ -2029,6 +2240,7 @@ type GetReportsTrialOutcomesParams struct {
 	CancelReason  *string `form:"cancel_reason,omitempty" json:"cancel_reason,omitempty"`
 	Segment       *string `form:"segment,omitempty" json:"segment,omitempty"`
 	FixFx         *string `form:"fix_fx,omitempty" json:"fix_fx,omitempty"`
+	Fields        *string `form:"fields,omitempty" json:"fields,omitempty"`
 }
 
 // PutSettingsNotificationsJSONBody defines parameters for PutSettingsNotifications.
@@ -3055,6 +3267,62 @@ type ClientInterface interface {
 	// Corresponds with GET /reports/paused (the `GetReportsPaused` operationId).
 	GetReportsPaused(ctx context.Context, params *GetReportsPausedParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetReportsPayoutFees All Stripe fees over time
+	//
+	// Every fee Stripe charged per period, by fee type (default) or by currency, with each group's percentage and the effective fee rate (all fees ÷ the money that came in: customers' payments after discounts, with taxes, plus platform income). Fee types (`fee_kind` keys): `payment` Payment fees (the fee on each payment), `fx` Currency conversion (Stripe's conversion fee and exchange-rate margin on payments it converted into the balance currency, the cash flow report's FX loss), `card` Card processing, `network` Network costs, `billing` Stripe Billing, `invoicing` Invoicing, `tax` Stripe Tax, `revrec` Revenue Recognition, `sigma` Sigma and Data Pipeline, `connect` Connect, `identity` Identity, `fincon` Financial Connections, `dispute` Dispute fees, `terminal` Terminal, `issuing` Issuing, `tokens` Network tokens, `methods` Payment method fees, `payout` Payout fees, `credit` Credits and revenue share (money back, negative), `radar` Radar, `other` Other Stripe fees. Everything except `payment` and `fx` is taken straight from the Stripe balance and never shows on a payment.
+	//
+	// Corresponds with GET /reports/payout-fees (the `GetReportsPayoutFees` operationId).
+	GetReportsPayoutFees(ctx context.Context, params *GetReportsPayoutFeesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetReportsPayoutFeesDetail The fee lines behind a period
+	//
+	// The individual fees of one period (`selected-date`), optionally one group (`fee_group`: a fee type key, or with breakdown=currency a currency code or `account_wide`): Stripe's fee lines and the fee on each customer payment (with the customer), largest first. Fee types (`fee_kind` keys): `payment` Payment fees (the fee on each payment), `fx` Currency conversion (Stripe's conversion fee and exchange-rate margin on payments it converted into the balance currency, the cash flow report's FX loss), `card` Card processing, `network` Network costs, `billing` Stripe Billing, `invoicing` Invoicing, `tax` Stripe Tax, `revrec` Revenue Recognition, `sigma` Sigma and Data Pipeline, `connect` Connect, `identity` Identity, `fincon` Financial Connections, `dispute` Dispute fees, `terminal` Terminal, `issuing` Issuing, `tokens` Network tokens, `methods` Payment method fees, `payout` Payout fees, `credit` Credits and revenue share (money back, negative), `radar` Radar, `other` Other Stripe fees. Everything except `payment` and `fx` is taken straight from the Stripe balance and never shows on a payment.
+	//
+	// Corresponds with GET /reports/payout-fees-detail (the `GetReportsPayoutFeesDetail` operationId).
+	GetReportsPayoutFeesDetail(ctx context.Context, params *GetReportsPayoutFeesDetailParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetReportsPayoutFeesTable All Stripe fees (table)
+	//
+	// The fees as a table: per group a row of amounts (`list[key]`) and of percentages (`list["pct:" + key]`), then `fees` and `fee_rate`, each keyed by period end. Fee types (`fee_kind` keys): `payment` Payment fees (the fee on each payment), `fx` Currency conversion (Stripe's conversion fee and exchange-rate margin on payments it converted into the balance currency, the cash flow report's FX loss), `card` Card processing, `network` Network costs, `billing` Stripe Billing, `invoicing` Invoicing, `tax` Stripe Tax, `revrec` Revenue Recognition, `sigma` Sigma and Data Pipeline, `connect` Connect, `identity` Identity, `fincon` Financial Connections, `dispute` Dispute fees, `terminal` Terminal, `issuing` Issuing, `tokens` Network tokens, `methods` Payment method fees, `payout` Payout fees, `credit` Credits and revenue share (money back, negative), `radar` Radar, `other` Other Stripe fees. Everything except `payment` and `fx` is taken straight from the Stripe balance and never shows on a payment.
+	//
+	// Corresponds with GET /reports/payout-fees-table (the `GetReportsPayoutFeesTable` operationId).
+	GetReportsPayoutFeesTable(ctx context.Context, params *GetReportsPayoutFeesTableParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetReportsPayouts Paid out to your banks over time
+	//
+	// What Stripe paid out to your bank accounts per period, one series per payout currency, converted to the base currency at each period's rates. Stripe accounts only (see `/reports/payouts-status`).
+	//
+	// Corresponds with GET /reports/payouts (the `GetReportsPayouts` operationId).
+	GetReportsPayouts(ctx context.Context, params *GetReportsPayoutsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetReportsPayoutsBalance Stripe balance and next payout
+	//
+	// The Stripe balance right now, per currency (available, pending, on the way to the bank), the payout schedule and an estimate of the next payout. From a snapshot taken daily.
+	//
+	// Corresponds with GET /reports/payouts-balance (the `GetReportsPayoutsBalance` operationId).
+	GetReportsPayoutsBalance(ctx context.Context, params *GetReportsPayoutsBalanceParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetReportsPayoutsList Payouts (list)
+	//
+	// Individual payouts: the latest in the range, or those of one period (`selected-date`). Each with its bank account, arrival date, the Stripe fees paid out with it and what customers paid into it.
+	//
+	// Corresponds with GET /reports/payouts-list (the `GetReportsPayoutsList` operationId).
+	GetReportsPayoutsList(ctx context.Context, params *GetReportsPayoutsListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetReportsPayoutsStatus Whether payouts are available
+	//
+	// Whether the account can have payout data (a connected Stripe source; Chargebee and Recurly don't share payouts) and which kinds it has.
+	//
+	// Corresponds with GET /reports/payouts-status (the `GetReportsPayoutsStatus` operationId).
+	GetReportsPayoutsStatus(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetReportsPayoutsTable Paid out per currency (table)
+	//
+	// The payouts as a table: a row per payout currency, then `paid_out` (all currencies) and `payouts` (count), each keyed by period end.
+	//
+	// Corresponds with GET /reports/payouts-table (the `GetReportsPayoutsTable` operationId).
+	GetReportsPayoutsTable(ctx context.Context, params *GetReportsPayoutsTableParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetReportsRetention Retention metrics over time
 	//
 	// NRR, GRR, customer retention, and cohort size across the requested window. Baseline is the start period; each row is one period offset forward. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
@@ -3071,7 +3339,7 @@ type ClientInterface interface {
 
 	// GetReportsTransactions Cashflow received over time
 	//
-	// Per-period cash received, broken down by source: monthly subs, yearly subs, metered, one-time, discounts, refunds, fees, FX loss, tax. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	// Per-period cash received, broken down by source: monthly subs, yearly subs, metered, one-time, discounts, refunds, fees, FX loss, tax. With `payouts=1`, platform income (Stripe Connect application fees) is added as a revenue line inside gross and net cashflow, for accounts that earn it. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
 	//
 	// Corresponds with GET /reports/transactions (the `GetReportsTransactions` operationId).
 	GetReportsTransactions(ctx context.Context, params *GetReportsTransactionsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -4501,6 +4769,142 @@ func (c *Client) GetReportsPaused(ctx context.Context, params *GetReportsPausedP
 	return c.Client.Do(req)
 }
 
+// GetReportsPayoutFees All Stripe fees over time
+//
+// Every fee Stripe charged per period, by fee type (default) or by currency, with each group's percentage and the effective fee rate (all fees ÷ the money that came in: customers' payments after discounts, with taxes, plus platform income). Fee types (`fee_kind` keys): `payment` Payment fees (the fee on each payment), `fx` Currency conversion (Stripe's conversion fee and exchange-rate margin on payments it converted into the balance currency, the cash flow report's FX loss), `card` Card processing, `network` Network costs, `billing` Stripe Billing, `invoicing` Invoicing, `tax` Stripe Tax, `revrec` Revenue Recognition, `sigma` Sigma and Data Pipeline, `connect` Connect, `identity` Identity, `fincon` Financial Connections, `dispute` Dispute fees, `terminal` Terminal, `issuing` Issuing, `tokens` Network tokens, `methods` Payment method fees, `payout` Payout fees, `credit` Credits and revenue share (money back, negative), `radar` Radar, `other` Other Stripe fees. Everything except `payment` and `fx` is taken straight from the Stripe balance and never shows on a payment.
+//
+// Corresponds with GET /reports/payout-fees (the `GetReportsPayoutFees` operationId).
+func (c *Client) GetReportsPayoutFees(ctx context.Context, params *GetReportsPayoutFeesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetReportsPayoutFeesRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetReportsPayoutFeesDetail The fee lines behind a period
+//
+// The individual fees of one period (`selected-date`), optionally one group (`fee_group`: a fee type key, or with breakdown=currency a currency code or `account_wide`): Stripe's fee lines and the fee on each customer payment (with the customer), largest first. Fee types (`fee_kind` keys): `payment` Payment fees (the fee on each payment), `fx` Currency conversion (Stripe's conversion fee and exchange-rate margin on payments it converted into the balance currency, the cash flow report's FX loss), `card` Card processing, `network` Network costs, `billing` Stripe Billing, `invoicing` Invoicing, `tax` Stripe Tax, `revrec` Revenue Recognition, `sigma` Sigma and Data Pipeline, `connect` Connect, `identity` Identity, `fincon` Financial Connections, `dispute` Dispute fees, `terminal` Terminal, `issuing` Issuing, `tokens` Network tokens, `methods` Payment method fees, `payout` Payout fees, `credit` Credits and revenue share (money back, negative), `radar` Radar, `other` Other Stripe fees. Everything except `payment` and `fx` is taken straight from the Stripe balance and never shows on a payment.
+//
+// Corresponds with GET /reports/payout-fees-detail (the `GetReportsPayoutFeesDetail` operationId).
+func (c *Client) GetReportsPayoutFeesDetail(ctx context.Context, params *GetReportsPayoutFeesDetailParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetReportsPayoutFeesDetailRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetReportsPayoutFeesTable All Stripe fees (table)
+//
+// The fees as a table: per group a row of amounts (`list[key]`) and of percentages (`list["pct:" + key]`), then `fees` and `fee_rate`, each keyed by period end. Fee types (`fee_kind` keys): `payment` Payment fees (the fee on each payment), `fx` Currency conversion (Stripe's conversion fee and exchange-rate margin on payments it converted into the balance currency, the cash flow report's FX loss), `card` Card processing, `network` Network costs, `billing` Stripe Billing, `invoicing` Invoicing, `tax` Stripe Tax, `revrec` Revenue Recognition, `sigma` Sigma and Data Pipeline, `connect` Connect, `identity` Identity, `fincon` Financial Connections, `dispute` Dispute fees, `terminal` Terminal, `issuing` Issuing, `tokens` Network tokens, `methods` Payment method fees, `payout` Payout fees, `credit` Credits and revenue share (money back, negative), `radar` Radar, `other` Other Stripe fees. Everything except `payment` and `fx` is taken straight from the Stripe balance and never shows on a payment.
+//
+// Corresponds with GET /reports/payout-fees-table (the `GetReportsPayoutFeesTable` operationId).
+func (c *Client) GetReportsPayoutFeesTable(ctx context.Context, params *GetReportsPayoutFeesTableParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetReportsPayoutFeesTableRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetReportsPayouts Paid out to your banks over time
+//
+// What Stripe paid out to your bank accounts per period, one series per payout currency, converted to the base currency at each period's rates. Stripe accounts only (see `/reports/payouts-status`).
+//
+// Corresponds with GET /reports/payouts (the `GetReportsPayouts` operationId).
+func (c *Client) GetReportsPayouts(ctx context.Context, params *GetReportsPayoutsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetReportsPayoutsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetReportsPayoutsBalance Stripe balance and next payout
+//
+// The Stripe balance right now, per currency (available, pending, on the way to the bank), the payout schedule and an estimate of the next payout. From a snapshot taken daily.
+//
+// Corresponds with GET /reports/payouts-balance (the `GetReportsPayoutsBalance` operationId).
+func (c *Client) GetReportsPayoutsBalance(ctx context.Context, params *GetReportsPayoutsBalanceParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetReportsPayoutsBalanceRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetReportsPayoutsList Payouts (list)
+//
+// Individual payouts: the latest in the range, or those of one period (`selected-date`). Each with its bank account, arrival date, the Stripe fees paid out with it and what customers paid into it.
+//
+// Corresponds with GET /reports/payouts-list (the `GetReportsPayoutsList` operationId).
+func (c *Client) GetReportsPayoutsList(ctx context.Context, params *GetReportsPayoutsListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetReportsPayoutsListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetReportsPayoutsStatus Whether payouts are available
+//
+// Whether the account can have payout data (a connected Stripe source; Chargebee and Recurly don't share payouts) and which kinds it has.
+//
+// Corresponds with GET /reports/payouts-status (the `GetReportsPayoutsStatus` operationId).
+func (c *Client) GetReportsPayoutsStatus(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetReportsPayoutsStatusRequest(c.Server)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetReportsPayoutsTable Paid out per currency (table)
+//
+// The payouts as a table: a row per payout currency, then `paid_out` (all currencies) and `payouts` (count), each keyed by period end.
+//
+// Corresponds with GET /reports/payouts-table (the `GetReportsPayoutsTable` operationId).
+func (c *Client) GetReportsPayoutsTable(ctx context.Context, params *GetReportsPayoutsTableParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetReportsPayoutsTableRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // GetReportsRetention Retention metrics over time
 //
 // NRR, GRR, customer retention, and cohort size across the requested window. Baseline is the start period; each row is one period offset forward. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
@@ -4537,7 +4941,7 @@ func (c *Client) GetReportsSummary(ctx context.Context, params *GetReportsSummar
 
 // GetReportsTransactions Cashflow received over time
 //
-// Per-period cash received, broken down by source: monthly subs, yearly subs, metered, one-time, discounts, refunds, fees, FX loss, tax. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+// Per-period cash received, broken down by source: monthly subs, yearly subs, metered, one-time, discounts, refunds, fees, FX loss, tax. With `payouts=1`, platform income (Stripe Connect application fees) is added as a revenue line inside gross and net cashflow, for accounts that earn it. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
 //
 // Corresponds with GET /reports/transactions (the `GetReportsTransactions` operationId).
 func (c *Client) GetReportsTransactions(ctx context.Context, params *GetReportsTransactionsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -5016,6 +5420,18 @@ func NewGetCustomersRequest(server string, params *GetCustomersParams) (*http.Re
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -6861,6 +7277,18 @@ func NewGetForecastAiSummaryRequest(server string, params *GetForecastAiSummaryP
 
 		}
 
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -7311,6 +7739,18 @@ func NewGetForecastAiSummaryTableRequest(server string, params *GetForecastAiSum
 
 		}
 
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -7428,6 +7868,18 @@ func NewGetForecastCashflowForecastRequest(server string, params *GetForecastCas
 		if params.IncludeDelay != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "includeDelay", *params.IncludeDelay, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.IncludeReceived != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "includeReceived", *params.IncludeReceived, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -7740,6 +8192,18 @@ func NewGetForecastCashflowForecastRequest(server string, params *GetForecastCas
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -8202,6 +8666,18 @@ func NewGetForecastCashflowForecastDetailRequest(server string, params *GetForec
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -8832,6 +9308,18 @@ func NewGetReportsCancellationTimingRequest(server string, params *GetReportsCan
 
 		}
 
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -9270,6 +9758,18 @@ func NewGetReportsCancellationTimingDetailRequest(server string, params *GetRepo
 
 		}
 
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -9660,6 +10160,18 @@ func NewGetReportsCashflowFailedPaymentsRequest(server string, params *GetReport
 
 		}
 
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -10029,6 +10541,18 @@ func NewGetReportsCashflowFailedPaymentsSummaryRequest(server string, params *Ge
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -10416,6 +10940,18 @@ func NewGetReportsCashflowFailureRateRequest(server string, params *GetReportsCa
 
 		}
 
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -10782,6 +11318,18 @@ func NewGetReportsCashflowFailureRateSummaryRequest(server string, params *GetRe
 
 		}
 
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -11139,6 +11687,18 @@ func NewGetReportsCashflowOutstandingUnpaidRequest(server string, params *GetRep
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -11529,6 +12089,18 @@ func NewGetReportsCashflowRefundsRequest(server string, params *GetReportsCashfl
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -11994,6 +12566,18 @@ func NewGetReportsChurnScheduledRequest(server string, params *GetReportsChurnSc
 
 		}
 
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -12363,6 +12947,18 @@ func NewGetReportsCmrrSummaryRequest(server string, params *GetReportsCmrrSummar
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -12765,6 +13361,18 @@ func NewGetReportsCohortRequest(server string, params *GetReportsCohortParams) (
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -13217,6 +13825,18 @@ func NewGetReportsCustomerConcentrationRequest(server string, params *GetReports
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -13730,6 +14350,18 @@ func NewGetReportsLeadOutcomesRequest(server string, params *GetReportsLeadOutco
 
 		}
 
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -14120,6 +14752,18 @@ func NewGetReportsLeadsRequest(server string, params *GetReportsLeadsParams) (*h
 
 		}
 
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -14477,6 +15121,18 @@ func NewGetReportsLeadsSummaryRequest(server string, params *GetReportsLeadsSumm
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -14855,6 +15511,18 @@ func NewGetReportsMapRequest(server string, params *GetReportsMapParams) (*http.
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -15281,6 +15949,18 @@ func NewGetReportsMrrRequest(server string, params *GetReportsMrrParams) (*http.
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -15778,6 +16458,18 @@ func NewGetReportsMrrSubtypesRequest(server string, params *GetReportsMrrSubtype
 
 		}
 
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -16171,6 +16863,755 @@ func NewGetReportsPausedRequest(server string, params *GetReportsPausedParams) (
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetReportsPayoutFeesRequest constructs an http.Request for the GetReportsPayoutFees method
+func NewGetReportsPayoutFeesRequest(server string, params *GetReportsPayoutFeesParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/reports/payout-fees")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "date", *params.Date, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Interval != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "interval", *params.Interval, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BaseCurrency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Breakdown != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "breakdown", *params.Breakdown, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.FeeKind != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fee_kind", *params.FeeKind, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Currency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "currency", *params.Currency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetReportsPayoutFeesDetailRequest constructs an http.Request for the GetReportsPayoutFeesDetail method
+func NewGetReportsPayoutFeesDetailRequest(server string, params *GetReportsPayoutFeesDetailParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/reports/payout-fees-detail")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "date", *params.Date, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Interval != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "interval", *params.Interval, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BaseCurrency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Breakdown != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "breakdown", *params.Breakdown, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.FeeKind != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fee_kind", *params.FeeKind, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Currency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "currency", *params.Currency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if queryFrag, err := runtime.StyleParamWithOptions("form", true, "selected-date", params.SelectedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+			return nil, err
+		} else {
+			for _, qp := range strings.Split(queryFrag, "&") {
+				rawQueryFragments = append(rawQueryFragments, qp)
+			}
+		}
+
+		if params.FeeGroup != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fee_group", *params.FeeGroup, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "limit", *params.Limit, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetReportsPayoutFeesTableRequest constructs an http.Request for the GetReportsPayoutFeesTable method
+func NewGetReportsPayoutFeesTableRequest(server string, params *GetReportsPayoutFeesTableParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/reports/payout-fees-table")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "date", *params.Date, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Interval != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "interval", *params.Interval, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BaseCurrency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Breakdown != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "breakdown", *params.Breakdown, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.FeeKind != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fee_kind", *params.FeeKind, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Currency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "currency", *params.Currency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetReportsPayoutsRequest constructs an http.Request for the GetReportsPayouts method
+func NewGetReportsPayoutsRequest(server string, params *GetReportsPayoutsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/reports/payouts")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "date", *params.Date, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Interval != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "interval", *params.Interval, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BaseCurrency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetReportsPayoutsBalanceRequest constructs an http.Request for the GetReportsPayoutsBalance method
+func NewGetReportsPayoutsBalanceRequest(server string, params *GetReportsPayoutsBalanceParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/reports/payouts-balance")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.BaseCurrency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetReportsPayoutsListRequest constructs an http.Request for the GetReportsPayoutsList method
+func NewGetReportsPayoutsListRequest(server string, params *GetReportsPayoutsListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/reports/payouts-list")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "date", *params.Date, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Interval != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "interval", *params.Interval, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BaseCurrency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.SelectedDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "selected-date", *params.SelectedDate, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "limit", *params.Limit, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "sort", *params.Sort, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Order != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "order", *params.Order, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetReportsPayoutsStatusRequest constructs an http.Request for the GetReportsPayoutsStatus method
+func NewGetReportsPayoutsStatusRequest(server string) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/reports/payouts-status")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetReportsPayoutsTableRequest constructs an http.Request for the GetReportsPayoutsTable method
+func NewGetReportsPayoutsTableRequest(server string, params *GetReportsPayoutsTableParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/reports/payouts-table")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "date", *params.Date, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Interval != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "interval", *params.Interval, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.BaseCurrency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -16594,6 +18035,18 @@ func NewGetReportsRetentionRequest(server string, params *GetReportsRetentionPar
 
 		}
 
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -16972,6 +18425,18 @@ func NewGetReportsSummaryRequest(server string, params *GetReportsSummaryParams)
 
 		}
 
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -17053,6 +18518,30 @@ func NewGetReportsTransactionsRequest(server string, params *GetReportsTransacti
 		if params.BaseCurrency != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "baseCurrency", *params.BaseCurrency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Payouts != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "payouts", *params.Payouts, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Category != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "category", *params.Category, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -17365,6 +18854,18 @@ func NewGetReportsTransactionsRequest(server string, params *GetReportsTransacti
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -17743,6 +19244,18 @@ func NewGetReportsTransactionsSummaryRequest(server string, params *GetReportsTr
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -18133,6 +19646,18 @@ func NewGetReportsTrialOutcomesRequest(server string, params *GetReportsTrialOut
 		if params.FixFx != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fix_fx", *params.FixFx, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Fields != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "fields", *params.Fields, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -18948,6 +20473,78 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with GET /reports/paused (the `GetReportsPaused` operationId).
 	GetReportsPausedWithResponse(ctx context.Context, params *GetReportsPausedParams, reqEditors ...RequestEditorFn) (*GetReportsPausedResponse, error)
 
+	// GetReportsPayoutFeesWithResponse All Stripe fees over time
+	//
+	// Every fee Stripe charged per period, by fee type (default) or by currency, with each group's percentage and the effective fee rate (all fees ÷ the money that came in: customers' payments after discounts, with taxes, plus platform income). Fee types (`fee_kind` keys): `payment` Payment fees (the fee on each payment), `fx` Currency conversion (Stripe's conversion fee and exchange-rate margin on payments it converted into the balance currency, the cash flow report's FX loss), `card` Card processing, `network` Network costs, `billing` Stripe Billing, `invoicing` Invoicing, `tax` Stripe Tax, `revrec` Revenue Recognition, `sigma` Sigma and Data Pipeline, `connect` Connect, `identity` Identity, `fincon` Financial Connections, `dispute` Dispute fees, `terminal` Terminal, `issuing` Issuing, `tokens` Network tokens, `methods` Payment method fees, `payout` Payout fees, `credit` Credits and revenue share (money back, negative), `radar` Radar, `other` Other Stripe fees. Everything except `payment` and `fx` is taken straight from the Stripe balance and never shows on a payment.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /reports/payout-fees (the `GetReportsPayoutFees` operationId).
+	GetReportsPayoutFeesWithResponse(ctx context.Context, params *GetReportsPayoutFeesParams, reqEditors ...RequestEditorFn) (*GetReportsPayoutFeesResponse, error)
+
+	// GetReportsPayoutFeesDetailWithResponse The fee lines behind a period
+	//
+	// The individual fees of one period (`selected-date`), optionally one group (`fee_group`: a fee type key, or with breakdown=currency a currency code or `account_wide`): Stripe's fee lines and the fee on each customer payment (with the customer), largest first. Fee types (`fee_kind` keys): `payment` Payment fees (the fee on each payment), `fx` Currency conversion (Stripe's conversion fee and exchange-rate margin on payments it converted into the balance currency, the cash flow report's FX loss), `card` Card processing, `network` Network costs, `billing` Stripe Billing, `invoicing` Invoicing, `tax` Stripe Tax, `revrec` Revenue Recognition, `sigma` Sigma and Data Pipeline, `connect` Connect, `identity` Identity, `fincon` Financial Connections, `dispute` Dispute fees, `terminal` Terminal, `issuing` Issuing, `tokens` Network tokens, `methods` Payment method fees, `payout` Payout fees, `credit` Credits and revenue share (money back, negative), `radar` Radar, `other` Other Stripe fees. Everything except `payment` and `fx` is taken straight from the Stripe balance and never shows on a payment.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /reports/payout-fees-detail (the `GetReportsPayoutFeesDetail` operationId).
+	GetReportsPayoutFeesDetailWithResponse(ctx context.Context, params *GetReportsPayoutFeesDetailParams, reqEditors ...RequestEditorFn) (*GetReportsPayoutFeesDetailResponse, error)
+
+	// GetReportsPayoutFeesTableWithResponse All Stripe fees (table)
+	//
+	// The fees as a table: per group a row of amounts (`list[key]`) and of percentages (`list["pct:" + key]`), then `fees` and `fee_rate`, each keyed by period end. Fee types (`fee_kind` keys): `payment` Payment fees (the fee on each payment), `fx` Currency conversion (Stripe's conversion fee and exchange-rate margin on payments it converted into the balance currency, the cash flow report's FX loss), `card` Card processing, `network` Network costs, `billing` Stripe Billing, `invoicing` Invoicing, `tax` Stripe Tax, `revrec` Revenue Recognition, `sigma` Sigma and Data Pipeline, `connect` Connect, `identity` Identity, `fincon` Financial Connections, `dispute` Dispute fees, `terminal` Terminal, `issuing` Issuing, `tokens` Network tokens, `methods` Payment method fees, `payout` Payout fees, `credit` Credits and revenue share (money back, negative), `radar` Radar, `other` Other Stripe fees. Everything except `payment` and `fx` is taken straight from the Stripe balance and never shows on a payment.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /reports/payout-fees-table (the `GetReportsPayoutFeesTable` operationId).
+	GetReportsPayoutFeesTableWithResponse(ctx context.Context, params *GetReportsPayoutFeesTableParams, reqEditors ...RequestEditorFn) (*GetReportsPayoutFeesTableResponse, error)
+
+	// GetReportsPayoutsWithResponse Paid out to your banks over time
+	//
+	// What Stripe paid out to your bank accounts per period, one series per payout currency, converted to the base currency at each period's rates. Stripe accounts only (see `/reports/payouts-status`).
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /reports/payouts (the `GetReportsPayouts` operationId).
+	GetReportsPayoutsWithResponse(ctx context.Context, params *GetReportsPayoutsParams, reqEditors ...RequestEditorFn) (*GetReportsPayoutsResponse, error)
+
+	// GetReportsPayoutsBalanceWithResponse Stripe balance and next payout
+	//
+	// The Stripe balance right now, per currency (available, pending, on the way to the bank), the payout schedule and an estimate of the next payout. From a snapshot taken daily.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /reports/payouts-balance (the `GetReportsPayoutsBalance` operationId).
+	GetReportsPayoutsBalanceWithResponse(ctx context.Context, params *GetReportsPayoutsBalanceParams, reqEditors ...RequestEditorFn) (*GetReportsPayoutsBalanceResponse, error)
+
+	// GetReportsPayoutsListWithResponse Payouts (list)
+	//
+	// Individual payouts: the latest in the range, or those of one period (`selected-date`). Each with its bank account, arrival date, the Stripe fees paid out with it and what customers paid into it.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /reports/payouts-list (the `GetReportsPayoutsList` operationId).
+	GetReportsPayoutsListWithResponse(ctx context.Context, params *GetReportsPayoutsListParams, reqEditors ...RequestEditorFn) (*GetReportsPayoutsListResponse, error)
+
+	// GetReportsPayoutsStatusWithResponse Whether payouts are available
+	//
+	// Whether the account can have payout data (a connected Stripe source; Chargebee and Recurly don't share payouts) and which kinds it has.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /reports/payouts-status (the `GetReportsPayoutsStatus` operationId).
+	GetReportsPayoutsStatusWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetReportsPayoutsStatusResponse, error)
+
+	// GetReportsPayoutsTableWithResponse Paid out per currency (table)
+	//
+	// The payouts as a table: a row per payout currency, then `paid_out` (all currencies) and `payouts` (count), each keyed by period end.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /reports/payouts-table (the `GetReportsPayoutsTable` operationId).
+	GetReportsPayoutsTableWithResponse(ctx context.Context, params *GetReportsPayoutsTableParams, reqEditors ...RequestEditorFn) (*GetReportsPayoutsTableResponse, error)
+
 	// GetReportsRetentionWithResponse Retention metrics over time
 	//
 	// NRR, GRR, customer retention, and cohort size across the requested window. Baseline is the start period; each row is one period offset forward. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
@@ -18968,7 +20565,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetReportsTransactionsWithResponse Cashflow received over time
 	//
-	// Per-period cash received, broken down by source: monthly subs, yearly subs, metered, one-time, discounts, refunds, fees, FX loss, tax. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	// Per-period cash received, broken down by source: monthly subs, yearly subs, metered, one-time, discounts, refunds, fees, FX loss, tax. With `payouts=1`, platform income (Stripe Connect application fees) is added as a revenue line inside gross and net cashflow, for accounts that earn it. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -22931,31 +24528,51 @@ type GetForecastCashflowForecastResponse struct {
 			PermanentFailurePct *float32 `json:"permanent_failure_pct,omitempty"`
 		} `json:"payment_timing"`
 		Result []struct {
+			// AnnualCash Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			AnnualCash      *float32 `json:"annual_cash,omitempty"`
 			AnnualCustomers *float32 `json:"annual_customers,omitempty"`
 
 			// AnnualRenewals Cash from yearly plans billing in this period (counted in full when billed, not spread across the year).
 			AnnualRenewals *float32 `json:"annual_renewals,omitempty"`
 
-			// CashIn Total expected cash received in this period.
-			CashIn            *float32 `json:"cash_in,omitempty"`
+			// CashIn Total expected cash received in this period. For the period holding today, only from today on.
+			CashIn *float32 `json:"cash_in,omitempty"`
+
+			// CashInProjected Period holding today only: cash_received plus cash_in, the projected total for the whole period.
+			CashInProjected *float32 `json:"cash_in_projected,omitempty"`
+
+			// CashReceived Period holding today only: subscription payments received so far in it.
+			CashReceived      *float32 `json:"cash_received,omitempty"`
 			CustomersRenewing *float32 `json:"customers_renewing,omitempty"`
 
 			// Date Period start date in ISO 8601 (YYYY-MM-DD).
-			Date             *string  `json:"date,omitempty"`
+			Date *string `json:"date,omitempty"`
+
+			// MonthlyCash Monthly plans as charted: the same as monthly_renewals, except that with includeReceived=1 the period holding today also counts what has already come in (after discounts, as in the cashflow report). Likewise annual_cash, quarterly_cash and weekly_cash.
+			MonthlyCash      *float32 `json:"monthly_cash,omitempty"`
 			MonthlyCustomers *float32 `json:"monthly_customers,omitempty"`
 
 			// MonthlyRenewals Cash from monthly plans billing in this period.
 			MonthlyRenewals *float32 `json:"monthly_renewals,omitempty"`
 
+			// MonthlyRenewalsReceived Period holding today only: monthly-plan payments received so far in it. Likewise annual_, quarterly_ and weekly_renewals_received.
+			MonthlyRenewalsReceived *float32 `json:"monthly_renewals_received,omitempty"`
+
 			// OneTimeEstimate Estimated one-time / usage cash (avg of the last 6 months). Present when includeOneTime=1.
-			OneTimeEstimate    *float32 `json:"one_time_estimate,omitempty"`
+			OneTimeEstimate *float32 `json:"one_time_estimate,omitempty"`
+
+			// QuarterlyCash Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			QuarterlyCash      *float32 `json:"quarterly_cash,omitempty"`
 			QuarterlyCustomers *float32 `json:"quarterly_customers,omitempty"`
 
 			// QuarterlyRenewals Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			QuarterlyRenewals *float32 `json:"quarterly_renewals,omitempty"`
 
 			// RefundEstimate Estimated refunds (negative). Present when includeRefunds=1.
-			RefundEstimate  *float32 `json:"refund_estimate,omitempty"`
+			RefundEstimate *float32 `json:"refund_estimate,omitempty"`
+
+			// WeeklyCash Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			WeeklyCash      *float32 `json:"weekly_cash,omitempty"`
 			WeeklyCustomers *float32 `json:"weekly_customers,omitempty"`
 
 			// WeeklyRenewals Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
@@ -23008,31 +24625,51 @@ func (r GetForecastCashflowForecastResponse) GetJSON200() *struct {
 		PermanentFailurePct *float32 `json:"permanent_failure_pct,omitempty"`
 	} `json:"payment_timing"`
 	Result []struct {
+		// AnnualCash Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		AnnualCash      *float32 `json:"annual_cash,omitempty"`
 		AnnualCustomers *float32 `json:"annual_customers,omitempty"`
 
 		// AnnualRenewals Cash from yearly plans billing in this period (counted in full when billed, not spread across the year).
 		AnnualRenewals *float32 `json:"annual_renewals,omitempty"`
 
-		// CashIn Total expected cash received in this period.
-		CashIn            *float32 `json:"cash_in,omitempty"`
+		// CashIn Total expected cash received in this period. For the period holding today, only from today on.
+		CashIn *float32 `json:"cash_in,omitempty"`
+
+		// CashInProjected Period holding today only: cash_received plus cash_in, the projected total for the whole period.
+		CashInProjected *float32 `json:"cash_in_projected,omitempty"`
+
+		// CashReceived Period holding today only: subscription payments received so far in it.
+		CashReceived      *float32 `json:"cash_received,omitempty"`
 		CustomersRenewing *float32 `json:"customers_renewing,omitempty"`
 
 		// Date Period start date in ISO 8601 (YYYY-MM-DD).
-		Date             *string  `json:"date,omitempty"`
+		Date *string `json:"date,omitempty"`
+
+		// MonthlyCash Monthly plans as charted: the same as monthly_renewals, except that with includeReceived=1 the period holding today also counts what has already come in (after discounts, as in the cashflow report). Likewise annual_cash, quarterly_cash and weekly_cash.
+		MonthlyCash      *float32 `json:"monthly_cash,omitempty"`
 		MonthlyCustomers *float32 `json:"monthly_customers,omitempty"`
 
 		// MonthlyRenewals Cash from monthly plans billing in this period.
 		MonthlyRenewals *float32 `json:"monthly_renewals,omitempty"`
 
+		// MonthlyRenewalsReceived Period holding today only: monthly-plan payments received so far in it. Likewise annual_, quarterly_ and weekly_renewals_received.
+		MonthlyRenewalsReceived *float32 `json:"monthly_renewals_received,omitempty"`
+
 		// OneTimeEstimate Estimated one-time / usage cash (avg of the last 6 months). Present when includeOneTime=1.
-		OneTimeEstimate    *float32 `json:"one_time_estimate,omitempty"`
+		OneTimeEstimate *float32 `json:"one_time_estimate,omitempty"`
+
+		// QuarterlyCash Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		QuarterlyCash      *float32 `json:"quarterly_cash,omitempty"`
 		QuarterlyCustomers *float32 `json:"quarterly_customers,omitempty"`
 
 		// QuarterlyRenewals Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 		QuarterlyRenewals *float32 `json:"quarterly_renewals,omitempty"`
 
 		// RefundEstimate Estimated refunds (negative). Present when includeRefunds=1.
-		RefundEstimate  *float32 `json:"refund_estimate,omitempty"`
+		RefundEstimate *float32 `json:"refund_estimate,omitempty"`
+
+		// WeeklyCash Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		WeeklyCash      *float32 `json:"weekly_cash,omitempty"`
 		WeeklyCustomers *float32 `json:"weekly_customers,omitempty"`
 
 		// WeeklyRenewals Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
@@ -27199,6 +28836,1232 @@ func (r GetReportsPausedResponse) ContentType() string {
 	return ""
 }
 
+type GetReportsPayoutFeesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// Breakdown `kind` (fee types) or `currency`.
+		Breakdown string `json:"breakdown"`
+
+		// Currency ISO 4217 currency code, lowercase.
+		Currency string `json:"currency"`
+		Result   []struct {
+			// Breakdown Per fee type key (or currency code / `account_wide` with breakdown=currency).
+			Breakdown *map[string]struct {
+				// Amount Fees in this group in the period (positive = cost; credits are negative).
+				Amount *float32 `json:"amount,omitempty"`
+
+				// Label The fee type's or currency's name.
+				Label *string `json:"label,omitempty"`
+
+				// Pct By fee type: the group's share of all the money that came in (the types add up to the effective fee rate). By currency: that currency's own fee rate. 0–100 scale, `null` without money in.
+				Pct *float32 `json:"pct,omitempty"`
+			} `json:"breakdown,omitempty"`
+
+			// Date Last day of the period (YYYY-MM-DD). Pass it as `selected-date` to the list/detail endpoints.
+			Date *string `json:"date,omitempty"`
+
+			// FeeRate Effective fee rate, 0–100 scale.
+			FeeRate *float32 `json:"fee_rate,omitempty"`
+
+			// Fees All fees in the period (after the filters).
+			Fees *float32 `json:"fees,omitempty"`
+		} `json:"result"`
+		Totals struct {
+			FeeRate *float32 `json:"fee_rate,omitempty"`
+
+			// Fees Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			Fees    *float32 `json:"fees,omitempty"`
+			Largest *struct {
+				// Amount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				Amount *float32 `json:"amount,omitempty"`
+				Key    *string  `json:"key,omitempty"`
+				Label  *string  `json:"label,omitempty"`
+			} `json:"largest,omitempty"`
+
+			// MoneyIn The money that came in over the range.
+			MoneyIn *float32 `json:"money_in,omitempty"`
+		} `json:"totals"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetReportsPayoutFeesResponse) GetJSON200() *struct {
+	// Breakdown `kind` (fee types) or `currency`.
+	Breakdown string `json:"breakdown"`
+
+	// Currency ISO 4217 currency code, lowercase.
+	Currency string `json:"currency"`
+	Result   []struct {
+		// Breakdown Per fee type key (or currency code / `account_wide` with breakdown=currency).
+		Breakdown *map[string]struct {
+			// Amount Fees in this group in the period (positive = cost; credits are negative).
+			Amount *float32 `json:"amount,omitempty"`
+
+			// Label The fee type's or currency's name.
+			Label *string `json:"label,omitempty"`
+
+			// Pct By fee type: the group's share of all the money that came in (the types add up to the effective fee rate). By currency: that currency's own fee rate. 0–100 scale, `null` without money in.
+			Pct *float32 `json:"pct,omitempty"`
+		} `json:"breakdown,omitempty"`
+
+		// Date Last day of the period (YYYY-MM-DD). Pass it as `selected-date` to the list/detail endpoints.
+		Date *string `json:"date,omitempty"`
+
+		// FeeRate Effective fee rate, 0–100 scale.
+		FeeRate *float32 `json:"fee_rate,omitempty"`
+
+		// Fees All fees in the period (after the filters).
+		Fees *float32 `json:"fees,omitempty"`
+	} `json:"result"`
+	Totals struct {
+		FeeRate *float32 `json:"fee_rate,omitempty"`
+
+		// Fees Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		Fees    *float32 `json:"fees,omitempty"`
+		Largest *struct {
+			// Amount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			Amount *float32 `json:"amount,omitempty"`
+			Key    *string  `json:"key,omitempty"`
+			Label  *string  `json:"label,omitempty"`
+		} `json:"largest,omitempty"`
+
+		// MoneyIn The money that came in over the range.
+		MoneyIn *float32 `json:"money_in,omitempty"`
+	} `json:"totals"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetReportsPayoutFeesResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetReportsPayoutFeesResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetReportsPayoutFeesResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetReportsPayoutFeesResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetReportsPayoutFeesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetReportsPayoutFeesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetReportsPayoutFeesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetReportsPayoutFeesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetReportsPayoutFeesDetailResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// Currency ISO 4217 currency code, lowercase.
+		Currency string `json:"currency"`
+		Result   struct {
+			List *[]struct {
+				// Amount The fee, minor units of its currency (positive = cost).
+				Amount *float32 `json:"amount,omitempty"`
+
+				// AmountBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				AmountBase *float32 `json:"amount_base,omitempty"`
+
+				// Currency ISO 4217 currency code, lowercase.
+				Currency      *string `json:"currency,omitempty"`
+				CustomerEmail *string `json:"customer_email,omitempty"`
+
+				// CustomerId The customer (fees on a payment).
+				CustomerId   *string `json:"customer_id,omitempty"`
+				CustomerName *string `json:"customer_name,omitempty"`
+				Date         *string `json:"date,omitempty"`
+
+				// Description Stripe's name for the fee.
+				Description *string `json:"description,omitempty"`
+
+				// Id Stripe id of the fee (balance transaction or charge).
+				Id *string `json:"id,omitempty"`
+
+				// Kind Fee type key.
+				Kind *string `json:"kind,omitempty"`
+
+				// Payout The payout it was paid out with (balance fees).
+				Payout *string `json:"payout,omitempty"`
+
+				// Type Fee type name.
+				Type *string `json:"type,omitempty"`
+			} `json:"list,omitempty"`
+
+			// Total Number of lines before the limit.
+			Total *float32 `json:"total,omitempty"`
+		} `json:"result"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetReportsPayoutFeesDetailResponse) GetJSON200() *struct {
+	// Currency ISO 4217 currency code, lowercase.
+	Currency string `json:"currency"`
+	Result   struct {
+		List *[]struct {
+			// Amount The fee, minor units of its currency (positive = cost).
+			Amount *float32 `json:"amount,omitempty"`
+
+			// AmountBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			AmountBase *float32 `json:"amount_base,omitempty"`
+
+			// Currency ISO 4217 currency code, lowercase.
+			Currency      *string `json:"currency,omitempty"`
+			CustomerEmail *string `json:"customer_email,omitempty"`
+
+			// CustomerId The customer (fees on a payment).
+			CustomerId   *string `json:"customer_id,omitempty"`
+			CustomerName *string `json:"customer_name,omitempty"`
+			Date         *string `json:"date,omitempty"`
+
+			// Description Stripe's name for the fee.
+			Description *string `json:"description,omitempty"`
+
+			// Id Stripe id of the fee (balance transaction or charge).
+			Id *string `json:"id,omitempty"`
+
+			// Kind Fee type key.
+			Kind *string `json:"kind,omitempty"`
+
+			// Payout The payout it was paid out with (balance fees).
+			Payout *string `json:"payout,omitempty"`
+
+			// Type Fee type name.
+			Type *string `json:"type,omitempty"`
+		} `json:"list,omitempty"`
+
+		// Total Number of lines before the limit.
+		Total *float32 `json:"total,omitempty"`
+	} `json:"result"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetReportsPayoutFeesDetailResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetReportsPayoutFeesDetailResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetReportsPayoutFeesDetailResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetReportsPayoutFeesDetailResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetReportsPayoutFeesDetailResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetReportsPayoutFeesDetailResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetReportsPayoutFeesDetailResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetReportsPayoutFeesDetailResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetReportsPayoutFeesTableResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// Currency ISO 4217 currency code, lowercase.
+		Currency string `json:"currency"`
+		Result   struct {
+			// By `kind` or `currency`.
+			By string `json:"by"`
+
+			// Groups The group rows in order, largest first.
+			Groups []struct {
+				Key   string `json:"key"`
+				Label string `json:"label"`
+			} `json:"groups"`
+			List map[string]map[string]float32 `json:"list"`
+		} `json:"result"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetReportsPayoutFeesTableResponse) GetJSON200() *struct {
+	// Currency ISO 4217 currency code, lowercase.
+	Currency string `json:"currency"`
+	Result   struct {
+		// By `kind` or `currency`.
+		By string `json:"by"`
+
+		// Groups The group rows in order, largest first.
+		Groups []struct {
+			Key   string `json:"key"`
+			Label string `json:"label"`
+		} `json:"groups"`
+		List map[string]map[string]float32 `json:"list"`
+	} `json:"result"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetReportsPayoutFeesTableResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetReportsPayoutFeesTableResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetReportsPayoutFeesTableResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetReportsPayoutFeesTableResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetReportsPayoutFeesTableResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetReportsPayoutFeesTableResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetReportsPayoutFeesTableResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetReportsPayoutFeesTableResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetReportsPayoutsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// Breakdown Always `currency`.
+		Breakdown string `json:"breakdown"`
+
+		// Currency ISO 4217 currency code, lowercase.
+		Currency string `json:"currency"`
+		Result   []struct {
+			// Breakdown Paid out per payout currency (keyed by lowercase currency code).
+			Breakdown *map[string]struct {
+				// Amount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				Amount *float32 `json:"amount,omitempty"`
+				Label  *string  `json:"label,omitempty"`
+			} `json:"breakdown,omitempty"`
+
+			// Date Last day of the period (YYYY-MM-DD). Pass it as `selected-date` to the list/detail endpoints.
+			Date *string `json:"date,omitempty"`
+
+			// PaidOut Everything paid out in the period, all currencies.
+			PaidOut *float32 `json:"paid_out,omitempty"`
+
+			// Payouts Number of payouts.
+			Payouts *float32 `json:"payouts,omitempty"`
+		} `json:"result"`
+		Totals struct {
+			// PaidOut Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			PaidOut *float32 `json:"paid_out,omitempty"`
+			Payouts *float32 `json:"payouts,omitempty"`
+		} `json:"totals"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetReportsPayoutsResponse) GetJSON200() *struct {
+	// Breakdown Always `currency`.
+	Breakdown string `json:"breakdown"`
+
+	// Currency ISO 4217 currency code, lowercase.
+	Currency string `json:"currency"`
+	Result   []struct {
+		// Breakdown Paid out per payout currency (keyed by lowercase currency code).
+		Breakdown *map[string]struct {
+			// Amount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			Amount *float32 `json:"amount,omitempty"`
+			Label  *string  `json:"label,omitempty"`
+		} `json:"breakdown,omitempty"`
+
+		// Date Last day of the period (YYYY-MM-DD). Pass it as `selected-date` to the list/detail endpoints.
+		Date *string `json:"date,omitempty"`
+
+		// PaidOut Everything paid out in the period, all currencies.
+		PaidOut *float32 `json:"paid_out,omitempty"`
+
+		// Payouts Number of payouts.
+		Payouts *float32 `json:"payouts,omitempty"`
+	} `json:"result"`
+	Totals struct {
+		// PaidOut Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+		PaidOut *float32 `json:"paid_out,omitempty"`
+		Payouts *float32 `json:"payouts,omitempty"`
+	} `json:"totals"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetReportsPayoutsResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetReportsPayoutsResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetReportsPayoutsResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetReportsPayoutsResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetReportsPayoutsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetReportsPayoutsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetReportsPayoutsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetReportsPayoutsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetReportsPayoutsBalanceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// Currency ISO 4217 currency code, lowercase.
+		Currency string `json:"currency"`
+		Result   struct {
+			// At When the snapshot was taken (ISO 8601).
+			At        *string `json:"at,omitempty"`
+			InTransit *[]struct {
+				Amount *float32 `json:"amount,omitempty"`
+
+				// AmountBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				AmountBase *float32 `json:"amount_base,omitempty"`
+
+				// ArrivalDate Unix time it arrives.
+				ArrivalDate *float32 `json:"arrival_date,omitempty"`
+				Bank        *string  `json:"bank,omitempty"`
+
+				// Created Unix time the payout was made.
+				Created *float32 `json:"created,omitempty"`
+
+				// Currency ISO 4217 currency code, lowercase.
+				Currency *string `json:"currency,omitempty"`
+				Id       *string `json:"id,omitempty"`
+				Status   *string `json:"status,omitempty"`
+			} `json:"in_transit,omitempty"`
+			List *[]struct {
+				// Available Available now, minor units of this currency.
+				Available *float32 `json:"available,omitempty"`
+
+				// AvailableBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				AvailableBase *float32 `json:"available_base,omitempty"`
+
+				// Currency ISO 4217 currency code, lowercase.
+				Currency *string `json:"currency,omitempty"`
+
+				// InTransit Paid out, not yet at the bank.
+				InTransit *float32 `json:"in_transit,omitempty"`
+
+				// InTransitBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				InTransitBase *float32 `json:"in_transit_base,omitempty"`
+
+				// Next Estimated amount of the next payout in this currency.
+				Next *float32 `json:"next,omitempty"`
+
+				// NextBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				NextBase *float32 `json:"next_base,omitempty"`
+
+				// Pending Pending (not yet available).
+				Pending *float32 `json:"pending,omitempty"`
+
+				// PendingBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				PendingBase *float32 `json:"pending_base,omitempty"`
+			} `json:"list,omitempty"`
+
+			// NextPayoutDate Estimated date of the next payout (YYYY-MM-DD).
+			NextPayoutDate *string `json:"next_payout_date,omitempty"`
+			Schedule       *struct {
+				DelayDays *float32 `json:"delay_days,omitempty"`
+
+				// Interval `daily`, `weekly`, `monthly` or `manual`.
+				Interval          *string    `json:"interval,omitempty"`
+				MonthlyAnchor     *float32   `json:"monthly_anchor,omitempty"`
+				MonthlyPayoutDays *[]float32 `json:"monthly_payout_days,omitempty"`
+				WeeklyAnchor      *string    `json:"weekly_anchor,omitempty"`
+				WeeklyPayoutDays  *[]string  `json:"weekly_payout_days,omitempty"`
+			} `json:"schedule,omitempty"`
+			Totals *struct {
+				// Available Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				Available *float32 `json:"available,omitempty"`
+
+				// InTransit Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				InTransit *float32 `json:"in_transit,omitempty"`
+
+				// Next Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				Next *float32 `json:"next,omitempty"`
+
+				// Pending Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				Pending *float32 `json:"pending,omitempty"`
+			} `json:"totals,omitempty"`
+		} `json:"result"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetReportsPayoutsBalanceResponse) GetJSON200() *struct {
+	// Currency ISO 4217 currency code, lowercase.
+	Currency string `json:"currency"`
+	Result   struct {
+		// At When the snapshot was taken (ISO 8601).
+		At        *string `json:"at,omitempty"`
+		InTransit *[]struct {
+			Amount *float32 `json:"amount,omitempty"`
+
+			// AmountBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			AmountBase *float32 `json:"amount_base,omitempty"`
+
+			// ArrivalDate Unix time it arrives.
+			ArrivalDate *float32 `json:"arrival_date,omitempty"`
+			Bank        *string  `json:"bank,omitempty"`
+
+			// Created Unix time the payout was made.
+			Created *float32 `json:"created,omitempty"`
+
+			// Currency ISO 4217 currency code, lowercase.
+			Currency *string `json:"currency,omitempty"`
+			Id       *string `json:"id,omitempty"`
+			Status   *string `json:"status,omitempty"`
+		} `json:"in_transit,omitempty"`
+		List *[]struct {
+			// Available Available now, minor units of this currency.
+			Available *float32 `json:"available,omitempty"`
+
+			// AvailableBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			AvailableBase *float32 `json:"available_base,omitempty"`
+
+			// Currency ISO 4217 currency code, lowercase.
+			Currency *string `json:"currency,omitempty"`
+
+			// InTransit Paid out, not yet at the bank.
+			InTransit *float32 `json:"in_transit,omitempty"`
+
+			// InTransitBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			InTransitBase *float32 `json:"in_transit_base,omitempty"`
+
+			// Next Estimated amount of the next payout in this currency.
+			Next *float32 `json:"next,omitempty"`
+
+			// NextBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			NextBase *float32 `json:"next_base,omitempty"`
+
+			// Pending Pending (not yet available).
+			Pending *float32 `json:"pending,omitempty"`
+
+			// PendingBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			PendingBase *float32 `json:"pending_base,omitempty"`
+		} `json:"list,omitempty"`
+
+		// NextPayoutDate Estimated date of the next payout (YYYY-MM-DD).
+		NextPayoutDate *string `json:"next_payout_date,omitempty"`
+		Schedule       *struct {
+			DelayDays *float32 `json:"delay_days,omitempty"`
+
+			// Interval `daily`, `weekly`, `monthly` or `manual`.
+			Interval          *string    `json:"interval,omitempty"`
+			MonthlyAnchor     *float32   `json:"monthly_anchor,omitempty"`
+			MonthlyPayoutDays *[]float32 `json:"monthly_payout_days,omitempty"`
+			WeeklyAnchor      *string    `json:"weekly_anchor,omitempty"`
+			WeeklyPayoutDays  *[]string  `json:"weekly_payout_days,omitempty"`
+		} `json:"schedule,omitempty"`
+		Totals *struct {
+			// Available Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			Available *float32 `json:"available,omitempty"`
+
+			// InTransit Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			InTransit *float32 `json:"in_transit,omitempty"`
+
+			// Next Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			Next *float32 `json:"next,omitempty"`
+
+			// Pending Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+			Pending *float32 `json:"pending,omitempty"`
+		} `json:"totals,omitempty"`
+	} `json:"result"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetReportsPayoutsBalanceResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetReportsPayoutsBalanceResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetReportsPayoutsBalanceResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetReportsPayoutsBalanceResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetReportsPayoutsBalanceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetReportsPayoutsBalanceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetReportsPayoutsBalanceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetReportsPayoutsBalanceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetReportsPayoutsListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// Currency ISO 4217 currency code, lowercase.
+		Currency string `json:"currency"`
+		Result   struct {
+			List []struct {
+				// Arrival When it reached (or reaches) the bank.
+				Arrival *string `json:"arrival,omitempty"`
+
+				// Bank The bank account (bank name and last digits).
+				Bank *string `json:"bank,omitempty"`
+
+				// Created When Stripe made the payout (YYYY-MM-DD HH:MM:SS, UTC).
+				Created *string `json:"created,omitempty"`
+
+				// Currency ISO 4217 currency code, lowercase.
+				Currency *string `json:"currency,omitempty"`
+
+				// Fees Stripe fees paid out with this payout (minor units of its currency, positive).
+				Fees *float32 `json:"fees,omitempty"`
+
+				// Id Stripe payout id (`po_...`).
+				Id *string `json:"id,omitempty"`
+
+				// Income Platform income (Stripe Connect application fees) in this payout.
+				Income *float32 `json:"income,omitempty"`
+
+				// Mode `automatic` (Stripe's schedule) or `manual`.
+				Mode *string `json:"mode,omitempty"`
+
+				// Paid Amount paid out, minor units of the payout's currency.
+				Paid *float32 `json:"paid,omitempty"`
+
+				// PaidBase Amount paid out in the base currency, at its period's rates.
+				PaidBase *float32 `json:"paid_base,omitempty"`
+
+				// Payments What customers paid into this payout (paid out + fees − platform income), automatic payouts only.
+				Payments *float32 `json:"payments,omitempty"`
+
+				// Period Last day of the period (YYYY-MM-DD). Pass it as `selected-date` to the list/detail endpoints.
+				Period *string `json:"period,omitempty"`
+
+				// Status `paid`, `failed` or `canceled`.
+				Status *string `json:"status,omitempty"`
+			} `json:"list"`
+		} `json:"result"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetReportsPayoutsListResponse) GetJSON200() *struct {
+	// Currency ISO 4217 currency code, lowercase.
+	Currency string `json:"currency"`
+	Result   struct {
+		List []struct {
+			// Arrival When it reached (or reaches) the bank.
+			Arrival *string `json:"arrival,omitempty"`
+
+			// Bank The bank account (bank name and last digits).
+			Bank *string `json:"bank,omitempty"`
+
+			// Created When Stripe made the payout (YYYY-MM-DD HH:MM:SS, UTC).
+			Created *string `json:"created,omitempty"`
+
+			// Currency ISO 4217 currency code, lowercase.
+			Currency *string `json:"currency,omitempty"`
+
+			// Fees Stripe fees paid out with this payout (minor units of its currency, positive).
+			Fees *float32 `json:"fees,omitempty"`
+
+			// Id Stripe payout id (`po_...`).
+			Id *string `json:"id,omitempty"`
+
+			// Income Platform income (Stripe Connect application fees) in this payout.
+			Income *float32 `json:"income,omitempty"`
+
+			// Mode `automatic` (Stripe's schedule) or `manual`.
+			Mode *string `json:"mode,omitempty"`
+
+			// Paid Amount paid out, minor units of the payout's currency.
+			Paid *float32 `json:"paid,omitempty"`
+
+			// PaidBase Amount paid out in the base currency, at its period's rates.
+			PaidBase *float32 `json:"paid_base,omitempty"`
+
+			// Payments What customers paid into this payout (paid out + fees − platform income), automatic payouts only.
+			Payments *float32 `json:"payments,omitempty"`
+
+			// Period Last day of the period (YYYY-MM-DD). Pass it as `selected-date` to the list/detail endpoints.
+			Period *string `json:"period,omitempty"`
+
+			// Status `paid`, `failed` or `canceled`.
+			Status *string `json:"status,omitempty"`
+		} `json:"list"`
+	} `json:"result"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetReportsPayoutsListResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetReportsPayoutsListResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetReportsPayoutsListResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetReportsPayoutsListResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetReportsPayoutsListResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetReportsPayoutsListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetReportsPayoutsListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetReportsPayoutsListResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetReportsPayoutsStatusResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		Result struct {
+			HasFees    *bool `json:"has_fees,omitempty"`
+			HasPayouts *bool `json:"has_payouts,omitempty"`
+
+			// HasPlatformIncome Whether the account earns platform income (Stripe Connect application fees), shown in the Cashflow report with `payouts=1`.
+			HasPlatformIncome *bool `json:"has_platform_income,omitempty"`
+			Sources           *[]struct {
+				Id     *string `json:"id,omitempty"`
+				Name   *string `json:"name,omitempty"`
+				Status *string `json:"status,omitempty"`
+				Type   *string `json:"type,omitempty"`
+			} `json:"sources,omitempty"`
+			Supported *bool `json:"supported,omitempty"`
+		} `json:"result"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetReportsPayoutsStatusResponse) GetJSON200() *struct {
+	Result struct {
+		HasFees    *bool `json:"has_fees,omitempty"`
+		HasPayouts *bool `json:"has_payouts,omitempty"`
+
+		// HasPlatformIncome Whether the account earns platform income (Stripe Connect application fees), shown in the Cashflow report with `payouts=1`.
+		HasPlatformIncome *bool `json:"has_platform_income,omitempty"`
+		Sources           *[]struct {
+			Id     *string `json:"id,omitempty"`
+			Name   *string `json:"name,omitempty"`
+			Status *string `json:"status,omitempty"`
+			Type   *string `json:"type,omitempty"`
+		} `json:"sources,omitempty"`
+		Supported *bool `json:"supported,omitempty"`
+	} `json:"result"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetReportsPayoutsStatusResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetReportsPayoutsStatusResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetReportsPayoutsStatusResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetReportsPayoutsStatusResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetReportsPayoutsStatusResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetReportsPayoutsStatusResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetReportsPayoutsStatusResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetReportsPayoutsStatusResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetReportsPayoutsTableResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// Currency ISO 4217 currency code, lowercase.
+		Currency string `json:"currency"`
+		Result   struct {
+			// Currencies The currency rows, largest first.
+			Currencies []string `json:"currencies"`
+
+			// List Rows keyed by currency code, `paid_out` or `payouts`; each row maps a period end to an amount (minor units of the base currency) or, for `payouts`, a count.
+			List map[string]map[string]float32 `json:"list"`
+		} `json:"result"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *struct {
+		Error string `json:"error"`
+	}
+	// JSON403 the response for an HTTP 403 `application/json` response
+	JSON403 *struct {
+		Error string `json:"error"`
+	}
+	// JSON429 the response for an HTTP 429 `application/json` response
+	JSON429 *struct {
+		Error string `json:"error"`
+	}
+	// JSON500 the response for an HTTP 500 `application/json` response
+	JSON500 *struct {
+		Error string `json:"error"`
+	}
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetReportsPayoutsTableResponse) GetJSON200() *struct {
+	// Currency ISO 4217 currency code, lowercase.
+	Currency string `json:"currency"`
+	Result   struct {
+		// Currencies The currency rows, largest first.
+		Currencies []string `json:"currencies"`
+
+		// List Rows keyed by currency code, `paid_out` or `payouts`; each row maps a period end to an amount (minor units of the base currency) or, for `payouts`, a count.
+		List map[string]map[string]float32 `json:"list"`
+	} `json:"result"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetReportsPayoutsTableResponse) GetJSON401() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON401
+}
+
+// GetJSON403 returns the response for an HTTP 403 `application/json` response
+func (r GetReportsPayoutsTableResponse) GetJSON403() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON403
+}
+
+// GetJSON429 returns the response for an HTTP 429 `application/json` response
+func (r GetReportsPayoutsTableResponse) GetJSON429() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON429
+}
+
+// GetJSON500 returns the response for an HTTP 500 `application/json` response
+func (r GetReportsPayoutsTableResponse) GetJSON500() *struct {
+	Error string `json:"error"`
+} {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes
+func (r GetReportsPayoutsTableResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetReportsPayoutsTableResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetReportsPayoutsTableResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetReportsPayoutsTableResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type GetReportsRetentionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -27805,6 +30668,12 @@ type GetReportsTransactionsResponse struct {
 			// OneTime One-time charges and invoices.
 			OneTime *float32 `json:"one_time,omitempty"`
 
+			// PlatformIncome Platform income (Stripe Connect application fees), with `payouts=1` only.
+			PlatformIncome *float32 `json:"platform_income,omitempty"`
+
+			// PlatformIncomeForecast Projected platform income for the running period, with `payouts=1` only.
+			PlatformIncomeForecast *float32 `json:"platform_income_forecast,omitempty"`
+
 			// Refund Refunds issued (negative number).
 			Refund *float32 `json:"refund,omitempty"`
 
@@ -27870,6 +30739,12 @@ func (r GetReportsTransactionsResponse) GetJSON200() *struct {
 
 		// OneTime One-time charges and invoices.
 		OneTime *float32 `json:"one_time,omitempty"`
+
+		// PlatformIncome Platform income (Stripe Connect application fees), with `payouts=1` only.
+		PlatformIncome *float32 `json:"platform_income,omitempty"`
+
+		// PlatformIncomeForecast Projected platform income for the running period, with `payouts=1` only.
+		PlatformIncomeForecast *float32 `json:"platform_income_forecast,omitempty"`
 
 		// Refund Refunds issued (negative number).
 		Refund *float32 `json:"refund,omitempty"`
@@ -29587,6 +32462,126 @@ func (c *ClientWithResponses) GetReportsPausedWithResponse(ctx context.Context, 
 	return ParseGetReportsPausedResponse(rsp)
 }
 
+// GetReportsPayoutFeesWithResponse All Stripe fees over time
+//
+// Every fee Stripe charged per period, by fee type (default) or by currency, with each group's percentage and the effective fee rate (all fees ÷ the money that came in: customers' payments after discounts, with taxes, plus platform income). Fee types (`fee_kind` keys): `payment` Payment fees (the fee on each payment), `fx` Currency conversion (Stripe's conversion fee and exchange-rate margin on payments it converted into the balance currency, the cash flow report's FX loss), `card` Card processing, `network` Network costs, `billing` Stripe Billing, `invoicing` Invoicing, `tax` Stripe Tax, `revrec` Revenue Recognition, `sigma` Sigma and Data Pipeline, `connect` Connect, `identity` Identity, `fincon` Financial Connections, `dispute` Dispute fees, `terminal` Terminal, `issuing` Issuing, `tokens` Network tokens, `methods` Payment method fees, `payout` Payout fees, `credit` Credits and revenue share (money back, negative), `radar` Radar, `other` Other Stripe fees. Everything except `payment` and `fx` is taken straight from the Stripe balance and never shows on a payment.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /reports/payout-fees (the `GetReportsPayoutFees` operationId).
+func (c *ClientWithResponses) GetReportsPayoutFeesWithResponse(ctx context.Context, params *GetReportsPayoutFeesParams, reqEditors ...RequestEditorFn) (*GetReportsPayoutFeesResponse, error) {
+	rsp, err := c.GetReportsPayoutFees(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetReportsPayoutFeesResponse(rsp)
+}
+
+// GetReportsPayoutFeesDetailWithResponse The fee lines behind a period
+//
+// The individual fees of one period (`selected-date`), optionally one group (`fee_group`: a fee type key, or with breakdown=currency a currency code or `account_wide`): Stripe's fee lines and the fee on each customer payment (with the customer), largest first. Fee types (`fee_kind` keys): `payment` Payment fees (the fee on each payment), `fx` Currency conversion (Stripe's conversion fee and exchange-rate margin on payments it converted into the balance currency, the cash flow report's FX loss), `card` Card processing, `network` Network costs, `billing` Stripe Billing, `invoicing` Invoicing, `tax` Stripe Tax, `revrec` Revenue Recognition, `sigma` Sigma and Data Pipeline, `connect` Connect, `identity` Identity, `fincon` Financial Connections, `dispute` Dispute fees, `terminal` Terminal, `issuing` Issuing, `tokens` Network tokens, `methods` Payment method fees, `payout` Payout fees, `credit` Credits and revenue share (money back, negative), `radar` Radar, `other` Other Stripe fees. Everything except `payment` and `fx` is taken straight from the Stripe balance and never shows on a payment.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /reports/payout-fees-detail (the `GetReportsPayoutFeesDetail` operationId).
+func (c *ClientWithResponses) GetReportsPayoutFeesDetailWithResponse(ctx context.Context, params *GetReportsPayoutFeesDetailParams, reqEditors ...RequestEditorFn) (*GetReportsPayoutFeesDetailResponse, error) {
+	rsp, err := c.GetReportsPayoutFeesDetail(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetReportsPayoutFeesDetailResponse(rsp)
+}
+
+// GetReportsPayoutFeesTableWithResponse All Stripe fees (table)
+//
+// The fees as a table: per group a row of amounts (`list[key]`) and of percentages (`list["pct:" + key]`), then `fees` and `fee_rate`, each keyed by period end. Fee types (`fee_kind` keys): `payment` Payment fees (the fee on each payment), `fx` Currency conversion (Stripe's conversion fee and exchange-rate margin on payments it converted into the balance currency, the cash flow report's FX loss), `card` Card processing, `network` Network costs, `billing` Stripe Billing, `invoicing` Invoicing, `tax` Stripe Tax, `revrec` Revenue Recognition, `sigma` Sigma and Data Pipeline, `connect` Connect, `identity` Identity, `fincon` Financial Connections, `dispute` Dispute fees, `terminal` Terminal, `issuing` Issuing, `tokens` Network tokens, `methods` Payment method fees, `payout` Payout fees, `credit` Credits and revenue share (money back, negative), `radar` Radar, `other` Other Stripe fees. Everything except `payment` and `fx` is taken straight from the Stripe balance and never shows on a payment.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /reports/payout-fees-table (the `GetReportsPayoutFeesTable` operationId).
+func (c *ClientWithResponses) GetReportsPayoutFeesTableWithResponse(ctx context.Context, params *GetReportsPayoutFeesTableParams, reqEditors ...RequestEditorFn) (*GetReportsPayoutFeesTableResponse, error) {
+	rsp, err := c.GetReportsPayoutFeesTable(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetReportsPayoutFeesTableResponse(rsp)
+}
+
+// GetReportsPayoutsWithResponse Paid out to your banks over time
+//
+// What Stripe paid out to your bank accounts per period, one series per payout currency, converted to the base currency at each period's rates. Stripe accounts only (see `/reports/payouts-status`).
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /reports/payouts (the `GetReportsPayouts` operationId).
+func (c *ClientWithResponses) GetReportsPayoutsWithResponse(ctx context.Context, params *GetReportsPayoutsParams, reqEditors ...RequestEditorFn) (*GetReportsPayoutsResponse, error) {
+	rsp, err := c.GetReportsPayouts(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetReportsPayoutsResponse(rsp)
+}
+
+// GetReportsPayoutsBalanceWithResponse Stripe balance and next payout
+//
+// The Stripe balance right now, per currency (available, pending, on the way to the bank), the payout schedule and an estimate of the next payout. From a snapshot taken daily.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /reports/payouts-balance (the `GetReportsPayoutsBalance` operationId).
+func (c *ClientWithResponses) GetReportsPayoutsBalanceWithResponse(ctx context.Context, params *GetReportsPayoutsBalanceParams, reqEditors ...RequestEditorFn) (*GetReportsPayoutsBalanceResponse, error) {
+	rsp, err := c.GetReportsPayoutsBalance(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetReportsPayoutsBalanceResponse(rsp)
+}
+
+// GetReportsPayoutsListWithResponse Payouts (list)
+//
+// Individual payouts: the latest in the range, or those of one period (`selected-date`). Each with its bank account, arrival date, the Stripe fees paid out with it and what customers paid into it.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /reports/payouts-list (the `GetReportsPayoutsList` operationId).
+func (c *ClientWithResponses) GetReportsPayoutsListWithResponse(ctx context.Context, params *GetReportsPayoutsListParams, reqEditors ...RequestEditorFn) (*GetReportsPayoutsListResponse, error) {
+	rsp, err := c.GetReportsPayoutsList(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetReportsPayoutsListResponse(rsp)
+}
+
+// GetReportsPayoutsStatusWithResponse Whether payouts are available
+//
+// Whether the account can have payout data (a connected Stripe source; Chargebee and Recurly don't share payouts) and which kinds it has.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /reports/payouts-status (the `GetReportsPayoutsStatus` operationId).
+func (c *ClientWithResponses) GetReportsPayoutsStatusWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetReportsPayoutsStatusResponse, error) {
+	rsp, err := c.GetReportsPayoutsStatus(ctx, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetReportsPayoutsStatusResponse(rsp)
+}
+
+// GetReportsPayoutsTableWithResponse Paid out per currency (table)
+//
+// The payouts as a table: a row per payout currency, then `paid_out` (all currencies) and `payouts` (count), each keyed by period end.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /reports/payouts-table (the `GetReportsPayoutsTable` operationId).
+func (c *ClientWithResponses) GetReportsPayoutsTableWithResponse(ctx context.Context, params *GetReportsPayoutsTableParams, reqEditors ...RequestEditorFn) (*GetReportsPayoutsTableResponse, error) {
+	rsp, err := c.GetReportsPayoutsTable(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetReportsPayoutsTableResponse(rsp)
+}
+
 // GetReportsRetentionWithResponse Retention metrics over time
 //
 // NRR, GRR, customer retention, and cohort size across the requested window. Baseline is the start period; each row is one period offset forward. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
@@ -29619,7 +32614,7 @@ func (c *ClientWithResponses) GetReportsSummaryWithResponse(ctx context.Context,
 
 // GetReportsTransactionsWithResponse Cashflow received over time
 //
-// Per-period cash received, broken down by source: monthly subs, yearly subs, metered, one-time, discounts, refunds, fees, FX loss, tax. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+// Per-period cash received, broken down by source: monthly subs, yearly subs, metered, one-time, discounts, refunds, fees, FX loss, tax. With `payouts=1`, platform income (Stripe Connect application fees) is added as a revenue line inside gross and net cashflow, for accounts that earn it. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -32413,31 +35408,51 @@ func ParseGetForecastCashflowForecastResponse(rsp *http.Response) (*GetForecastC
 				PermanentFailurePct *float32 `json:"permanent_failure_pct,omitempty"`
 			} `json:"payment_timing"`
 			Result []struct {
+				// AnnualCash Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				AnnualCash      *float32 `json:"annual_cash,omitempty"`
 				AnnualCustomers *float32 `json:"annual_customers,omitempty"`
 
 				// AnnualRenewals Cash from yearly plans billing in this period (counted in full when billed, not spread across the year).
 				AnnualRenewals *float32 `json:"annual_renewals,omitempty"`
 
-				// CashIn Total expected cash received in this period.
-				CashIn            *float32 `json:"cash_in,omitempty"`
+				// CashIn Total expected cash received in this period. For the period holding today, only from today on.
+				CashIn *float32 `json:"cash_in,omitempty"`
+
+				// CashInProjected Period holding today only: cash_received plus cash_in, the projected total for the whole period.
+				CashInProjected *float32 `json:"cash_in_projected,omitempty"`
+
+				// CashReceived Period holding today only: subscription payments received so far in it.
+				CashReceived      *float32 `json:"cash_received,omitempty"`
 				CustomersRenewing *float32 `json:"customers_renewing,omitempty"`
 
 				// Date Period start date in ISO 8601 (YYYY-MM-DD).
-				Date             *string  `json:"date,omitempty"`
+				Date *string `json:"date,omitempty"`
+
+				// MonthlyCash Monthly plans as charted: the same as monthly_renewals, except that with includeReceived=1 the period holding today also counts what has already come in (after discounts, as in the cashflow report). Likewise annual_cash, quarterly_cash and weekly_cash.
+				MonthlyCash      *float32 `json:"monthly_cash,omitempty"`
 				MonthlyCustomers *float32 `json:"monthly_customers,omitempty"`
 
 				// MonthlyRenewals Cash from monthly plans billing in this period.
 				MonthlyRenewals *float32 `json:"monthly_renewals,omitempty"`
 
+				// MonthlyRenewalsReceived Period holding today only: monthly-plan payments received so far in it. Likewise annual_, quarterly_ and weekly_renewals_received.
+				MonthlyRenewalsReceived *float32 `json:"monthly_renewals_received,omitempty"`
+
 				// OneTimeEstimate Estimated one-time / usage cash (avg of the last 6 months). Present when includeOneTime=1.
-				OneTimeEstimate    *float32 `json:"one_time_estimate,omitempty"`
+				OneTimeEstimate *float32 `json:"one_time_estimate,omitempty"`
+
+				// QuarterlyCash Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				QuarterlyCash      *float32 `json:"quarterly_cash,omitempty"`
 				QuarterlyCustomers *float32 `json:"quarterly_customers,omitempty"`
 
 				// QuarterlyRenewals Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				QuarterlyRenewals *float32 `json:"quarterly_renewals,omitempty"`
 
 				// RefundEstimate Estimated refunds (negative). Present when includeRefunds=1.
-				RefundEstimate  *float32 `json:"refund_estimate,omitempty"`
+				RefundEstimate *float32 `json:"refund_estimate,omitempty"`
+
+				// WeeklyCash Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				WeeklyCash      *float32 `json:"weekly_cash,omitempty"`
 				WeeklyCustomers *float32 `json:"weekly_customers,omitempty"`
 
 				// WeeklyRenewals Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
@@ -35144,6 +38159,775 @@ func ParseGetReportsPausedResponse(rsp *http.Response) (*GetReportsPausedRespons
 	return response, nil
 }
 
+// ParseGetReportsPayoutFeesResponse parses an HTTP response from a GetReportsPayoutFeesWithResponse call
+func ParseGetReportsPayoutFeesResponse(rsp *http.Response) (*GetReportsPayoutFeesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetReportsPayoutFeesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// Breakdown `kind` (fee types) or `currency`.
+			Breakdown string `json:"breakdown"`
+
+			// Currency ISO 4217 currency code, lowercase.
+			Currency string `json:"currency"`
+			Result   []struct {
+				// Breakdown Per fee type key (or currency code / `account_wide` with breakdown=currency).
+				Breakdown *map[string]struct {
+					// Amount Fees in this group in the period (positive = cost; credits are negative).
+					Amount *float32 `json:"amount,omitempty"`
+
+					// Label The fee type's or currency's name.
+					Label *string `json:"label,omitempty"`
+
+					// Pct By fee type: the group's share of all the money that came in (the types add up to the effective fee rate). By currency: that currency's own fee rate. 0–100 scale, `null` without money in.
+					Pct *float32 `json:"pct,omitempty"`
+				} `json:"breakdown,omitempty"`
+
+				// Date Last day of the period (YYYY-MM-DD). Pass it as `selected-date` to the list/detail endpoints.
+				Date *string `json:"date,omitempty"`
+
+				// FeeRate Effective fee rate, 0–100 scale.
+				FeeRate *float32 `json:"fee_rate,omitempty"`
+
+				// Fees All fees in the period (after the filters).
+				Fees *float32 `json:"fees,omitempty"`
+			} `json:"result"`
+			Totals struct {
+				FeeRate *float32 `json:"fee_rate,omitempty"`
+
+				// Fees Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				Fees    *float32 `json:"fees,omitempty"`
+				Largest *struct {
+					// Amount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					Amount *float32 `json:"amount,omitempty"`
+					Key    *string  `json:"key,omitempty"`
+					Label  *string  `json:"label,omitempty"`
+				} `json:"largest,omitempty"`
+
+				// MoneyIn The money that came in over the range.
+				MoneyIn *float32 `json:"money_in,omitempty"`
+			} `json:"totals"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetReportsPayoutFeesDetailResponse parses an HTTP response from a GetReportsPayoutFeesDetailWithResponse call
+func ParseGetReportsPayoutFeesDetailResponse(rsp *http.Response) (*GetReportsPayoutFeesDetailResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetReportsPayoutFeesDetailResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// Currency ISO 4217 currency code, lowercase.
+			Currency string `json:"currency"`
+			Result   struct {
+				List *[]struct {
+					// Amount The fee, minor units of its currency (positive = cost).
+					Amount *float32 `json:"amount,omitempty"`
+
+					// AmountBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					AmountBase *float32 `json:"amount_base,omitempty"`
+
+					// Currency ISO 4217 currency code, lowercase.
+					Currency      *string `json:"currency,omitempty"`
+					CustomerEmail *string `json:"customer_email,omitempty"`
+
+					// CustomerId The customer (fees on a payment).
+					CustomerId   *string `json:"customer_id,omitempty"`
+					CustomerName *string `json:"customer_name,omitempty"`
+					Date         *string `json:"date,omitempty"`
+
+					// Description Stripe's name for the fee.
+					Description *string `json:"description,omitempty"`
+
+					// Id Stripe id of the fee (balance transaction or charge).
+					Id *string `json:"id,omitempty"`
+
+					// Kind Fee type key.
+					Kind *string `json:"kind,omitempty"`
+
+					// Payout The payout it was paid out with (balance fees).
+					Payout *string `json:"payout,omitempty"`
+
+					// Type Fee type name.
+					Type *string `json:"type,omitempty"`
+				} `json:"list,omitempty"`
+
+				// Total Number of lines before the limit.
+				Total *float32 `json:"total,omitempty"`
+			} `json:"result"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetReportsPayoutFeesTableResponse parses an HTTP response from a GetReportsPayoutFeesTableWithResponse call
+func ParseGetReportsPayoutFeesTableResponse(rsp *http.Response) (*GetReportsPayoutFeesTableResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetReportsPayoutFeesTableResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// Currency ISO 4217 currency code, lowercase.
+			Currency string `json:"currency"`
+			Result   struct {
+				// By `kind` or `currency`.
+				By string `json:"by"`
+
+				// Groups The group rows in order, largest first.
+				Groups []struct {
+					Key   string `json:"key"`
+					Label string `json:"label"`
+				} `json:"groups"`
+				List map[string]map[string]float32 `json:"list"`
+			} `json:"result"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetReportsPayoutsResponse parses an HTTP response from a GetReportsPayoutsWithResponse call
+func ParseGetReportsPayoutsResponse(rsp *http.Response) (*GetReportsPayoutsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetReportsPayoutsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// Breakdown Always `currency`.
+			Breakdown string `json:"breakdown"`
+
+			// Currency ISO 4217 currency code, lowercase.
+			Currency string `json:"currency"`
+			Result   []struct {
+				// Breakdown Paid out per payout currency (keyed by lowercase currency code).
+				Breakdown *map[string]struct {
+					// Amount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					Amount *float32 `json:"amount,omitempty"`
+					Label  *string  `json:"label,omitempty"`
+				} `json:"breakdown,omitempty"`
+
+				// Date Last day of the period (YYYY-MM-DD). Pass it as `selected-date` to the list/detail endpoints.
+				Date *string `json:"date,omitempty"`
+
+				// PaidOut Everything paid out in the period, all currencies.
+				PaidOut *float32 `json:"paid_out,omitempty"`
+
+				// Payouts Number of payouts.
+				Payouts *float32 `json:"payouts,omitempty"`
+			} `json:"result"`
+			Totals struct {
+				// PaidOut Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+				PaidOut *float32 `json:"paid_out,omitempty"`
+				Payouts *float32 `json:"payouts,omitempty"`
+			} `json:"totals"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetReportsPayoutsBalanceResponse parses an HTTP response from a GetReportsPayoutsBalanceWithResponse call
+func ParseGetReportsPayoutsBalanceResponse(rsp *http.Response) (*GetReportsPayoutsBalanceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetReportsPayoutsBalanceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// Currency ISO 4217 currency code, lowercase.
+			Currency string `json:"currency"`
+			Result   struct {
+				// At When the snapshot was taken (ISO 8601).
+				At        *string `json:"at,omitempty"`
+				InTransit *[]struct {
+					Amount *float32 `json:"amount,omitempty"`
+
+					// AmountBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					AmountBase *float32 `json:"amount_base,omitempty"`
+
+					// ArrivalDate Unix time it arrives.
+					ArrivalDate *float32 `json:"arrival_date,omitempty"`
+					Bank        *string  `json:"bank,omitempty"`
+
+					// Created Unix time the payout was made.
+					Created *float32 `json:"created,omitempty"`
+
+					// Currency ISO 4217 currency code, lowercase.
+					Currency *string `json:"currency,omitempty"`
+					Id       *string `json:"id,omitempty"`
+					Status   *string `json:"status,omitempty"`
+				} `json:"in_transit,omitempty"`
+				List *[]struct {
+					// Available Available now, minor units of this currency.
+					Available *float32 `json:"available,omitempty"`
+
+					// AvailableBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					AvailableBase *float32 `json:"available_base,omitempty"`
+
+					// Currency ISO 4217 currency code, lowercase.
+					Currency *string `json:"currency,omitempty"`
+
+					// InTransit Paid out, not yet at the bank.
+					InTransit *float32 `json:"in_transit,omitempty"`
+
+					// InTransitBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					InTransitBase *float32 `json:"in_transit_base,omitempty"`
+
+					// Next Estimated amount of the next payout in this currency.
+					Next *float32 `json:"next,omitempty"`
+
+					// NextBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					NextBase *float32 `json:"next_base,omitempty"`
+
+					// Pending Pending (not yet available).
+					Pending *float32 `json:"pending,omitempty"`
+
+					// PendingBase Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					PendingBase *float32 `json:"pending_base,omitempty"`
+				} `json:"list,omitempty"`
+
+				// NextPayoutDate Estimated date of the next payout (YYYY-MM-DD).
+				NextPayoutDate *string `json:"next_payout_date,omitempty"`
+				Schedule       *struct {
+					DelayDays *float32 `json:"delay_days,omitempty"`
+
+					// Interval `daily`, `weekly`, `monthly` or `manual`.
+					Interval          *string    `json:"interval,omitempty"`
+					MonthlyAnchor     *float32   `json:"monthly_anchor,omitempty"`
+					MonthlyPayoutDays *[]float32 `json:"monthly_payout_days,omitempty"`
+					WeeklyAnchor      *string    `json:"weekly_anchor,omitempty"`
+					WeeklyPayoutDays  *[]string  `json:"weekly_payout_days,omitempty"`
+				} `json:"schedule,omitempty"`
+				Totals *struct {
+					// Available Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					Available *float32 `json:"available,omitempty"`
+
+					// InTransit Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					InTransit *float32 `json:"in_transit,omitempty"`
+
+					// Next Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					Next *float32 `json:"next,omitempty"`
+
+					// Pending Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
+					Pending *float32 `json:"pending,omitempty"`
+				} `json:"totals,omitempty"`
+			} `json:"result"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetReportsPayoutsListResponse parses an HTTP response from a GetReportsPayoutsListWithResponse call
+func ParseGetReportsPayoutsListResponse(rsp *http.Response) (*GetReportsPayoutsListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetReportsPayoutsListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// Currency ISO 4217 currency code, lowercase.
+			Currency string `json:"currency"`
+			Result   struct {
+				List []struct {
+					// Arrival When it reached (or reaches) the bank.
+					Arrival *string `json:"arrival,omitempty"`
+
+					// Bank The bank account (bank name and last digits).
+					Bank *string `json:"bank,omitempty"`
+
+					// Created When Stripe made the payout (YYYY-MM-DD HH:MM:SS, UTC).
+					Created *string `json:"created,omitempty"`
+
+					// Currency ISO 4217 currency code, lowercase.
+					Currency *string `json:"currency,omitempty"`
+
+					// Fees Stripe fees paid out with this payout (minor units of its currency, positive).
+					Fees *float32 `json:"fees,omitempty"`
+
+					// Id Stripe payout id (`po_...`).
+					Id *string `json:"id,omitempty"`
+
+					// Income Platform income (Stripe Connect application fees) in this payout.
+					Income *float32 `json:"income,omitempty"`
+
+					// Mode `automatic` (Stripe's schedule) or `manual`.
+					Mode *string `json:"mode,omitempty"`
+
+					// Paid Amount paid out, minor units of the payout's currency.
+					Paid *float32 `json:"paid,omitempty"`
+
+					// PaidBase Amount paid out in the base currency, at its period's rates.
+					PaidBase *float32 `json:"paid_base,omitempty"`
+
+					// Payments What customers paid into this payout (paid out + fees − platform income), automatic payouts only.
+					Payments *float32 `json:"payments,omitempty"`
+
+					// Period Last day of the period (YYYY-MM-DD). Pass it as `selected-date` to the list/detail endpoints.
+					Period *string `json:"period,omitempty"`
+
+					// Status `paid`, `failed` or `canceled`.
+					Status *string `json:"status,omitempty"`
+				} `json:"list"`
+			} `json:"result"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetReportsPayoutsStatusResponse parses an HTTP response from a GetReportsPayoutsStatusWithResponse call
+func ParseGetReportsPayoutsStatusResponse(rsp *http.Response) (*GetReportsPayoutsStatusResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetReportsPayoutsStatusResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			Result struct {
+				HasFees    *bool `json:"has_fees,omitempty"`
+				HasPayouts *bool `json:"has_payouts,omitempty"`
+
+				// HasPlatformIncome Whether the account earns platform income (Stripe Connect application fees), shown in the Cashflow report with `payouts=1`.
+				HasPlatformIncome *bool `json:"has_platform_income,omitempty"`
+				Sources           *[]struct {
+					Id     *string `json:"id,omitempty"`
+					Name   *string `json:"name,omitempty"`
+					Status *string `json:"status,omitempty"`
+					Type   *string `json:"type,omitempty"`
+				} `json:"sources,omitempty"`
+				Supported *bool `json:"supported,omitempty"`
+			} `json:"result"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetReportsPayoutsTableResponse parses an HTTP response from a GetReportsPayoutsTableWithResponse call
+func ParseGetReportsPayoutsTableResponse(rsp *http.Response) (*GetReportsPayoutsTableResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetReportsPayoutsTableResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// Currency ISO 4217 currency code, lowercase.
+			Currency string `json:"currency"`
+			Result   struct {
+				// Currencies The currency rows, largest first.
+				Currencies []string `json:"currencies"`
+
+				// List Rows keyed by currency code, `paid_out` or `payouts`; each row maps a period end to an amount (minor units of the base currency) or, for `payouts`, a count.
+				List map[string]map[string]float32 `json:"list"`
+			} `json:"result"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest struct {
+			Error string `json:"error"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseGetReportsRetentionResponse parses an HTTP response from a GetReportsRetentionWithResponse call
 func ParseGetReportsRetentionResponse(rsp *http.Response) (*GetReportsRetentionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -35515,6 +39299,12 @@ func ParseGetReportsTransactionsResponse(rsp *http.Response) (*GetReportsTransac
 
 				// OneTime One-time charges and invoices.
 				OneTime *float32 `json:"one_time,omitempty"`
+
+				// PlatformIncome Platform income (Stripe Connect application fees), with `payouts=1` only.
+				PlatformIncome *float32 `json:"platform_income,omitempty"`
+
+				// PlatformIncomeForecast Projected platform income for the running period, with `payouts=1` only.
+				PlatformIncomeForecast *float32 `json:"platform_income_forecast,omitempty"`
 
 				// Refund Refunds issued (negative number).
 				Refund *float32 `json:"refund,omitempty"`
