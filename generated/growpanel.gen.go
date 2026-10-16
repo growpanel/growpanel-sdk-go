@@ -29633,6 +29633,9 @@ type GetReportsPayoutFeesResponse struct {
 				// Amount Fees in this group in the period (positive = cost; credits are negative).
 				Amount *float32 `json:"amount,omitempty"`
 
+				// AmountForecast Only on the period in progress (month after the 10th, quarter or year far enough in): the projected total for the period: the group's fee rate over the last 3 complete periods × the money the period is on pace to bring in (at the pace so far when the range has no earlier periods).
+				AmountForecast *float32 `json:"amount_forecast,omitempty"`
+
 				// Label The fee type's or currency's name.
 				Label *string `json:"label,omitempty"`
 
@@ -29648,6 +29651,9 @@ type GetReportsPayoutFeesResponse struct {
 
 			// Fees All fees in the period (after the filters).
 			Fees *float32 `json:"fees,omitempty"`
+
+			// FeesForecast Only on the period in progress: the projected fees for the whole period (the sum of the groups' projections).
+			FeesForecast *float32 `json:"fees_forecast,omitempty"`
 		} `json:"result"`
 		Totals struct {
 			FeeRate *float32 `json:"fee_rate,omitempty"`
@@ -29696,6 +29702,9 @@ func (r GetReportsPayoutFeesResponse) GetJSON200() *struct {
 			// Amount Fees in this group in the period (positive = cost; credits are negative).
 			Amount *float32 `json:"amount,omitempty"`
 
+			// AmountForecast Only on the period in progress (month after the 10th, quarter or year far enough in): the projected total for the period: the group's fee rate over the last 3 complete periods × the money the period is on pace to bring in (at the pace so far when the range has no earlier periods).
+			AmountForecast *float32 `json:"amount_forecast,omitempty"`
+
 			// Label The fee type's or currency's name.
 			Label *string `json:"label,omitempty"`
 
@@ -29711,6 +29720,9 @@ func (r GetReportsPayoutFeesResponse) GetJSON200() *struct {
 
 		// Fees All fees in the period (after the filters).
 		Fees *float32 `json:"fees,omitempty"`
+
+		// FeesForecast Only on the period in progress: the projected fees for the whole period (the sum of the groups' projections).
+		FeesForecast *float32 `json:"fees_forecast,omitempty"`
 	} `json:"result"`
 	Totals struct {
 		FeeRate *float32 `json:"fee_rate,omitempty"`
@@ -30079,7 +30091,10 @@ type GetReportsPayoutsResponse struct {
 			Breakdown *map[string]struct {
 				// Amount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 				Amount *float32 `json:"amount,omitempty"`
-				Label  *string  `json:"label,omitempty"`
+
+				// AmountForecast Only on the period in progress: paid out so far plus the payout days the schedule has left in the period × the currency's average payout over the last 90 days.
+				AmountForecast *float32 `json:"amount_forecast,omitempty"`
+				Label          *string  `json:"label,omitempty"`
 			} `json:"breakdown,omitempty"`
 
 			// Date Last day of the period (YYYY-MM-DD). Pass it as `selected-date` to the list/detail endpoints.
@@ -30087,6 +30102,9 @@ type GetReportsPayoutsResponse struct {
 
 			// PaidOut Everything paid out in the period, all currencies.
 			PaidOut *float32 `json:"paid_out,omitempty"`
+
+			// PaidOutForecast Only on the period in progress: the projected total paid out (the sum of the currencies' projections). Not set for a manual payout schedule.
+			PaidOutForecast *float32 `json:"paid_out_forecast,omitempty"`
 
 			// Payouts Number of payouts.
 			Payouts *float32 `json:"payouts,omitempty"`
@@ -30127,7 +30145,10 @@ func (r GetReportsPayoutsResponse) GetJSON200() *struct {
 		Breakdown *map[string]struct {
 			// Amount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 			Amount *float32 `json:"amount,omitempty"`
-			Label  *string  `json:"label,omitempty"`
+
+			// AmountForecast Only on the period in progress: paid out so far plus the payout days the schedule has left in the period × the currency's average payout over the last 90 days.
+			AmountForecast *float32 `json:"amount_forecast,omitempty"`
+			Label          *string  `json:"label,omitempty"`
 		} `json:"breakdown,omitempty"`
 
 		// Date Last day of the period (YYYY-MM-DD). Pass it as `selected-date` to the list/detail endpoints.
@@ -30135,6 +30156,9 @@ func (r GetReportsPayoutsResponse) GetJSON200() *struct {
 
 		// PaidOut Everything paid out in the period, all currencies.
 		PaidOut *float32 `json:"paid_out,omitempty"`
+
+		// PaidOutForecast Only on the period in progress: the projected total paid out (the sum of the currencies' projections). Not set for a manual payout schedule.
+		PaidOutForecast *float32 `json:"paid_out_forecast,omitempty"`
 
 		// Payouts Number of payouts.
 		Payouts *float32 `json:"payouts,omitempty"`
@@ -39115,6 +39139,9 @@ func ParseGetReportsPayoutFeesResponse(rsp *http.Response) (*GetReportsPayoutFee
 					// Amount Fees in this group in the period (positive = cost; credits are negative).
 					Amount *float32 `json:"amount,omitempty"`
 
+					// AmountForecast Only on the period in progress (month after the 10th, quarter or year far enough in): the projected total for the period: the group's fee rate over the last 3 complete periods × the money the period is on pace to bring in (at the pace so far when the range has no earlier periods).
+					AmountForecast *float32 `json:"amount_forecast,omitempty"`
+
 					// Label The fee type's or currency's name.
 					Label *string `json:"label,omitempty"`
 
@@ -39130,6 +39157,9 @@ func ParseGetReportsPayoutFeesResponse(rsp *http.Response) (*GetReportsPayoutFee
 
 				// Fees All fees in the period (after the filters).
 				Fees *float32 `json:"fees,omitempty"`
+
+				// FeesForecast Only on the period in progress: the projected fees for the whole period (the sum of the groups' projections).
+				FeesForecast *float32 `json:"fees_forecast,omitempty"`
 			} `json:"result"`
 			Totals struct {
 				FeeRate *float32 `json:"fee_rate,omitempty"`
@@ -39396,7 +39426,10 @@ func ParseGetReportsPayoutsResponse(rsp *http.Response) (*GetReportsPayoutsRespo
 				Breakdown *map[string]struct {
 					// Amount Monetary amount, minor units (cents) of the base currency. May be negative for credits, refunds, contractions.
 					Amount *float32 `json:"amount,omitempty"`
-					Label  *string  `json:"label,omitempty"`
+
+					// AmountForecast Only on the period in progress: paid out so far plus the payout days the schedule has left in the period × the currency's average payout over the last 90 days.
+					AmountForecast *float32 `json:"amount_forecast,omitempty"`
+					Label          *string  `json:"label,omitempty"`
 				} `json:"breakdown,omitempty"`
 
 				// Date Last day of the period (YYYY-MM-DD). Pass it as `selected-date` to the list/detail endpoints.
@@ -39404,6 +39437,9 @@ func ParseGetReportsPayoutsResponse(rsp *http.Response) (*GetReportsPayoutsRespo
 
 				// PaidOut Everything paid out in the period, all currencies.
 				PaidOut *float32 `json:"paid_out,omitempty"`
+
+				// PaidOutForecast Only on the period in progress: the projected total paid out (the sum of the currencies' projections). Not set for a manual payout schedule.
+				PaidOutForecast *float32 `json:"paid_out_forecast,omitempty"`
 
 				// Payouts Number of payouts.
 				Payouts *float32 `json:"payouts,omitempty"`
