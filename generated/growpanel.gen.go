@@ -3443,7 +3443,7 @@ type ClientInterface interface {
 
 	// GetReportsTrialOutcomes Trial outcomes over time
 	//
-	// Per-period breakdown of what happened to the trials started in each period: converted, still on trial, cancelled, or ended without purchase, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	// Per-period breakdown of what happened to the trials started in each period: converted (split into still active today and churned since), still on trial, cancelled, or ended without purchase, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
 	//
 	// Corresponds with GET /reports/trial-outcomes (the `GetReportsTrialOutcomes` operationId).
 	GetReportsTrialOutcomes(ctx context.Context, params *GetReportsTrialOutcomesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -5082,7 +5082,7 @@ func (c *Client) GetReportsTransactionsSummary(ctx context.Context, params *GetR
 
 // GetReportsTrialOutcomes Trial outcomes over time
 //
-// Per-period breakdown of what happened to the trials started in each period: converted, still on trial, cancelled, or ended without purchase, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+// Per-period breakdown of what happened to the trials started in each period: converted (split into still active today and churned since), still on trial, cancelled, or ended without purchase, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
 //
 // Corresponds with GET /reports/trial-outcomes (the `GetReportsTrialOutcomes` operationId).
 func (c *Client) GetReportsTrialOutcomes(ctx context.Context, params *GetReportsTrialOutcomesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -21149,7 +21149,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetReportsTrialOutcomesWithResponse Trial outcomes over time
 	//
-	// Per-period breakdown of what happened to the trials started in each period: converted, still on trial, cancelled, or ended without purchase, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+	// Per-period breakdown of what happened to the trials started in each period: converted (split into still active today and churned since), still on trial, cancelled, or ended without purchase, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -31790,13 +31790,22 @@ type GetReportsTrialOutcomesResponse struct {
 			ConversionRate *float32 `json:"conversion_rate,omitempty"`
 			Converted      *float32 `json:"converted,omitempty"`
 
+			// ConvertedChurned Converted trials that have churned since (converted minus still_active).
+			ConvertedChurned *float32 `json:"converted_churned,omitempty"`
+
 			// Date Period start date in ISO 8601 (YYYY-MM-DD).
 			Date            *string  `json:"date,omitempty"`
 			EndedNoPurchase *float32 `json:"ended_no_purchase,omitempty"`
 
 			// Other Present only when non-zero.
-			Other  *float32 `json:"other,omitempty"`
-			Trials *float32 `json:"trials,omitempty"`
+			Other *float32 `json:"other,omitempty"`
+
+			// StillActive Converted trials that are an active (or past-due) customer today.
+			StillActive *float32 `json:"still_active,omitempty"`
+
+			// StillActiveRate still_active as a share of converted; null when nothing converted.
+			StillActiveRate *float32 `json:"still_active_rate,omitempty"`
+			Trials          *float32 `json:"trials,omitempty"`
 		} `json:"result"`
 	}
 	// JSON401 the response for an HTTP 401 `application/json` response
@@ -31827,13 +31836,22 @@ func (r GetReportsTrialOutcomesResponse) GetJSON200() *struct {
 		ConversionRate *float32 `json:"conversion_rate,omitempty"`
 		Converted      *float32 `json:"converted,omitempty"`
 
+		// ConvertedChurned Converted trials that have churned since (converted minus still_active).
+		ConvertedChurned *float32 `json:"converted_churned,omitempty"`
+
 		// Date Period start date in ISO 8601 (YYYY-MM-DD).
 		Date            *string  `json:"date,omitempty"`
 		EndedNoPurchase *float32 `json:"ended_no_purchase,omitempty"`
 
 		// Other Present only when non-zero.
-		Other  *float32 `json:"other,omitempty"`
-		Trials *float32 `json:"trials,omitempty"`
+		Other *float32 `json:"other,omitempty"`
+
+		// StillActive Converted trials that are an active (or past-due) customer today.
+		StillActive *float32 `json:"still_active,omitempty"`
+
+		// StillActiveRate still_active as a share of converted; null when nothing converted.
+		StillActiveRate *float32 `json:"still_active_rate,omitempty"`
+		Trials          *float32 `json:"trials,omitempty"`
 	} `json:"result"`
 } {
 	return r.JSON200
@@ -33470,7 +33488,7 @@ func (c *ClientWithResponses) GetReportsTransactionsSummaryWithResponse(ctx cont
 
 // GetReportsTrialOutcomesWithResponse Trial outcomes over time
 //
-// Per-period breakdown of what happened to the trials started in each period: converted, still on trial, cancelled, or ended without purchase, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
+// Per-period breakdown of what happened to the trials started in each period: converted (split into still active today and churned since), still on trial, cancelled, or ended without purchase, plus the conversion rate. Also accepts `custom_<key>` params for any account-defined custom variable; values are `~~`-separated for OR, prefix `~` to negate.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -40450,13 +40468,22 @@ func ParseGetReportsTrialOutcomesResponse(rsp *http.Response) (*GetReportsTrialO
 				ConversionRate *float32 `json:"conversion_rate,omitempty"`
 				Converted      *float32 `json:"converted,omitempty"`
 
+				// ConvertedChurned Converted trials that have churned since (converted minus still_active).
+				ConvertedChurned *float32 `json:"converted_churned,omitempty"`
+
 				// Date Period start date in ISO 8601 (YYYY-MM-DD).
 				Date            *string  `json:"date,omitempty"`
 				EndedNoPurchase *float32 `json:"ended_no_purchase,omitempty"`
 
 				// Other Present only when non-zero.
-				Other  *float32 `json:"other,omitempty"`
-				Trials *float32 `json:"trials,omitempty"`
+				Other *float32 `json:"other,omitempty"`
+
+				// StillActive Converted trials that are an active (or past-due) customer today.
+				StillActive *float32 `json:"still_active,omitempty"`
+
+				// StillActiveRate still_active as a share of converted; null when nothing converted.
+				StillActiveRate *float32 `json:"still_active_rate,omitempty"`
+				Trials          *float32 `json:"trials,omitempty"`
 			} `json:"result"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
